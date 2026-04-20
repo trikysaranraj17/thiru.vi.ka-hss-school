@@ -1,0 +1,207 @@
+/* =============================================================
+   ADMIN.CSS — Premium Glassmorphic Admin Styles
+   ============================================================= */
+
+:root {
+  --admin-sidebar-width: 280px;
+  --admin-bg: #05070a;
+  --admin-card-bg: rgba(15, 23, 42, 0.6);
+  --admin-border: rgba(255, 255, 255, 0.08);
+  --admin-accent: var(--color-electric-blue);
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--admin-bg);
+  color: var(--text-main);
+  font-family: var(--font-main);
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: var(--admin-sidebar-width);
+  background: var(--admin-card-bg);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--admin-border);
+  padding: var(--space-8) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.admin-sidebar__link:hover, .admin-sidebar__link.active {
+  background: rgba(0, 191, 255, 0.1);
+  color: var(--admin-accent);
+  box-shadow: inset 0 0 0 1px rgba(0, 191, 255, 0.2);
+}
+
+.admin-sidebar__link span {
+  font-size: 1.2rem;
+}
+
+/* Main Content Area */
+.admin-main {
+  flex: 1;
+  margin-left: var(--admin-sidebar-width);
+  padding: var(--space-8);
+  max-width: calc(100% - var(--admin-sidebar-width));
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-10);
+  padding: var(--space-6);
+  background: var(--admin-card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--admin-border);
+}
+
+/* Stats Grid */
+.grid--stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.stat-card {
+  padding: var(--space-6);
+  background: var(--admin-card-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius-2xl);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--admin-accent);
+}
+
+/* Media Cards / Table Replacement */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+.media-card {
+  background: var(--admin-card-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.media-card:hover {
+  border-color: var(--admin-accent);
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.1);
+}
+
+.media-card__preview {
+  height: 180px;
+  background: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.media-card__preview img, .media-card__preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-card__content {
+  padding: var(--space-4);
+}
+
+.media-card__title {
+  font-weight: 700;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.media-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.media-card__actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.media-card:hover .media-card__actions {
+  opacity: 1;
+}
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed var(--admin-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-12);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.upload-area:hover, .upload-area.dragover {
+  border-color: var(--admin-accent);
+  background: rgba(0, 191, 255, 0.05);
+}
+
+.upload-area__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    width: 80px;
+    padding: var(--space-8) var(--space-2);
+  }
+  .admin-sidebar__link span:last-child {
+    display: none;
+  }
+  .admin-main {
+    margin-left: 80px;
+    max-width: calc(100% - 80px);
+  }
+}

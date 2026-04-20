@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai — 70 Years of Excellence Since 1955. Nurturing minds, building futures.">
+  <meta name="keywords" content="Thiru Vi Ka School, Shenoy Nagar, Chennai, Higher Secondary School, Education">
+  <meta name="author" content="Thiru.Vi.Ka. HSS">
+  <meta name="theme-color" content="#0A0E27">
+  <title>Thiru.Vi.Ka. Higher Secondary School — Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300BFFF'/%3E%3Cstop offset='100%25' stop-color='%237A00FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='15' width='100' height='100' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body data-page="home">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ─── NAVBAR ─── -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/logo.jpg" alt="Thiru.Vi.Ka Logo" class="navbar__logo-img">
+        <div>
+          <span class="navbar__title">Thiru.Vi.Ka.</span>
+          <span class="navbar__subtitle">Higher Secondary School</span>
+        </div>
+      </a>
+
+      <div class="navbar__menu" id="navbar-menu">
+        <a href="index.html" class="navbar__link active">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="history.html" class="navbar__link">History</a>
+        <a href="alumni.html" class="navbar__link">Alumni</a>
+        <a href="teachers.html" class="navbar__link">Faculty</a>
+        <a href="gallery.html" class="navbar__link">Gallery</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="admin.html" class="navbar__link">Admin</a>
+      </div>
+
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO SECTION ─── -->
+  <section class="hero" id="main-content">
+    <!-- Scrolling Background Loop -->
+    <div class="hero__scroller">
+      <div class="hero__scroller-images">
+        <div class="hero__scroller-img" style="background-image: url('assets/bg_statue_v2.jpg');"></div>
+        <div class="hero__scroller-img" style="background-image: url('assets/bg_students_v2.jpg');"></div>
+        <!-- Duplicate for infinite loop -->
+        <div class="hero__scroller-img" style="background-image: url('assets/bg_statue_v2.jpg');"></div>
+        <div class="hero__scroller-img" style="background-image: url('assets/bg_students_v2.jpg');"></div>
+      </div>
+    </div>
+    <!-- Decorative Orbs -->
+    <div class="orb orb--blue" style="top: 10%; left: 5%;"></div>
+    <div class="orb orb--purple" style="top: 60%; right: 5%;"></div>
+    <div class="orb orb--gold" style="bottom: 10%; left: 30%;"></div>
+    <div class="orb orb--blue" style="top: 40%; left: 60%; width: 150px; height: 150px; opacity: 0.1;"></div>
+    <div class="orb orb--purple" style="top: 15%; right: 25%; width: 220px; height: 220px; opacity: 0.1;"></div>
+
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span>🏆</span>
+        <span>Established 1955 — Celebrating 70 Years</span>
+      </div>
+
+      <h1 class="hero__title">
+        Thiru.Vi.Ka.<br>
+        <span class="highlight">Higher Secondary School</span>
+      </h1>
+
+      <p class="hero__tagline animate-text-shimmer">
+        70 Years of Excellence Since 1955
+      </p>
+
+      <p class="hero__desc">
+        Nurturing young minds and building bright futures at Shenoy Nagar, Chennai.
+        Where tradition meets innovation in education.
+      </p>
+
+      <div class="hero__actions">
+        <a href="about.html" class="btn btn--primary btn--lg">Discover More</a>
+        <a href="gallery.html" class="btn btn--secondary btn--lg">View Gallery</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <span>see more</span>
+      <span class="arrow">↓</span>
+    </div>
+  </section>
+
+  <!-- ─── HOME WELCOME VIDEO SECTION ─── -->
+  <section class="section" id="home-video" style="display: none; padding-top: 0;">
+    <div class="container">
+      <div id="home-video-container" style="max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl); border: 1px solid var(--border-glass-strong);">
+        <!-- Video will be injected here as a high-quality compact feature -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LEADERSHIP TABS SECTION ─── -->
+  <section class="section" id="leadership">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tagline">Guiding Light</span>
+        <h2 class="section-header__title">Our <span>Visionaries</span></h2>
+        <p class="section-header__desc">The dedicated individuals who have shaped our institution's legacy.</p>
+      </div>
+
+      <div class="tabs-container reveal" style="transition-delay: 0.2s;">
+        <!-- Tab Navigation -->
+        <div class="tabs-nav" id="leadership-tabs">
+          <button class="tab-btn active" data-target="tab-president">President</button>
+          <button class="tab-btn" data-target="tab-correspondent">Correspondent</button>
+          <button class="tab-btn" data-target="tab-headmaster">Head Master</button>
+          <button class="tab-btn" data-target="tab-past-headmaster">Previous Head Master</button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="tabs-content">
+          <!-- 1. President -->
+          <div class="tab-content active" id="tab-president">
+            <div class="leadership-card">
+              <div class="leadership-card__img-wrapper">
+                <img src="assets/leadership/president.jpg" alt="President Vedhagiri Shanmugam Sundaranar"
+                  class="leadership-card__img" loading="lazy">
+              </div>
+              <div class="leadership-card__body">
+                <div class="leadership-card__role">President</div>
+                <h3 class="leadership-card__name">Vedhagiri Shanmugam Sundaranar</h3>
+                <p class="leadership-card__desc">A visionary leader whose guiding principles laid the ultimate
+                  foundation for Thiru.Vi.Ka. Higher Secondary School. His lifelong dedication to accessible education
+                  has shaped the institution into a beacon of knowledge, moral excellence, and community growth. With a
+                  resolute commitment to student empowerment, his legacy endures in every classroom and corridor.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Correspondent -->
+          <div class="tab-content" id="tab-correspondent">
+            <div class="leadership-card">
+              <div class="leadership-card__img-wrapper">
+                <img src="assets/leadership/correspondent.jpg" alt="Correspondent Dr. B.S. Tiruvadanan"
+                  class="leadership-card__img" loading="lazy">
+              </div>
+              <div class="leadership-card__body">
+                <div class="leadership-card__role">Correspondent</div>
+                <h3 class="leadership-card__name">Dr. B.S. Tiruvadanan</h3>
+                <p class="leadership-card__desc">A distinguished academic and dynamic administrator passionately
+                  modernizing the school's infrastructure and operations. He works tirelessly to ensure that the
+                  institution maintains the highest academic standards while fostering an innovative environment for the
+                  students. Under his guidance, the school continues to integrate modern teaching methodologies with
+                  traditional values.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Head Master -->
+          <div class="tab-content" id="tab-headmaster">
+            <div class="leadership-card">
+              <div class="leadership-card__img-wrapper">
+                <img src="assets/leadership/headmaster.jpg" alt="Head Master Mrs. Ramaprabha"
+                  class="leadership-card__img" loading="lazy">
+              </div>
+              <div class="leadership-card__body">
+                <div class="leadership-card__role">Head Master</div>
+                <h3 class="leadership-card__name">Mrs. Ramaprabha</h3>
+                <p class="leadership-card__desc">An inspiring and dedicated educator who leads the school's daily
+                  operations with grace and discipline. Her holistic approach to nurturing both the academic and
+                  personal development of every student makes her a beloved figure among the staff and students. She
+                  continuously strives to create an inclusive and highly motivating environment for all learners.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Past Head Master -->
+          <div class="tab-content" id="tab-past-headmaster">
+            <div class="leadership-card">
+              <div class="leadership-card__img-wrapper">
+                <img src="assets/leadership/previous_hm.jpg" alt="Former Head Master" class="leadership-card__img" loading="lazy"
+                  onerror="this.src='assets/logo.jpg'">
+              </div>
+              <div class="leadership-card__body">
+                <div class="leadership-card__role">Our Visionary</div>
+                <h3 class="leadership-card__name">Our Leadership Legacy</h3>
+                <p class="leadership-card__desc">An iconic figure in our institution's 70-year journey, whose
+                  unwavering commitment to academic excellence laid the strong foundation upon which we stand today.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ACHIEVERS SECTION ─── -->
+  <section class="section" id="achievers">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tagline">Academic Excellence</span>
+        <h2 class="section-header__title">Our <span>Achievements</span></h2>
+        <p class="section-header__desc">Celebrating 70 years of outstanding academic and co-curricular success.</p>
+      </div>
+
+      <div class="grid--2" id="achievers-grid" style="gap: var(--space-8); max-width: 1000px; margin: 0 auto;">
+        <!-- Default Achievements (Filled state before dynamic load) -->
+        <div class="achiever-card">
+          <img src="assets/bg_statue_v2.jpg" alt="Thiruvalluvam Statue" class="achiever-card__img"
+            style="object-fit: cover;">
+          <div class="achiever-card__overlay">
+            <h3>Cultural Heritage</h3>
+          </div>
+        </div>
+        <div class="achiever-card">
+          <img src="assets/bg_students_v2.jpg" alt="NCC Cadets" class="achiever-card__img" style="object-fit: cover;">
+          <div class="achiever-card__overlay">
+            <h3>NCC & Discipline</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS SECTION ─── -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tagline">Our Achievements</span>
+        <h2 class="section-header__title">Numbers That <span>Speak</span></h2>
+        <p class="section-header__desc">Decades of commitment to academic excellence and holistic development.</p>
+      </div>
+
+      <div class="grid--4 stagger-children"> <!-- Changed to grid--4 to accommodate new stat -->
+        <div class="stat-card reveal">
+          <span class="stat-card__icon">🎯</span>
+          <div class="stat-card__number" data-count-to="98" data-count-suffix="%">0%</div>
+          <div class="stat-card__label">Pass Results</div>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-card__icon">🏛️</span>
+          <div class="stat-card__number" data-count-to="70" data-count-suffix="">0</div>
+          <div class="stat-card__label">Years of Excellence</div>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-card__icon">👨‍🏫</span>
+          <div class="stat-card__number" data-count-to="30" data-count-suffix="">0</div>
+          <div class="stat-card__label">Dedicated Staff</div>
+        </div>
+        <div class="stat-card reveal">
+          <span class="stat-card__icon">👥</span>
+          <div class="stat-card__number" data-count-to="500" data-count-suffix="+">0+</div>
+          <div class="stat-card__label">Total Students</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURED MEDIA ─── -->
+  <section class="section featured-section" id="featured">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-header__tagline">
+          <span class="live-dot"></span>&nbsp; Live Updates
+        </span>
+        <h2 class="section-header__title">Featured <span>Highlights</span></h2>
+        <p class="section-header__desc">The latest highlights from our school — updated in real-time.</p>
+      </div>
+
+      <div class="featured-carousel grid--media" id="featured-media">
+        <!-- Dynamic content loaded via JS -->
+        <div class="glass-card">
+          <div class="skeleton skeleton--image"></div>
+          <div style="padding: var(--space-4);">
+            <div class="skeleton skeleton--title"></div>
+            <div class="skeleton skeleton--text"></div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div class="skeleton skeleton--image"></div>
+          <div style="padding: var(--space-4);">
+            <div class="skeleton skeleton--title"></div>
+            <div class="skeleton skeleton--text"></div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div class="skeleton skeleton--image"></div>
+          <div style="padding: var(--space-4);">
+            <div class="skeleton skeleton--title"></div>
+            <div class="skeleton skeleton--text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── QUICK LINKS ─── -->
+  <section class="section" id="quick-links">
+    <div class="container">
+      <div class="grid--3 stagger-children" style="max-width: 1000px; margin: 0 auto;">
+        <a href="about.html" class="glass-card reveal"
+          style="text-align:center; text-decoration:none; padding: var(--space-8);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🏫</div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">About Us</h3>
+          <p style="color: var(--text-muted); font-size: var(--text-sm);">Learn about our mission, leadership, and
+            vision.</p>
+        </a>
+        <a href="history.html" class="glass-card reveal"
+          style="text-align:center; text-decoration:none; padding: var(--space-8);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🕰️</div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">Our History</h3>
+          <p style="color: var(--text-muted); font-size: var(--text-sm);">Explore our journey spanning over seven
+            decades.</p>
+        </a>
+        <a href="gallery.html" class="glass-card reveal"
+          style="text-align:center; text-decoration:none; padding: var(--space-8);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">📸</div>
+          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">Gallery</h3>
+          <p style="color: var(--text-muted); font-size: var(--text-sm);">Photos and videos from our events and
+            activities.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
+            <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
+          </div>
+          <p class="footer__desc">
+            Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai.<br>
+            Nurturing young minds since 1954 with dedication and excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About</a>
+            <a href="history.html" class="footer__link">History</a>
+            <a href="gallery.html" class="footer__link">Gallery</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <div class="footer__links">
+            <a href="teachers.html" class="footer__link">Faculty</a>
+            <a href="alumni.html" class="footer__link">Alumni</a>
+            <a href="contact.html" class="footer__link">Contact</a>
+            <a href="admin.html" class="footer__link">Admin Portal</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
+            <span class="footer__link">📞 +91-XXXX-XXXXXX</span>
+            <span class="footer__link">✉️ info@tvkschool.edu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2024 Thiru.Vi.Ka. Higher Secondary School. All rights reserved.</p>
+        <p>Built with ❤️ for education</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Lightbox Container ─── -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+    <img class="lightbox__content" id="lightbox-img" alt="" style="display:none;">
+    <video class="lightbox__content" id="lightbox-video" controls style="display:none;"></video>
+    <div class="lightbox__info">
+      <h4 class="lightbox__title" id="lightbox-title"></h4>
+      <p class="lightbox__desc" id="lightbox-desc"></p>
+    </div>
+  </div>
+
+  <script>
+    // Simple inline script for the Leadership Tabs
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('#leadership-tabs .tab-btn');
+      const panels = document.querySelectorAll('.tabs-content .tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active classes
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+
+          // Add active class to clicked tab
+          tab.classList.add('active');
+          const target = tab.getAttribute('data-target');
+          document.getElementById(target).classList.add('active');
+        });
+      });
+    });
+  </script>
+  <script src="js/theme.js?v=2.0"></script>
+  <script src="js/animations.js?v=2.0"></script>
+  <script src="js/parallax.js?v=2.0"></script>
+  <script src="js/config.js?v=2.0"></script>
+  <script src="js/media.js?v=2.0"></script>
+  <script src="js/achievers.js?v=2.0"></script>
+  <script src="js/auth.js?v=2.0"></script>
+  <script src="js/realtime.js?v=2.0"></script>
+  <script src="js/gallery.js?v=2.0"></script>
+  <script src="js/admin.js?v=2.0"></script>
+  <script src="js/mouse-tail.js"></script>
+  <script src="js/app.js?v=2.0"></script>
+</body>
+
+</html>

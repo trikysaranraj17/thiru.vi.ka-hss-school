@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="History of Thiru.Vi.Ka. Higher Secondary School — An animated timeline from 1954 to present, celebrating 70 years of educational excellence.">
+  <title>Our History — Thiru.Vi.Ka. Higher Secondary School</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300BFFF'/%3E%3Cstop offset='100%25' stop-color='%237A00FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='15' width='100' height='100' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page="history">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/logo.jpg" alt="Thiru.Vi.Ka Logo" class="navbar__logo-img">
+        <div>
+          <span class="navbar__title">Thiru.Vi.Ka.</span>
+          <span class="navbar__subtitle">Higher Secondary School</span>
+        </div>
+      </a>
+      <div class="navbar__menu" id="navbar-menu">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="about.html" class="navbar__link">About</a>
+        <a href="history.html" class="navbar__link active">History</a>
+        <a href="alumni.html" class="navbar__link">Alumni</a>
+        <a href="teachers.html" class="navbar__link">Faculty</a>
+        <a href="gallery.html" class="navbar__link">Gallery</a>
+        <a href="contact.html" class="navbar__link">Contact</a>
+        <a href="admin.html" class="navbar__link">Admin</a>
+      </div>
+      <div class="navbar__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page" id="main-content">
+    <!-- Header -->
+    <section class="section" style="padding-top: var(--space-16);">
+      <div class="container">
+        <div class="orb orb--blue" style="top: -10%; left: 10%;"></div>
+        <div class="orb orb--purple" style="bottom: 20%; right: 5%;"></div>
+
+        <div class="section-header reveal">
+          <span class="section-header__tagline">Since 1954</span>
+          <h1 class="section-header__title">Our <span>Journey</span></h1>
+          <p class="section-header__desc">A timeline of milestones spanning over seven decades of dedication to education.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="timeline">
+          <!-- 1954 -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">1954</span>
+              <h3 class="timeline__title">Foundation Year</h3>
+              <p class="timeline__desc">
+                Thiru.Vi.Ka. Higher Secondary School was established in Shenoy Nagar, Chennai, 
+                with a vision to provide quality education to the community. Named after the 
+                great Tamil scholar and freedom fighter Thiru.Vi.Kalyanasundaram.
+              </p>
+            </div>
+          </div>
+
+          <!-- 1960s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">1960s</span>
+              <h3 class="timeline__title">Growing Foundations</h3>
+              <p class="timeline__desc">
+                The school expanded its infrastructure and curriculum, establishing itself 
+                as a premier educational institution in North Chennai. New classrooms and 
+                science laboratories were built to accommodate growing student enrollment.
+              </p>
+            </div>
+          </div>
+
+          <!-- 1970s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">1970s</span>
+              <h3 class="timeline__title">Academic Excellence Begins</h3>
+              <p class="timeline__desc">
+                The school gained recognition for its outstanding academic results. 
+                Students began achieving top ranks in state examinations, 
+                establishing a tradition of excellence that continues today.
+              </p>
+            </div>
+          </div>
+
+          <!-- 1980s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">1980s</span>
+              <h3 class="timeline__title">Sports & Cultural Growth</h3>
+              <p class="timeline__desc">
+                Beyond academics, the school developed strong sports and cultural programs. 
+                Students excelled in inter-school competitions, winning numerous state-level 
+                awards in athletics, cricket, and cultural events.
+              </p>
+            </div>
+          </div>
+
+          <!-- 1990s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">1990s</span>
+              <h3 class="timeline__title">Modernization Era</h3>
+              <p class="timeline__desc">
+                Computer education was introduced, keeping pace with India's IT revolution. 
+                The school embraced technology in education, setting up computer labs and 
+                incorporating digital learning into the curriculum.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2000s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">2000s</span>
+              <h3 class="timeline__title">Golden Jubilee</h3>
+              <p class="timeline__desc">
+                Celebrated 50 years of educational excellence! The school organized a grand 
+                alumni reunion and upgraded its infrastructure with modern classrooms, 
+                a new library, and advanced science laboratories.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2010s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">2010s</span>
+              <h3 class="timeline__title">Digital Transformation</h3>
+              <p class="timeline__desc">
+                Smart classrooms and digital learning tools were implemented. The school 
+                adopted online assessment systems and interactive teaching methods, 
+                preparing students for the digital age.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2020s -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot"></div>
+            <div class="glass-card">
+              <span class="timeline__year">2020s</span>
+              <h3 class="timeline__title">Resilience & Innovation</h3>
+              <p class="timeline__desc">
+                Successfully adapted to online learning during the pandemic and emerged 
+                stronger. The school launched its digital portal and continued to 
+                maintain its exceptional 98% pass rate.
+              </p>
+            </div>
+          </div>
+
+          <!-- Present -->
+          <div class="timeline__item reveal">
+            <div class="timeline__dot" style="box-shadow: 0 0 20px rgba(255,215,0,0.5); background: var(--gradient-gold);"></div>
+            <div class="glass-card glass-card--strong">
+              <span class="timeline__year" style="color: var(--color-soft-gold);">2026 — Present</span>
+              <h3 class="timeline__title">70 years & Counting ✨</h3>
+              <p class="timeline__desc">
+                Today, Thiru.Vi.Ka. HSS stands as a beacon of educational excellence in Chennai, 
+                with 30+ dedicated staff members, state-of-the-art facilities, and a 98% pass rate. 
+                The legacy continues as we shape the leaders of tomorrow.
+              </p>
+              <div style="margin-top: var(--space-4);">
+                <span class="badge badge--gold">🏆 70 years Strong</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
+            <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
+          </div>
+          <p class="footer__desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds since 1954.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <div class="footer__links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About</a>
+            <a href="history.html" class="footer__link">History</a>
+            <a href="gallery.html" class="footer__link">Gallery</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Pages</h4>
+          <div class="footer__links">
+            <a href="teachers.html" class="footer__link">Faculty</a>
+            <a href="alumni.html" class="footer__link">Alumni</a>
+            <a href="contact.html" class="footer__link">Contact</a>
+            <a href="admin.html" class="footer__link">Admin Portal</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
+            <span class="footer__link">📞 +91-XXXX-XXXXXX</span>
+            <span class="footer__link">✉️ info@tvkschool.edu</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Thiru.Vi.Ka. Higher Secondary School. All rights reserved.</p>
+        <p>Built with ❤️ for education</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/realtime.js"></script>
+  <script src="js/media.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/mouse-tail.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
