@@ -53,6 +53,10 @@ const Gallery = {
     let filtered = [...this.mediaItems];
     const galleryKeys = ['gallery_event', 'gallery_sports', 'gallery_academic', 'gallery_alumni'];
 
+    // Phase 4 Bug Fix: Ensure we are ONLY showing gallery media, 
+    // to prevent 'home' or 'ahm' media from showing up when filtering by type.
+    filtered = filtered.filter(m => galleryKeys.includes(m.category) || m.category === 'gallery');
+
     // Apply filter
     if (this.currentFilter !== 'all') {
       if (this.currentFilter === 'photos') {
@@ -63,9 +67,6 @@ const Gallery = {
         // Direct category match (e.g. gallery_event)
         filtered = filtered.filter(m => m.category === this.currentFilter);
       }
-    } else {
-      // Show ALL gallery-related items when "All" is active
-      filtered = filtered.filter(m => galleryKeys.includes(m.category) || m.category === 'gallery');
     }
 
     if (filtered.length === 0) {
