@@ -103,29 +103,32 @@
     <section class="section" style="padding-top: var(--space-8);">
       <div class="container">
         <h2 class="section-title text-center" style="margin-bottom: var(--space-10);">Alumni <span>Memories</span></h2>
-        <div class="alumni-grid" id="alumni-media">
-          <!-- Dynamic content loaded via JS -->
-          <div class="glass-card">
-            <div class="skeleton skeleton--image" style="height: 250px;"></div>
-            <div style="padding: var(--space-4);">
-              <div class="skeleton skeleton--title"></div>
-              <div class="skeleton skeleton--text"></div>
+        <div class="alumni-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+          
+          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column;">
+            <img src="assets/alumni_memory_1.jpg" alt="Alumni Event 1" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
+            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
+              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);">Event Gathering</h3>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Our alumni reconnecting and engaging in thoughtful discussions.</p>
             </div>
           </div>
-          <div class="glass-card">
-            <div class="skeleton skeleton--image" style="height: 250px;"></div>
-            <div style="padding: var(--space-4);">
-              <div class="skeleton skeleton--title"></div>
-              <div class="skeleton skeleton--text"></div>
+
+          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column; transition-delay: 0.1s;">
+            <img src="assets/alumni_memory_2.jpg" alt="Alumni Event 2" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
+            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
+              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);">Honoring Leadership</h3>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Celebrating milestones and recognizing outstanding contributions.</p>
             </div>
           </div>
-          <div class="glass-card">
-            <div class="skeleton skeleton--image" style="height: 250px;"></div>
-            <div style="padding: var(--space-4);">
-              <div class="skeleton skeleton--title"></div>
-              <div class="skeleton skeleton--text"></div>
+
+          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column; transition-delay: 0.2s;">
+            <img src="assets/alumni_memory_3.jpg" alt="Alumni Event 3" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
+            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
+              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);">Community Support</h3>
+              <p style="color: var(--text-secondary); font-size: var(--text-sm);">Giving back to the institution with proud events and distributions.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
