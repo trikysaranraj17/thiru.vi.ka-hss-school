@@ -6,10 +6,9 @@
 /* Using a luxurious 'snap' curve (Out-Quart variant) */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Removed will-change to prevent low-res rasterization 'blur' */
+  transform: translateY(30px);
+  transition: opacity 1.2s var(--transition-smooth), 
+              transform 1.2s var(--transition-smooth);
 }
 
 .reveal.visible {
@@ -17,28 +16,16 @@
   transform: translateY(0);
 }
 
-.reveal--left {
+.reveal--scale {
   opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.96);
+  transition: opacity 1.5s var(--transition-smooth), 
+              transform 1.5s var(--transition-smooth);
 }
 
-.reveal--left.visible {
+.reveal--scale.visible {
   opacity: 1;
-  transform: translateX(0);
-}
-
-.reveal--right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal--right.visible {
-  opacity: 1;
-  transform: translateX(0);
+  transform: scale(1);
 }
 
 .reveal--scale {
@@ -62,82 +49,12 @@
 
 /* ─── Hero Transitions ─── */
 @keyframes heroEntrance {
-  0% { opacity: 0; transform: translateY(40px) scale(0.98); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes goldShine {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero__title {
-  animation: heroEntrance 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-}
-
-/* ─── Cinematic Shimmer (Glass/Gold) ─── */
-@keyframes shimmerEffect {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(212, 175, 55, 0.2), 
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: shimmerEffect 3s infinite;
-}
-
-/* ─── Floating & Pulse (Navy & Gold) ─── */
-@keyframes goldPulse {
-  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
-
-.animate-pulse-gold {
-  animation: goldPulse 2s infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* ─── Ornament Orbs (Atmospheric) ─── */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: -1;
-  mix-blend-mode: screen;
-  filter: blur(120px);
-}
-
-@keyframes atmosphericFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(5%, -10%) scale(1.1); }
-  66% { transform: translate(-5%, 5%) scale(0.95); }
-}
-
-.orb--gold {
-  background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%);
-  opacity: 0.15;
-  animation: atmosphericFloat 15s ease-in-out infinite;
-}
-
-.orb--navy {
-  background: radial-gradient(circle, var(--color-navy-accent) 0%, transparent 70%);
-  opacity: 0.2;
-  animation: atmosphericFloat 20s ease-in-out infinite reverse;
+  animation: heroEntrance 1.8s var(--transition-smooth) 0.2s both;
 }
 
 /* ─── Magnetic Hover Logic (Controlled via JS) ─── */
@@ -196,28 +113,7 @@ html {
   animation: maskReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* ─── Premium Gold Text Shine ─── */
-@keyframes goldTextShine {
-  0%, 100% { filter: brightness(1); text-shadow: 0 0 10px rgba(212, 175, 55, 0); }
-  50% { filter: brightness(1.3) contrast(1.1); text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-}
-
-.animate-gold-shine {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: goldTextShine 3s ease-in-out infinite;
-  display: inline-block;
-  font-weight: 800;
-  
-  /* Ultimate Sharpness Flags */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translateZ(0); 
-  backface-visibility: hidden;
-  image-rendering: -webkit-optimize-contrast;
-}
+/* Removed Premium Gold Text Shine for stability */
 
 /* ─── Glass Card Shine (Brighter) ─── */
 .glass-card {

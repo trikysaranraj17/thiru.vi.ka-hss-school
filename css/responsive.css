@@ -4,9 +4,15 @@
 
 @media (max-width: 768px) {
   :root {
-    --nav-height: 60px;
+    --nav-height: 64px;
+    --space-16: 3rem;
     --space-20: 3.5rem;
     --space-24: 4rem;
+    
+    --text-hero: 2.75rem;
+    --text-5xl: 2.25rem;
+    --text-4xl: 1.85rem;
+    --text-xl: 1rem;
   }
 
   /* Navigation */
@@ -21,7 +27,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(2, 4, 18, 0.98);
+    background: #050816;
     backdrop-filter: var(--glass-blur-strong);
     -webkit-backdrop-filter: var(--glass-blur-strong);
     flex-direction: column;
@@ -94,14 +100,16 @@
   }
 
   .hero__tagline {
-    font-size: var(--text-sm);
-    letter-spacing: 2px;
+    font-size: var(--text-xs);
+    letter-spacing: 4px;
+    margin-bottom: var(--space-8);
   }
 
   .hero__actions {
     flex-direction: column;
+    gap: var(--space-4);
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     margin: 0 auto;
   }
 
