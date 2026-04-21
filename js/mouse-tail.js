@@ -18,6 +18,11 @@ class MouseTail {
   }
 
   init() {
+    // Disable on mobile/touch devices for stability and performance
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768) {
+      return;
+    }
+
     this.canvas = document.createElement('canvas');
     this.canvas.style.position = 'fixed';
     this.canvas.style.top = '0';

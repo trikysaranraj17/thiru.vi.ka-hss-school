@@ -144,6 +144,17 @@
   .admin-main {
     padding: var(--space-6);
   }
+
+  /* Contact Page Mobile Adjustments */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .contact-map iframe {
+    min-height: 250px !important; /* Reduced vertical size for mobile */
+    aspect-ratio: 16/9;
+  }
 }
 
 /* ─── Tablet: 768px-1024px ─── */

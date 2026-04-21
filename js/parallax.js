@@ -10,6 +10,12 @@ const Parallax = {
     this.orbs = this.hero.querySelectorAll('.orb');
     this.content = this.hero.querySelector('.hero__content');
     
+    // Disable parallax on mobile/touch devices for stability
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      console.log('Parallax disabled on touch device');
+      return;
+    }
+    
     this.ticking = false;
     window.addEventListener('mousemove', (e) => {
       this.mouseX = e.clientX;
