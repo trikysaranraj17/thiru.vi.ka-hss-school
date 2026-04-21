@@ -28,6 +28,33 @@
   --text-secondary: #CBD5E1;
   --text-muted: #64748B;
   
+  /* ─── Backgrounds & Core Themes ─── */
+  --bg-primary: #020412;
+  --bg-secondary: #0A1128;
+  --bg-card: rgba(10, 15, 38, 0.85);
+  --bg-card-hover: rgba(15, 23, 42, 0.95);
+  --bg-glass: rgba(2, 4, 18, 0.6);
+  --bg-glass-strong: rgba(10, 15, 38, 0.85);
+  --bg-input: rgba(255, 255, 255, 0.05);
+
+  /* ─── Gradients ─── */
+  --gradient-bg: linear-gradient(135deg, #020412 0%, #0A1128 50%, #010208 100%);
+  --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(2,4,18,0.9) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(0,209,255,0.05), rgba(122,0,255,0.05));
+  --gradient-gold: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+  --gradient-primary: linear-gradient(135deg, #1B3B6F 0%, #0A1128 100%);
+
+  /* ─── Shadows ─── */
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 25px 60px rgba(0, 0, 0, 0.8);
+  --shadow-glow-blue: 0 0 20px rgba(0, 209, 255, 0.2);
+  --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.2);
+  --shadow-glow-vivid: 0 0 30px rgba(255, 215, 0, 0.4);
+  --shadow-neumorphic: inset 0 0 20px rgba(255,255,255,0.05), 10px 10px 30px rgba(0,0,0,0.5);
+
+  
   --border-glass: rgba(0, 209, 255, 0.2); 
   --border-white: rgba(255, 255, 255, 0.1);
 
