@@ -48,9 +48,9 @@ const Parallax = {
       this.orbs[2].style.transform = `translate(${moveX * 60}px, ${moveY * -40}px) scale(0.9)`;
     }
 
-    // Move text content subtly
+    // Move text content subtly (rounded to nearest pixel for sharpness)
     if (this.content) {
-      this.content.style.transform = `translate(${moveX * 15}px, ${moveY * 15}px)`;
+      this.content.style.transform = `translate(${Math.round(moveX * 15)}px, ${Math.round(moveY * 15)}px)`;
     }
   }
 };

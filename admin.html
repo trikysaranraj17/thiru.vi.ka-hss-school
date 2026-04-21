@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Admin Panel — Thiru.Vi.Ka. Higher Secondary School. Upload and manage media content with real-time updates.">
   <title>Admin Panel — Thiru.Vi.Ka. Higher Secondary School</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300BFFF'/%3E%3Cstop offset='100%25' stop-color='%237A00FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='15' width='100' height='100' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23D4AF37'/%3E%3Cstop offset='100%25' stop-color='%23020412'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='15' width='100' height='100' fill='url(%23g)'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -33,7 +33,7 @@
       </div>
       <div class="navbar__actions">
         <div data-auth="user-info" style="display:none;" class="flex items-center gap-2">
-          <img data-auth="user-avatar" src="" alt="Avatar" style="width:32px; height:32px; border-radius:50%; border: 2px solid var(--color-electric-blue);">
+          <img data-auth="user-avatar" src="" alt="Avatar" style="width:32px; height:32px; border-radius:50%; border: 2px solid var(--color-gold-metallic);">
           <span data-auth="user-name" style="font-size: var(--text-sm); font-weight: 500; display: none;"></span>
         </div>
         <button class="btn btn--ghost btn--sm" data-auth="logout" style="display:none;" onclick="Auth.logout()">Logout</button>
@@ -48,8 +48,8 @@
   <!-- LOGIN SCREEN (shown when not authenticated) -->
   <div class="login-screen" id="login-screen" data-auth="guest-only">
     <div class="glass-card login-card">
-      <div class="orb orb--blue" style="top: -100px; left: -100px; width: 250px; height: 250px;"></div>
-      <div class="orb orb--purple" style="bottom: -80px; right: -80px; width: 200px; height: 200px;"></div>
+      <div class="orb" style="top: -100px; left: -100px; width: 250px; height: 250px; background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%); opacity: 0.1;"></div>
+      <div class="orb" style="bottom: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.1;"></div>
       
       <div class="login-card__icon">🔐</div>
       <h1 class="login-card__title">Admin Portal</h1>
@@ -81,7 +81,7 @@
       <aside class="admin-sidebar" id="admin-sidebar" style="position: sticky; top: 0; align-self: flex-start;">
         <div class="sidebar-brand" style="padding: 0 var(--space-2) var(--space-8);">
           <div data-auth="user-info" class="flex items-center gap-4">
-            <img data-auth="user-avatar" src="" style="width: 44px; height: 44px; border-radius: var(--radius-lg); border: 2px solid var(--color-electric-blue);" alt="Admin avatar">
+            <img data-auth="user-avatar" src="" style="width: 44px; height: 44px; border-radius: var(--radius-lg); border: 2px solid var(--color-gold-metallic); box-shadow: var(--shadow-glow-gold);" alt="Admin avatar">
             <div>
               <div data-auth="user-name" style="font-weight: 700; font-size: var(--text-sm); color: var(--text-primary);"></div>
               <div data-auth="user-email" style="font-size: var(--text-xs); color: var(--text-muted); max-width: 140px; overflow: hidden; text-overflow: ellipsis;"></div>
@@ -131,8 +131,8 @@
               <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-1);">Dashboard</h2>
               <p style="color: var(--text-muted);">Overview of all uploaded media content</p>
             </div>
-            <span class="badge badge--blue" data-realtime-status>
-              <span class="live-dot"></span>&nbsp; Live
+            <span class="badge" style="background: rgba(212, 175, 55, 0.15); color: var(--color-gold-vivid); border: 1px solid rgba(212, 175, 55, 0.3);" data-realtime-status>
+              <span class="live-dot" style="background: var(--color-gold-vivid);"></span>&nbsp; Live
             </span>
           </div>
 

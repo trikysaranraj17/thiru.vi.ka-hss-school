@@ -11,7 +11,7 @@ while ($listener.IsListening) {
     
     if ($path -eq '/') { $path = '/index.html' }
     
-    $filePath = Join-Path 'c:\anti db\frontend' ($path.TrimStart('/').Replace('/', '\'))
+    $filePath = Join-Path 'c:\anti db' ($path.TrimStart('/').Replace('/', '\'))
     
     if (Test-Path $filePath) {
         $contentTypes = @{

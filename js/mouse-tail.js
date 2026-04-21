@@ -82,10 +82,10 @@ class MouseTail {
       this.points[this.segments - 1].x, this.points[this.segments - 1].y
     );
 
-    // Electric blue to cyan to transparent
-    gradient.addColorStop(0, 'rgba(0, 243, 255, 1)');
-    gradient.addColorStop(0.5, 'rgba(0, 191, 255, 0.5)');
-    gradient.addColorStop(1, 'rgba(0, 191, 255, 0)');
+    // Metallic Gold to Vivid Gold to transparent
+    gradient.addColorStop(0, 'rgba(212, 175, 55, 1)');
+    gradient.addColorStop(0.5, 'rgba(255, 215, 0, 0.5)');
+    gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
 
     this.ctx.strokeStyle = gradient;
     this.ctx.lineWidth = 4;
@@ -93,10 +93,10 @@ class MouseTail {
     this.ctx.lineJoin = 'round';
     this.ctx.stroke();
 
-    // Head glow (More efficient than shadowBlur)
+    // Head glow
     this.ctx.beginPath();
     this.ctx.arc(this.points[0].x, this.points[0].y, 4, 0, Math.PI * 2);
-    this.ctx.fillStyle = '#00F3FF';
+    this.ctx.fillStyle = '#FFD700';
     this.ctx.fill();
 
     requestAnimationFrame(() => this.animate());

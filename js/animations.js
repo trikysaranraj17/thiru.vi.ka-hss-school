@@ -1,5 +1,5 @@
 // =============================================================
-// ANIMATIONS.JS — Scroll Animations & Counter Effects
+// ANIMATIONS.JS — Premium Scroll & Interactive Effects
 // =============================================================
 
 const ScrollAnimations = {
@@ -9,9 +9,11 @@ const ScrollAnimations = {
     this.setupObserver();
     this.observe();
     this.setupSmoothScroll();
+    this.initMagneticButtons();
   },
 
   setupObserver() {
+    // High-end 'Snap' reveal settings
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -22,19 +24,15 @@ const ScrollAnimations = {
             if (entry.target.hasAttribute('data-count-to')) {
               this.animateCounter(entry.target);
             } else {
-              // Search in children if parent is observed
               const counters = entry.target.querySelectorAll('[data-count-to]');
               counters.forEach(c => this.animateCounter(c));
             }
-
-            // Don't unobserve — allow re-animation on scroll back is optional
-            // this.observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
       }
     );
   },
@@ -42,24 +40,46 @@ const ScrollAnimations = {
   observe() {
     const elements = document.querySelectorAll('.reveal, .reveal--left, .reveal--right, .reveal--scale');
     elements.forEach(el => {
-      if (this.observer) {
-        this.observer.observe(el);
-      }
+      if (this.observer) this.observer.observe(el);
     });
   },
 
-  // Animate a number counter
+  // Magnetic Button Effect
+  initMagneticButtons() {
+    const magneticElements = document.querySelectorAll('.btn, .navbar__brand, .theme-toggle');
+    
+    magneticElements.forEach(el => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Intensity of the pull
+        const intensity = 0.35;
+        el.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = `translate(0, 0)`;
+      });
+    });
+  },
+
   animateCounter(element) {
+    if (element.classList.contains('counted')) return;
+    element.classList.add('counted');
+
     const end = parseInt(element.getAttribute('data-count-to'), 10);
     const suffix = element.getAttribute('data-count-suffix') || '';
     const prefix = element.getAttribute('data-count-prefix') || '';
-    const duration = 2000;
+    const duration = 2500;
     const startTime = performance.now();
 
-    function update(currentTime) {
+    const update = (currentTime) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
+      
+      // Out-Expo curve for premium feel
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       
       element.textContent = prefix + Math.round(end * eased) + suffix;
@@ -67,12 +87,11 @@ const ScrollAnimations = {
       if (progress < 1) {
         requestAnimationFrame(update);
       }
-    }
+    };
 
     requestAnimationFrame(update);
   },
 
-  // Setup smooth scroll for anchor links
   setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
@@ -83,10 +102,10 @@ const ScrollAnimations = {
         const target = document.querySelector(href);
         if (target) {
           const navHeight = parseInt(getComputedStyle(document.documentElement)
-            .getPropertyValue('--nav-height')) || 72;
+            .getPropertyValue('--nav-height')) || 80;
           
           window.scrollTo({
-            top: target.offsetTop - navHeight - 20,
+            top: target.offsetTop - navHeight,
             behavior: 'smooth'
           });
         }
@@ -94,3 +113,8 @@ const ScrollAnimations = {
     });
   }
 };
+
+// Auto-initialize with a slight delay for better performance
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => ScrollAnimations.init(), 100);
+});

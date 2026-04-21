@@ -10,7 +10,7 @@ python --version >nul 2>&1
 if %ERRORLEVEL% EQU 0 (
     echo Starting server with Python...
     start "" http://localhost:8080
-    python -m http.server 8080 -d "c:\anti db\frontend"
+    python -m http.server 8080 -d "."
     goto :EOF
 )
 
@@ -19,13 +19,13 @@ python3 --version >nul 2>&1
 if %ERRORLEVEL% EQU 0 (
     echo Starting server with Python3...
     start "" http://localhost:8080
-    python3 -m http.server 8080 -d "c:\anti db\frontend"
+    python3 -m http.server 8080 -d "."
     goto :EOF
 )
 
 REM Fallback: just open the HTML file directly
 echo Python not found. Opening HTML file directly...
-start "" "c:\anti db\frontend\index.html"
+start "" "c:\anti db\index.html"
 
 :EOF
 echo.

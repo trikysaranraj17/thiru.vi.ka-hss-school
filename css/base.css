@@ -8,67 +8,66 @@
 
 /* ─── CSS Custom Properties (Design Tokens) ─── */
 :root {
-  /* Primary Colors */
-  --color-electric-blue: #00BFFF;
-  --color-royal-purple: #7A00FF;
-  --color-soft-gold: #FFD700;
-  --color-deep-navy: #0A0E27;
-  --color-indigo: #1a1a4e;
-  --color-black: #050510;
+  /* Primary Colors - Navy & Gold */
+  --color-gold-metallic: #D4AF37;
+  --color-gold-vivid: #FFD700;
+  --color-gold-dark: #C5A028;
+  --color-navy-deep: #020412;
+  --color-navy-surface: #0A1128;
+  --color-navy-accent: #1B3B6F;
+  --color-black: #010208;
 
   /* Semantic Colors */
-  --color-success: #00E676;
-  --color-error: #FF4444;
-  --color-warning: #FFAB40;
-  --color-info: #40C4FF;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
 
   /* Text Colors — Dark Mode (default) */
   --text-primary: #FFFFFF;
-  --text-secondary: rgba(255, 255, 255, 0.75);
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --text-inverse: #0A0E27;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-inverse: #020412;
 
   /* Background Colors */
-  --bg-primary: #050510;
-  --bg-secondary: #0A0E27;
-  --surface-1: #0A0E27;
-  --surface-2: #161B33;
-  --surface-3: #212845;
-  --bg-card: rgba(255, 255, 255, 0.05);
-  --bg-card-hover: rgba(255, 255, 255, 0.1);
-  --bg-glass: rgba(255, 255, 255, 0.08);
-  --bg-glass-strong: rgba(255, 255, 255, 0.15);
-  --bg-input: rgba(255, 255, 255, 0.06);
+  --bg-primary: #020412;
+  --bg-secondary: #0A1128;
+  --surface-1: #0A1128;
+  --surface-2: #141C3A;
+  --surface-3: #1E2952;
+  --bg-card: rgba(10, 17, 40, 0.4);
+  --bg-card-hover: rgba(10, 17, 40, 0.7);
+  --bg-glass: rgba(10, 17, 40, 0.6);
+  --bg-glass-strong: rgba(10, 17, 40, 0.85);
+  --bg-input: rgba(255, 255, 255, 0.04);
 
   /* Borders */
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-glass: rgba(255, 255, 255, 0.12);
-  --border-glass-strong: rgba(255, 255, 255, 0.25);
-  --border-accent: rgba(0, 191, 255, 0.3);
+  --border-color: rgba(212, 175, 55, 0.15);
+  --border-glass: rgba(212, 175, 55, 0.2);
+  --border-glass-strong: rgba(212, 175, 55, 0.35);
+  --border-accent: rgba(212, 175, 55, 0.5);
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--color-electric-blue), var(--color-royal-purple));
-  --gradient-bg: linear-gradient(135deg, #0A0E27 0%, #1a1a4e 50%, #050510 100%);
-  --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(5,5,16,0.8) 100%);
-  --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
-  --gradient-card: linear-gradient(135deg, rgba(0,191,255,0.1), rgba(122,0,255,0.1));
+  --gradient-primary: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-vivid));
+  --gradient-navy: linear-gradient(135deg, #020412 0%, #0A1128 50%, #010208 100%);
+  --gradient-gold: linear-gradient(135deg, var(--color-gold-metallic), var(--color-gold-vivid));
+  --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(2,4,18,0.95) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(212, 175, 55, 0.03), rgba(212, 175, 55, 0.08));
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.6);
-  --shadow-glow-blue: 0 0 20px rgba(0, 191, 255, 0.3);
-  --shadow-glow-purple: 0 0 20px rgba(122, 0, 255, 0.3);
-  --shadow-glow-gold: 0 0 20px rgba(255, 215, 0, 0.3);
-  --shadow-neumorphic: 8px 8px 16px rgba(0,0,0,0.4), -4px -4px 12px rgba(255,255,255,0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.7);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.8);
+  --shadow-glow-gold: 0 0 20px rgba(212, 175, 55, 0.2);
+  --shadow-glow-vivid: 0 0 30px rgba(255, 215, 0, 0.25);
 
   /* Glass Effect */
-  --glass-blur: blur(6px);
-  --glass-blur-strong: blur(10px);
+  --glass-blur: blur(12px);
+  --glass-blur-strong: blur(20px);
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
+  --font-heading: 'Outfit', 'Poppins', sans-serif;
   --font-body: 'Inter', 'Open Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 

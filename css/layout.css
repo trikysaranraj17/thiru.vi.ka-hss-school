@@ -40,6 +40,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 .page-header__desc {
@@ -151,8 +152,8 @@
 }
 
 .navbar__link.active {
-  color: var(--color-electric-blue);
-  background: rgba(0, 191, 255, 0.1);
+  color: var(--color-gold-vivid);
+  background: rgba(212, 175, 55, 0.1);
 }
 
 .navbar__link.active::after {
@@ -163,8 +164,9 @@
   transform: translateX(-50%);
   width: 20px;
   height: 3px;
-  background: var(--gradient-primary);
+  background: var(--gradient-gold);
   border-radius: var(--radius-full);
+  box-shadow: var(--shadow-glow-gold);
 }
 
 .navbar__actions {
@@ -190,9 +192,10 @@
 }
 
 .theme-toggle:hover {
-  color: var(--color-soft-gold);
-  border-color: var(--color-soft-gold);
-  background: rgba(255, 215, 0, 0.1);
+  color: var(--color-gold-vivid);
+  border-color: var(--color-gold-vivid);
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: var(--shadow-glow-gold);
 }
 
 /* Mobile Menu Toggle */
@@ -285,9 +288,9 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--text-primary);
+  color: var(--color-gold-metallic);
   margin-bottom: var(--space-6);
-  border-bottom: 2px solid var(--color-electric-blue);
+  border-bottom: 2px solid var(--color-gold-metallic);
   display: inline-block;
   padding-bottom: 4px;
 }
@@ -305,7 +308,7 @@
 }
 
 .footer__link:hover {
-  color: var(--color-electric-blue);
+  color: var(--color-gold-vivid);
 }
 
 .footer__bottom {
@@ -338,10 +341,11 @@
 }
 
 .footer__social:hover {
-  color: var(--color-electric-blue);
-  border-color: var(--color-electric-blue);
-  background: rgba(0, 191, 255, 0.1);
+  color: var(--color-gold-vivid);
+  border-color: var(--color-gold-vivid);
+  background: rgba(212, 175, 55, 0.1);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-gold);
 }
 
 /* ─── Grid Layouts ─── */
@@ -432,14 +436,14 @@
 
 .stat-card:hover {
   transform: translateY(-5px);
-  border-color: var(--color-electric-blue);
-  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.1);
+  border-color: var(--color-gold-vivid);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
 }
 
 .stat-card__number {
   font-size: var(--text-4xl);
   font-weight: 800;
-  color: var(--color-electric-blue);
+  color: var(--color-gold-vivid);
   margin-bottom: var(--space-1);
 }
 
