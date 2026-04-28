@@ -446,6 +446,8 @@
   font-size: var(--text-base);
   color: var(--text-primary);
   font-weight: 500;
+}
+
 /* Gallery Overhaul */
 .grid--media {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
