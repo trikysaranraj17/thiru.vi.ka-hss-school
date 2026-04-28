@@ -28,7 +28,7 @@
       z-index: -2;
       border-radius: var(--radius-2xl);
       overflow: hidden;
-      box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
       border: 1px solid var(--border-glass);
       background-color: var(--bg-primary);
     }
@@ -99,8 +99,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-      50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.5; }
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0.5;
+      }
     }
   </style>
 </head>
@@ -148,13 +157,18 @@
     <!-- Header -->
     <header class="page-header" style="background: transparent;">
       <div class="container">
-        <div class="orb" style="top: 0; right: 10%; background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%); opacity: 0.15;"></div>
-        <div class="orb" style="bottom: 0; left: 5%; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.15;"></div>
+        <div class="orb"
+          style="top: 0; right: 10%; background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%); opacity: 0.15;">
+        </div>
+        <div class="orb"
+          style="bottom: 0; left: 5%; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.15;">
+        </div>
 
         <div class="section-header reveal">
           <span class="section-header__tagline">Our Story</span>
           <h1 class="section-header__title">About Our <span>School</span></h1>
-          <p class="section-header__desc">A legacy of nurturing young minds and fostering academic excellence since 1955.</p>
+          <p class="section-header__desc">A legacy of nurturing young minds and fostering academic excellence since
+            1955.</p>
         </div>
       </div>
     </header>
@@ -166,19 +180,24 @@
           <span class="section-header__tagline">Leadership</span>
           <h2 class="section-header__title">Our <span>Pillars of Strength</span></h2>
         </div>
-        
+
         <div class="grid--2 stagger-children" style="margin-top: var(--space-12);">
-          
+
           <!-- Headmistress -->
           <div class="glass-card text-center reveal" style="padding: var(--space-8);">
             <div class="hm-glow-container">
-              <img src="assets/hm_new.jpg" alt="Headmistress" class="hm-photo" style="width: 200px; height: 200px; border-radius: 50%;" onerror="this.src='assets/logo.jpg'">
+              <img src="assets/hm_new.jpg" alt="Headmistress" class="hm-photo"
+                style="width: 200px; height: 200px; border-radius: 50%;" onerror="this.src='assets/logo.jpg'">
             </div>
-            <h3 class="section-header__title" style="font-size: var(--text-2xl); margin-top: var(--space-4);">Our <span>Headmistress</span></h3>
-            <p class="leader-card__role" style="font-size: var(--text-base); color: var(--color-gold-vivid); font-weight: 800; margin-bottom: var(--space-4);">Leading with Vision and Excellence</p>
+            <h3 class="section-header__title" style="font-size: var(--text-2xl); margin-top: var(--space-4);">Our
+              <span>Headmistress</span>
+            </h3>
+            <p class="leader-card__role"
+              style="font-size: var(--text-base); color: var(--color-gold-vivid); font-weight: 800; margin-bottom: var(--space-4);">
+              Leading with Vision and Excellence</p>
             <p class="section-header__desc" style="font-size: var(--text-sm); line-height: 1.8;">
-              Dedicated to the holistic growth of every student, our Headmistress brings decades of experience 
-              in educational leadership. Under her guidance, Thiru.Vi.Ka. Higher Secondary School continues to 
+              Dedicated to the holistic growth of every student, our Headmistress brings decades of experience
+              in educational leadership. Under her guidance, Thiru.Vi.Ka. Higher Secondary School continues to
               thrive as a center of academic brilliance and character building.
             </p>
           </div>
@@ -186,13 +205,20 @@
           <!-- Former Head Master -->
           <div class="glass-card text-center reveal" style="padding: var(--space-8);">
             <div class="hm-glow-container" style="--glow-color: rgba(255, 255, 255, 0.2);">
-              <img src="assets/leadership/previous_hm.jpg" alt="Former Head Master" class="hm-photo" style="width: 200px; height: 200px; border-radius: 50%; border-color: var(--text-muted); box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);" onerror="this.src='assets/logo.jpg'">
+              <img src="assets/leadership/previous_hm.jpg" alt="Former Head Master" class="hm-photo"
+                style="width: 200px; height: 200px; border-radius: 50%; border-color: var(--text-muted); box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);"
+                onerror="this.src='assets/logo.jpg'">
             </div>
-            <h3 class="section-header__title" style="font-size: var(--text-2xl); margin-top: var(--space-4); color: var(--text-secondary);">Former <span>Head Master</span></h3>
-            <p class="leader-card__role" style="font-size: var(--text-base); color: var(--text-muted); font-weight: 800; margin-bottom: var(--space-4);">A Legacy of Inspiration</p>
+            <h3 class="section-header__title"
+              style="font-size: var(--text-2xl); margin-top: var(--space-4); color: var(--text-secondary);">Former
+              <span>Head Master</span>
+            </h3>
+            <p class="leader-card__role"
+              style="font-size: var(--text-base); color: var(--text-muted); font-weight: 800; margin-bottom: var(--space-4);">
+              A Legacy of Inspiration</p>
             <p class="section-header__desc" style="font-size: var(--text-sm); line-height: 1.8;">
-              Through unwavering dedication, our Former Head Master laid the strong foundations upon which 
-              this institution stands today. His exceptional contributions have shaped the lives of countless 
+              Through unwavering dedication, our Former Head Master laid the strong foundations upon which
+              this institution stands today. His exceptional contributions have shaped the lives of countless
               alumni and established our tradition of excellence.
             </p>
           </div>
@@ -223,25 +249,26 @@
       </div>
     </section>
 
-        <div class="grid--media" id="about-media">
-          <!-- Dynamic content from 'about' category loaded here -->
-        </div>
+    <div class="grid--media" id="about-media">
+      <!-- Dynamic content from 'about' category loaded here -->
+    </div>
 
-        <div class="section-header reveal" style="margin-top: var(--space-20);">
-          <span class="section-header__tagline">Recognition</span>
-          <h2 class="section-header__title">Our <span>Toppers & Achievers</span></h2>
-          <p class="section-header__desc">Celebrating the brilliant students who make us proud — updated by admin in real-time.</p>
-        </div>
+    <div class="section-header reveal" style="margin-top: var(--space-20);">
+      <span class="section-header__tagline">Recognition</span>
+      <h2 class="section-header__title">Our <span>Toppers & Achievers</span></h2>
+      <p class="section-header__desc">Celebrating the brilliant students who make us proud — updated by admin in
+        real-time.</p>
+    </div>
 
-        <div class="grid--media" id="achievers-grid">
-          <!-- Dynamic content loaded via JS -->
-          <div class="empty-state" style="grid-column: 1 / -1;">
-            <div class="empty-state__icon">🏆</div>
-            <h3 class="empty-state__title">Loading achievers...</h3>
-            <p class="empty-state__desc">Fetching latest data from database.</p>
-          </div>
-        </div>
+    <div class="grid--media" id="achievers-grid">
+      <!-- Dynamic content loaded via JS -->
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        <div class="empty-state__icon">🏆</div>
+        <h3 class="empty-state__title">Loading achievers...</h3>
+        <p class="empty-state__desc">Fetching latest data from database.</p>
       </div>
+    </div>
+    </div>
     </section>
   </main>
 
@@ -254,7 +281,8 @@
             <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
             <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
           </div>
-          <p class="footer__desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds since 1954.</p>
+          <p class="footer__desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds
+            since 1955.</p>
         </div>
         <div>
           <h4 class="footer__heading">Quick Links</h4>
@@ -279,7 +307,7 @@
           <div class="footer__links">
             <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
             <span class="footer__link">📞 +91-XXXX-XXXXXX</span>
-            <span class="footer__link">✉️ info@tvkschool.edu</span>
+            <span class="footer__link">✉️ tvkhss@gmail.com</span>
           </div>
         </div>
       </div>
@@ -302,7 +330,7 @@
   <script src="js/mouse-tail.js"></script>
   <script src="js/app.js"></script>
   <script>
-    (function() {
+    (function () {
       const images = document.querySelectorAll('.carousel-image');
       let current = 0;
       setInterval(() => {
