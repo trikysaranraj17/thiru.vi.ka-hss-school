@@ -14,7 +14,7 @@ const API_BASE_URL = location.hostname === 'localhost' || location.hostname === 
 
 // Admin whitelist — only these emails can access admin panel
 const ADMIN_EMAILS = [
-  'tvkhss@gmail.com'
+  'thiruvika1955@gmail.com'
 ];
 
 // Supabase Storage bucket name
