@@ -137,7 +137,7 @@ async function loadCategoryMedia(category, containerSelector) {
     container.innerHTML = items.map(item => {
       const isVideo = item.type === 'video';
       return `
-        <div class="home-hero-video reveal">
+        <div class="home-hero-video" style="animation: heroFadeIn 1s ease both;">
           ${isVideo ? `
             <video src="${item.media_url}" autoplay loop muted playsinline style="width: 100%; height: auto; display: block;"></video>
           ` : `
@@ -171,7 +171,7 @@ async function loadCategoryMedia(category, containerSelector) {
     // Fallback card if Gallery.js isn't loaded on this specific page
     const isVideo = item.type === 'video';
     return `
-      <div class="media-card reveal ${isVideo ? 'video-card-large' : ''}" style="transition-delay: ${i * 0.1}s">
+      <div class="media-card ${isVideo ? 'video-card-large' : ''}" style="animation: heroFadeIn 0.5s ease both; animation-delay: ${i * 0.1}s">
         ${isVideo ? `<video src="${item.media_url}" class="media-card__image video-large" autoplay loop muted playsinline></video>` : `<img src="${item.media_url}" class="media-card__image" loading="lazy">`}
         <div class="media-card__overlay">
           <h4 class="media-card__title">${item.title}</h4>

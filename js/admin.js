@@ -243,8 +243,8 @@ const Admin = {
       return;
     }
 
-    gridBody.innerHTML = this.allMedia.map(item => `
-      <div class="media-card reveal" data-id="${item.id}">
+    gridBody.innerHTML = this.allMedia.map((item, index) => `
+      <div class="media-card" data-id="${item.id}" style="animation: heroFadeIn 0.4s ease both; animation-delay: ${index * 0.05}s">
         <div class="media-card__preview">
           ${item.type === 'image' 
             ? `<img src="${item.media_url}" alt="${this.escapeHTML(item.title)}" loading="lazy">` 
