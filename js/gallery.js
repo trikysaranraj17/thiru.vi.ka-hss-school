@@ -107,7 +107,7 @@ const Gallery = {
     const desc = item.description ? this.escapeHTML(item.description) : '';
 
     return `
-      <div class="media-card reveal ${isVideo ? 'video-card-large' : ''}" data-media-id="${item.id}" style="transition-delay: ${index * 0.05}s">
+      <div class="media-card ${isVideo ? 'video-card-large' : ''}" data-media-id="${item.id}" style="animation: heroFadeIn 0.5s ease both; animation-delay: ${index * 0.05}s">
         ${isVideo ? `
           <video class="media-card__image video-large" autoplay loop muted playsinline preload="metadata">
             <source src="${url}" type="video/mp4">
