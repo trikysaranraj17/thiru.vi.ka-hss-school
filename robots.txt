@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thiru-vi-ka-hss-school.vercel.app/sitemap.xml
