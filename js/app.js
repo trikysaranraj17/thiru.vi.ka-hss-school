@@ -1,5 +1,5 @@
 // =============================================================
-// APP.JS — Main Application Initialization
+// APP.JS - Main Application Initialization
 // =============================================================
 
 // Toast notification system
@@ -224,8 +224,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 0. Mark JS as enabled for CSS fail-safes
   document.body.classList.add('js-enabled');
 
-  // 1. Initialize theme first (prevents flash)
+  // 1. Initialize theme and language first (prevents flash)
+  console.log('�- Initializing Theme...');
   Theme.init();
+  
+  if (typeof I18n !== 'undefined') {
+    console.log('🌐 Initializing I18n...');
+    I18n.init();
+  } else {
+    console.error('❌ I18n not found!');
+  }
 
   // 2. Initialize Supabase
   if (typeof getSupabase === 'function') getSupabase();

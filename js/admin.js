@@ -253,7 +253,7 @@ const Admin = {
         </div>
         <div class="media-card__actions">
           <button class="btn btn--sm" onclick="Admin.editMedia('${item.id}')" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); border: 1px solid var(--admin-border);">✏️</button>
-          <button class="btn btn--sm" onclick="Admin.deleteMedia('${item.id}')" style="background: rgba(220, 38, 38, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(220, 38, 38, 0.2);">🗑️</button>
+          <button class="btn btn--sm" onclick="Admin.deleteMedia('${item.id}')" style="background: rgba(220, 38, 38, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(220, 38, 38, 0.2);">�-�️</button>
         </div>
         <div class="media-card__content">
           <div class="media-card__title">${this.escapeHTML(item.title)}</div>

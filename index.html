@@ -36,20 +36,20 @@
       <a href="index.html" class="navbar__brand">
         <img src="assets/logo.jpg" alt="Thiru.Vi.Ka Logo" class="navbar__logo-img">
         <div>
-          <span class="navbar__title">Thiru.Vi.Ka.</span>
-          <span class="navbar__subtitle">Higher Secondary School</span>
+          <span class="navbar__title" data-i18n="home.title1">Thiru.Vi.Ka.</span>
+          <span class="navbar__subtitle" data-i18n="home.title2">Higher Secondary School</span>
         </div>
       </a>
 
       <div class="navbar__menu" id="navbar-menu">
-        <a href="index.html" class="navbar__link active">Home</a>
-        <a href="about.html" class="navbar__link">About</a>
-        <a href="history.html" class="navbar__link">History</a>
-        <a href="alumni.html" class="navbar__link">Alumni</a>
-        <a href="teachers.html" class="navbar__link">Faculty</a>
-        <a href="gallery.html" class="navbar__link">Gallery</a>
-        <a href="contact.html" class="navbar__link">Contact</a>
-        <a href="admin.html" class="navbar__link">Admin</a>
+        <a href="index.html" class="navbar__link active" data-i18n="nav.home">Home</a>
+        <a href="about.html" class="navbar__link" data-i18n="nav.about">About</a>
+        <a href="history.html" class="navbar__link" data-i18n="nav.history">History</a>
+        <a href="alumni.html" class="navbar__link" data-i18n="nav.alumni">Alumni</a>
+        <a href="teachers.html" class="navbar__link" data-i18n="nav.faculty">Faculty</a>
+        <a href="gallery.html" class="navbar__link" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" class="navbar__link" data-i18n="nav.contact">Contact</a>
+        <a href="admin.html" class="navbar__link" data-i18n="footer.admin">Admin</a>
       </div>
 
       <div class="navbar__actions">
@@ -76,36 +76,34 @@
     <!-- Decorative Overlays -->
     <div class="hero__overlay"></div>
 
-    <div class="hero__content">
+    <div class="hero__content reveal">
       <div class="hero__badge">
         <span>🏆</span>
-        <span>Established 1955 — Celebrating 70 Years</span>
+        <span data-i18n="home.established">Established 1955 — Celebrating 70 Years</span>
       </div>
 
-      <h1 class="hero__title">
+      <h1 class="hero__title" data-i18n-html="home.hero_title">
         Thiru.Vi.Ka.<br>
         <span class="highlight">Higher Secondary School</span>
       </h1>
 
-      <p class="hero__tagline">
+      <p class="hero__tagline" data-i18n="home.since">
         70 Years of Excellence Since 1955
       </p>
 
-      <p class="hero__desc">
+      <p class="hero__desc" data-i18n="home.desc">
         Nurturing young minds and building bright futures at Shenoy Nagar, Chennai.
         Where tradition meets innovation in education.
       </p>
 
-      <div class="hero__actions" style="justify-content: center; margin-top: var(--space-8);">
-        <a href="about.html" class="btn btn--primary btn--lg"
-          style="padding: var(--space-4) var(--space-12); font-weight: 700; letter-spacing: 1px; box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);">DISCOVER</a>
-        <a href="contact.html#contact-form" class="btn btn--secondary btn--lg"
-          style="padding: var(--space-4) var(--space-12); font-weight: 700; letter-spacing: 1px;">✉️ CONTACT US</a>
+      <div class="hero__actions">
+        <a href="about.html" class="btn btn--primary btn--lg" data-i18n="home.explore">DISCOVER</a>
+        <a href="contact.html#contact-form" class="btn btn--secondary btn--lg" data-i18n="home.contact">CONTACT US</a>
       </div>
     </div>
 
     <div class="hero__scroll-indicator">
-      <span>see more</span>
+      <span data-i18n="home.scroll">see more</span>
       <span class="arrow">↓</span>
     </div>
   </section>
@@ -166,7 +164,7 @@
                   class="leadership-card__img" loading="lazy">
               </div>
               <div class="leadership-card__body">
-                <div class="leadership-card__role">Correspondent</div>
+                <div class="leadership-card__role" data-i18n="home.correspondent">Correspondent</div>
                 <h3 class="leadership-card__name">Dr. B.S. Tiruvadanan</h3>
                 <p class="leadership-card__desc">A distinguished academic and dynamic administrator passionately
                   modernizing the school's infrastructure and operations. He works tirelessly to ensure that the
@@ -185,7 +183,7 @@
                   class="leadership-card__img" loading="lazy">
               </div>
               <div class="leadership-card__body">
-                <div class="leadership-card__role">Headmistress</div>
+                <div class="leadership-card__role" data-i18n="home.headmistress">Headmistress</div>
                 <h3 class="leadership-card__name">Mrs. Ramaprabha</h3>
                 <p class="leadership-card__desc">An inspiring and dedicated educator who leads the school's daily
                   operations with grace and discipline. Her holistic approach to nurturing both the academic and
@@ -203,7 +201,7 @@
                   class="leadership-card__img" loading="lazy" onerror="this.src='assets/logo.jpg'">
               </div>
               <div class="leadership-card__body">
-                <div class="leadership-card__role">Former Headmaster</div>
+                <div class="leadership-card__role" data-i18n="about.former_hm_span">Former Headmaster</div>
                 <h3 class="leadership-card__name">Mr. John</h3>
                 <p class="leadership-card__desc">A cornerstone of our institution's 70-year legacy. Mr. John served with
                   unprecedented dedication, fostering an environment where discipline met academic brilliance. His
@@ -220,9 +218,9 @@
   <section class="section" id="achievers">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-header__tagline">Academic Excellence</span>
-        <h2 class="section-header__title">Our <span>Achievements</span></h2>
-        <p class="section-header__desc">Celebrating 70 years of outstanding academic and co-curricular success.</p>
+        <span class="section-header__tagline" data-i18n="home.achievers_tag">Academic Excellence</span>
+        <h2 class="section-header__title" data-i18n-html="home.achievers_title_full">Our <span>Achievements</span></h2>
+        <p class="section-header__desc" data-i18n="home.achievers_desc">Celebrating 70 years of outstanding academic and co-curricular success.</p>
       </div>
 
       <div class="grid--2" id="achievers-grid" style="gap: var(--space-8); max-width: 1000px; margin: 0 auto;">
@@ -248,31 +246,27 @@
   <section class="section" id="stats">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-header__tagline">Our Achievements</span>
-        <h2 class="section-header__title">Numbers That <span>Speak</span></h2>
-        <p class="section-header__desc">Decades of commitment to academic excellence and holistic development.</p>
+        <span class="section-header__tagline" data-i18n="home.stats_tag">Our Legacy</span>
+        <h2 class="section-header__title" data-i18n-html="home.stats_title_full">Numbers That <span data-i18n="home.stats_title_span">Speak</span></h2>
+        <p class="section-header__desc" data-i18n="home.stats_desc">Decades of commitment to academic excellence and holistic development.</p>
       </div>
-
-      <div class="grid--4 stagger-children"> <!-- Changed to grid--4 to accommodate new stat -->
+      
+      <div class="grid grid--4" style="margin-top: var(--space-12);">
         <div class="stat-card reveal">
-          <span class="stat-card__icon">🎯</span>
-          <div class="stat-card__number" data-count-to="98" data-count-suffix="%">0%</div>
-          <div class="stat-card__label">Pass Results</div>
+          <div class="stat-card__number" data-count-to="70">0</div>
+          <div class="stat-card__label" data-i18n="home.stat_years">Years of Excellence</div>
         </div>
-        <div class="stat-card reveal">
-          <span class="stat-card__icon">🏛️</span>
-          <div class="stat-card__number" data-count-to="70" data-count-suffix="">0</div>
-          <div class="stat-card__label">Years of Excellence</div>
+        <div class="stat-card reveal" style="transition-delay: 0.1s;">
+          <div class="stat-card__number" data-count-to="1500" data-count-suffix="+">0</div>
+          <div class="stat-card__label" data-i18n="home.stat_students">Students Educated</div>
         </div>
-        <div class="stat-card reveal">
-          <span class="stat-card__icon">👨‍🏫</span>
-          <div class="stat-card__number" data-count-to="30" data-count-suffix="">0</div>
-          <div class="stat-card__label">Dedicated Staff</div>
+        <div class="stat-card reveal" style="transition-delay: 0.2s;">
+          <div class="stat-card__number" data-count-to="50" data-count-suffix="+">0</div>
+          <div class="stat-card__label" data-i18n="home.stat_teachers">Expert Faculty</div>
         </div>
-        <div class="stat-card reveal">
-          <span class="stat-card__icon">👥</span>
-          <div class="stat-card__number" data-count-to="500" data-count-suffix="+">0+</div>
-          <div class="stat-card__label">Total Students</div>
+        <div class="stat-card reveal" style="transition-delay: 0.3s;">
+          <div class="stat-card__number" data-count-to="100" data-count-suffix="%">0</div>
+          <div class="stat-card__label" data-i18n="home.stat_pass">Pass Rate</div>
         </div>
       </div>
     </div>
@@ -283,10 +277,10 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-header__tagline">
-          <span class="live-dot"></span>&nbsp; Live Updates
+          <span class="live-dot"></span>&nbsp; <span data-i18n="home.featured_tag">Live Updates</span>
         </span>
-        <h2 class="section-header__title">Featured <span>Highlights</span></h2>
-        <p class="section-header__desc">The latest highlights from our school — updated in real-time.</p>
+        <h2 class="section-header__title" data-i18n-html="home.featured_title_full">Featured <span data-i18n="home.featured_title_span">Highlights</span></h2>
+        <p class="section-header__desc" data-i18n="home.featured_desc">The latest highlights from our school — updated in real-time.</p>
       </div>
 
       <div class="featured-carousel grid--media" id="featured-media">
@@ -321,25 +315,22 @@
     <div class="container">
       <div class="grid--3 stagger-children" style="max-width: 1000px; margin: 0 auto;">
         <a href="about.html" class="glass-card reveal"
-          style="text-align:center; text-decoration:none; padding: var(--space-8);">
-          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🏫</div>
-          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">About Us</h3>
-          <p style="color: var(--text-muted); font-size: var(--text-sm);">Learn about our mission, leadership, and
-            vision.</p>
-        </a>
-        <a href="history.html" class="glass-card reveal"
-          style="text-align:center; text-decoration:none; padding: var(--space-8);">
-          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🕰️</div>
-          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">Our History</h3>
-          <p style="color: var(--text-muted); font-size: var(--text-sm);">Explore our journey spanning over seven
-            decades.</p>
+          style="padding: var(--space-8); text-align: center; border-bottom: 3px solid var(--color-gold-metallic);">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🎓</div>
+          <h3 style="margin-bottom: var(--space-2);" data-i18n="nav.about">About</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);" data-i18n="about.desc">Explore our 70-year legacy and vision.</p>
         </a>
         <a href="gallery.html" class="glass-card reveal"
-          style="text-align:center; text-decoration:none; padding: var(--space-8);">
+          style="padding: var(--space-8); text-align: center; border-bottom: 3px solid var(--color-gold-vivid); transition-delay: 0.1s;">
           <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">📸</div>
-          <h3 style="font-size: var(--text-xl); margin-bottom: var(--space-2);">Gallery</h3>
-          <p style="color: var(--text-muted); font-size: var(--text-sm);">Photos and videos from our events and
-            activities.</p>
+          <h3 style="margin-bottom: var(--space-2);" data-i18n="nav.gallery">Gallery</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);" data-i18n="gallery.desc">Watch our moments in action.</p>
+        </a>
+        <a href="alumni.html" class="glass-card reveal"
+          style="padding: var(--space-8); text-align: center; border-bottom: 3px solid var(--color-gold-metallic); transition-delay: 0.2s;">
+          <div style="font-size: 2.5rem; margin-bottom: var(--space-4);">🤝</div>
+          <h3 style="margin-bottom: var(--space-2);" data-i18n="nav.alumni">Alumni</h3>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);" data-i18n="alumni.desc">Join our global network of success.</p>
         </a>
       </div>
     </div>
@@ -352,36 +343,36 @@
         <div>
           <div class="footer__brand">
             <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
-            <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
+            <span class="footer__brand-name" data-i18n="home.title1">Thiru.Vi.Ka.</span>
           </div>
-          <p class="footer__desc">
+          <p class="footer__desc" data-i18n="footer.desc">
             Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai.<br>
             Nurturing young minds since 1955 with dedication and excellence.
           </p>
         </div>
 
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading" data-i18n="footer.quick_links">Quick Links</h4>
           <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="about.html" class="footer__link">About</a>
-            <a href="history.html" class="footer__link">History</a>
-            <a href="gallery.html" class="footer__link">Gallery</a>
+            <a href="index.html" class="footer__link" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="footer__link" data-i18n="nav.about">About</a>
+            <a href="history.html" class="footer__link" data-i18n="nav.history">History</a>
+            <a href="gallery.html" class="footer__link" data-i18n="nav.gallery">Gallery</a>
           </div>
         </div>
 
         <div>
-          <h4 class="footer__heading">Pages</h4>
+          <h4 class="footer__heading" data-i18n="footer.pages">Pages</h4>
           <div class="footer__links">
-            <a href="teachers.html" class="footer__link">Faculty</a>
-            <a href="alumni.html" class="footer__link">Alumni</a>
-            <a href="contact.html" class="footer__link">Contact</a>
-            <a href="admin.html" class="footer__link">Admin Portal</a>
+            <a href="teachers.html" class="footer__link" data-i18n="nav.faculty">Faculty</a>
+            <a href="alumni.html" class="footer__link" data-i18n="nav.alumni">Alumni</a>
+            <a href="contact.html" class="footer__link" data-i18n="nav.contact">Contact</a>
+            <a href="admin.html" class="footer__link" data-i18n="footer.admin">Admin Portal</a>
           </div>
         </div>
 
         <div>
-          <h4 class="footer__heading">Contact</h4>
+          <h4 class="footer__heading" data-i18n="footer.contact">Contact</h4>
           <div class="footer__links">
             <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
             <span class="footer__link">📞 +91 79474 17107</span>
@@ -391,8 +382,8 @@
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2024 Thiru.Vi.Ka. Higher Secondary School. All rights reserved.</p>
-        <p>Built with ❤️ for education</p>
+        <p data-i18n="footer.copyright">&copy; 2024 Thiru.Vi.Ka. Higher Secondary School. All rights reserved.</p>
+        <p data-i18n="footer.built">Built with ❤️ for education</p>
       </div>
     </div>
   </footer>
@@ -438,6 +429,7 @@
   <script src="js/realtime.js?v=2.0"></script>
   <script src="js/gallery.js?v=2.0"></script>
   <script src="js/admin.js?v=2.0"></script>
+  <script src="js/i18n.js?v=2.0"></script>
   <script src="js/app.js?v=2.0"></script>
 </body>
 

@@ -130,19 +130,19 @@
       <a href="index.html" class="navbar__brand">
         <img src="assets/logo.jpg" alt="Thiru.Vi.Ka Logo" class="navbar__logo-img">
         <div>
-          <span class="navbar__title">Thiru.Vi.Ka.</span>
-          <span class="navbar__subtitle">Higher Secondary School</span>
+          <span class="navbar__title" data-i18n="home.title1">Thiru.Vi.Ka.</span>
+          <span class="navbar__subtitle" data-i18n="home.title2">Higher Secondary School</span>
         </div>
       </a>
       <div class="navbar__menu" id="navbar-menu">
-        <a href="index.html" class="navbar__link">Home</a>
-        <a href="about.html" class="navbar__link active">About</a>
-        <a href="history.html" class="navbar__link">History</a>
-        <a href="alumni.html" class="navbar__link">Alumni</a>
-        <a href="teachers.html" class="navbar__link">Faculty</a>
-        <a href="gallery.html" class="navbar__link">Gallery</a>
-        <a href="contact.html" class="navbar__link">Contact</a>
-        <a href="admin.html" class="navbar__link">Admin</a>
+        <a href="index.html" class="navbar__link" data-i18n="nav.home">Home</a>
+        <a href="about.html" class="navbar__link active" data-i18n="nav.about">About</a>
+        <a href="history.html" class="navbar__link" data-i18n="nav.history">History</a>
+        <a href="alumni.html" class="navbar__link" data-i18n="nav.alumni">Alumni</a>
+        <a href="teachers.html" class="navbar__link" data-i18n="nav.faculty">Faculty</a>
+        <a href="gallery.html" class="navbar__link" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" class="navbar__link" data-i18n="nav.contact">Contact</a>
+        <a href="admin.html" class="navbar__link" data-i18n="footer.admin">Admin</a>
       </div>
       <div class="navbar__actions">
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
@@ -165,9 +165,9 @@
         </div>
 
         <div class="section-header reveal">
-          <span class="section-header__tagline">Our Story</span>
-          <h1 class="section-header__title">About Our <span>School</span></h1>
-          <p class="section-header__desc">A legacy of nurturing young minds and fostering academic excellence since
+          <span class="section-header__tagline" data-i18n="about.title">About</span>
+          <h1 class="section-header__title" data-i18n-html="about.title_full">About <span>Us</span></h1>
+          <p class="section-header__desc" data-i18n="about.desc">A legacy of nurturing young minds and fostering academic excellence since
             1955.</p>
         </div>
       </div>
@@ -280,29 +280,29 @@
             <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
             <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
           </div>
-          <p class="footer__desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds
+          <p class="footer__desc" data-i18n="footer.desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds
             since 1955.</p>
         </div>
         <div>
-          <h4 class="footer__heading">Quick Links</h4>
+          <h4 class="footer__heading" data-i18n="footer.quick_links">Quick Links</h4>
           <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="about.html" class="footer__link">About</a>
-            <a href="history.html" class="footer__link">History</a>
-            <a href="gallery.html" class="footer__link">Gallery</a>
+            <a href="index.html" class="footer__link" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="footer__link" data-i18n="nav.about">About</a>
+            <a href="history.html" class="footer__link" data-i18n="nav.history">History</a>
+            <a href="gallery.html" class="footer__link" data-i18n="nav.gallery">Gallery</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Pages</h4>
+          <h4 class="footer__heading" data-i18n="footer.pages">Pages</h4>
           <div class="footer__links">
-            <a href="teachers.html" class="footer__link">Faculty</a>
-            <a href="alumni.html" class="footer__link">Alumni</a>
-            <a href="contact.html" class="footer__link">Contact</a>
-            <a href="admin.html" class="footer__link">Admin Portal</a>
+            <a href="teachers.html" class="footer__link" data-i18n="nav.faculty">Faculty</a>
+            <a href="alumni.html" class="footer__link" data-i18n="nav.alumni">Alumni</a>
+            <a href="contact.html" class="footer__link" data-i18n="nav.contact">Contact</a>
+            <a href="admin.html" class="footer__link" data-i18n="footer.admin">Admin Portal</a>
           </div>
         </div>
         <div>
-          <h4 class="footer__heading">Contact</h4>
+          <h4 class="footer__heading" data-i18n="footer.contact">Contact</h4>
           <div class="footer__links">
             <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
             <span class="footer__link">📞 +91 79474 17107</span>
@@ -326,6 +326,7 @@
   <script src="js/admin.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/mouse-tail.js"></script>
   <script src="js/app.js"></script>
   <script>

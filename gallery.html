@@ -30,20 +30,20 @@
       <a href="index.html" class="navbar__brand">
         <img src="assets/logo.jpg" alt="Thiru.Vi.Ka Logo" class="navbar__logo-img">
         <div>
-          <span class="navbar__title">Thiru.Vi.Ka.</span>
-          <span class="navbar__subtitle">Higher Secondary School</span>
+          <span class="navbar__title" data-i18n="home.title1">Thiru.Vi.Ka.</span>
+          <span class="navbar__subtitle" data-i18n="home.title2">Higher Secondary School</span>
         </div>
       </a>
 
       <div class="navbar__menu" id="navbar-menu">
-        <a href="index.html" class="navbar__link">Home</a>
-        <a href="about.html" class="navbar__link">About</a>
-        <a href="history.html" class="navbar__link">History</a>
-        <a href="alumni.html" class="navbar__link">Alumni</a>
-        <a href="teachers.html" class="navbar__link">Faculty</a>
-        <a href="gallery.html" class="navbar__link active">Gallery</a>
-        <a href="contact.html" class="navbar__link">Contact</a>
-        <a href="admin.html" class="navbar__link">Admin</a>
+        <a href="index.html" class="navbar__link" data-i18n="nav.home">Home</a>
+        <a href="about.html" class="navbar__link" data-i18n="nav.about">About</a>
+        <a href="history.html" class="navbar__link" data-i18n="nav.history">History</a>
+        <a href="alumni.html" class="navbar__link" data-i18n="nav.alumni">Alumni</a>
+        <a href="teachers.html" class="navbar__link" data-i18n="nav.faculty">Faculty</a>
+        <a href="gallery.html" class="navbar__link active" data-i18n="nav.gallery">Gallery</a>
+        <a href="contact.html" class="navbar__link" data-i18n="nav.contact">Contact</a>
+        <a href="admin.html" class="navbar__link" data-i18n="footer.admin">Admin</a>
       </div>
 
       <div class="navbar__actions">
@@ -62,8 +62,8 @@
     <div class="orb" style="bottom: 20%; right: 10%; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.15;"></div>
     
     <div class="container" style="position: relative; z-index: 2; text-align: center;">
-      <h1 class="page-header__title reveal">Our <span>Gallery</span></h1>
-      <p class="page-header__desc reveal" style="transition-delay: 0.1s;">
+      <h1 class="page-header__title reveal" data-i18n-html="gallery.title_full">Our <span>Gallery</span></h1>
+      <p class="page-header__desc reveal" style="transition-delay: 0.1s;" data-i18n="gallery.desc">
         A visual journey through our campus, events, and unforgettable moments at Thiru.Vi.Ka.
       </p>
     </div>
@@ -75,14 +75,14 @@
       
       <!-- Gallery Filters -->
       <div class="gallery-filters reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); margin-bottom: var(--space-8);">
-        <button class="filter-btn btn btn--outline active" data-filter="all">All Media</button>
-        <button class="filter-btn btn btn--outline" data-filter="photos">Photos</button>
-        <button class="filter-btn btn btn--outline" data-filter="videos">Videos</button>
-        <button class="filter-btn btn btn--outline" data-filter="gallery_event">Events</button>
-        <button class="filter-btn btn btn--outline" data-filter="gallery_sports">Sports</button>
-        <button class="filter-btn btn btn--outline" data-filter="gallery_academic">Academic</button>
-        <button class="filter-btn btn btn--outline" data-filter="gallery_alumni">Alumni</button>
-        <button class="filter-btn btn btn--outline" data-filter="memories">Memories</button>
+        <button class="filter-btn btn btn--outline active" data-filter="all" data-i18n="gallery.all">All Media</button>
+        <button class="filter-btn btn btn--outline" data-filter="photos" data-i18n="gallery.photos">Photos</button>
+        <button class="filter-btn btn btn--outline" data-filter="videos" data-i18n="gallery.videos">Videos</button>
+        <button class="filter-btn btn btn--outline" data-filter="gallery_event" data-i18n="gallery.events">Events</button>
+        <button class="filter-btn btn btn--outline" data-filter="gallery_sports" data-i18n="gallery.sports">Sports</button>
+        <button class="filter-btn btn btn--outline" data-filter="gallery_academic" data-i18n="gallery.academic">Academic</button>
+        <button class="filter-btn btn btn--outline" data-filter="gallery_alumni" data-i18n="gallery.alumni">Alumni</button>
+        <button class="filter-btn btn btn--outline" data-filter="memories" data-i18n="gallery.memories">Memories</button>
       </div>
 
       <!-- Gallery Grid -->
@@ -194,6 +194,7 @@
   <script src="js/media.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/mouse-tail.js"></script>
   <script src="js/gallery.js"></script>
   <script src="js/app.js"></script>

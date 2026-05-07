@@ -1,13 +1,58 @@
 /* =============================================================
-   BASE.CSS — Design System Tokens & Reset
+   BASE.CSS - Design System Tokens & Reset
    Thiru.Vi.Ka. Higher Secondary School
    ============================================================= */
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Mukta+Malar:wght@400;700&display=swap');
+
+/* Tamil Font Support */
+[lang="ta"] {
+  --font-body: 'Mukta Malar', sans-serif !important;
+  --font-heading: 'Mukta Malar', sans-serif !important;
+  --font-main: 'Mukta Malar', sans-serif !important;
+}
+
+/* Language Toggle Styling */
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-gold-metallic);
+  color: var(--color-gold-metallic);
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 15px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  z-index: 1001;
+  position: relative;
+}
+
+.lang-toggle:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+[lang="ta"] .lang-toggle {
+  font-family: var(--font-tamil);
+}
 
 /* ─── CSS Custom Properties (Design Tokens) ─── */
 :root {
+  /* Fonts */
+  --font-main: 'Outfit', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-tamil: 'Mukta Malar', sans-serif;
+
   /* Primary Colors - Navy & Gold */
   --color-gold-metallic: #D4AF37;
   --color-gold-vivid: #FFD700;
