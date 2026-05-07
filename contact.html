@@ -224,7 +224,10 @@
             // 2. Load Reviews from Supabase
             async function loadReviews() {
               try {
-                const { data, error } = await supabase
+                const user = await Auth.getUser();
+                const isAdmin = !!user;
+
+                const { data, error } = await getSupabase()
                   .from('reviews')
                   .select('*')
                   .order('created_at', { ascending: false });
@@ -240,7 +243,10 @@
                   <div class="glass-card review-card reveal">
                     <div class="review-card__header">
                       <span class="review-card__name">${review.name}</span>
-                      <span class="review-card__stars">${'★'.repeat(review.stars)}${'☆'.repeat(5-review.stars)}</span>
+                      <div class="flex items-center gap-4">
+                        <span class="review-card__stars">${'★'.repeat(review.stars)}${'☆'.repeat(5-review.stars)}</span>
+                        ${isAdmin ? `<button class="btn btn--danger btn--sm" onclick="Admin.deleteReview('${review.id}')" style="padding: 2px 8px; font-size: 10px;">Delete</button>` : ''}
+                      </div>
                     </div>
                     <p class="review-card__text">${review.message}</p>
                     <div style="font-size: 10px; color: var(--text-muted); margin-top: 8px;">
@@ -249,12 +255,15 @@
                   </div>
                 `).join('');
                 
-                if (window.Reveal) window.Reveal.init(); // Re-trigger animations
+                if (window.Reveal) window.Reveal.init();
               } catch (err) {
                 console.error('Error loading reviews:', err);
                 reviewsFeed.innerHTML = '<p class="text-center" style="color: var(--text-muted);">Could not load reviews.</p>';
               }
             }
+
+            // Listen for review deleted events
+            window.addEventListener('reviewDeleted', () => loadReviews());
 
             // 3. Post Review
             reviewForm.addEventListener('submit', async (e) => {
@@ -270,7 +279,7 @@
               };
 
               try {
-                const { error } = await supabase.from('reviews').insert([payload]);
+                const { error } = await getSupabase().from('reviews').insert([payload]);
                 if (error) throw error;
                 
                 alert('Thank you for your review!');

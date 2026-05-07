@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupNavbar();
 
   // 5. Initialize scroll animations
-  ScrollAnimations.init();
+  if (window.ScrollAnimations) ScrollAnimations.init();
 
   // 6. Initialize Realtime
   Realtime.init();

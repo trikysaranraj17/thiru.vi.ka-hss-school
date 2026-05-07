@@ -1,353 +1,341 @@
-// =============================================================
-// ADMIN.JS — Admin Panel Logic
-// Upload, manage, edit, delete media
-// =============================================================
+/**
+ * ADMIN.JS - Core Administrative Logic
+ */
 
 const Admin = {
-  currentSection: 'dashboard',
-  allMedia: [],
-
-  // Initialize admin panel
+  // Initialization
   async init() {
-    // Check authentication
-    if (!Auth.isLoggedIn() || !Auth.isAdmin()) {
-      document.getElementById('admin-panel')?.style.setProperty('display', 'none');
-      document.getElementById('login-screen')?.style.setProperty('display', '');
-      return;
-    }
+    console.log("🚀 Admin Panel Initializing...");
+    
+    try {
+      // 1. Check if Supabase is actually loaded
+      const client = getSupabase();
+      if (!client) {
+        console.error("❌ Supabase client not found. Check config.js");
+        return;
+      }
 
-    document.getElementById('admin-panel')?.style.setProperty('display', '');
-    document.getElementById('login-screen')?.style.setProperty('display', 'none');
+      // 2. Check authentication
+      const user = await Auth.getUser();
+      if (!user) {
+        console.log("👤 No user logged in, showing login screen.");
+        this.showLogin();
+        return;
+      }
 
-    this.setupUploadArea();
-    this.setupUploadForm();
-    this.setupSidebar();
-    await this.loadDashboard();
-    await this.loadMediaTable();
-
-    // Listen for realtime changes
-    window.addEventListener('mediaChange', () => {
+      console.log("✅ Admin logged in:", user.email);
+      this.showPanel(user);
+      
+      // 3. Initialize components (with error catching for each)
+      try { this.setupUploadArea(); } catch(e) { console.error("Upload Area Error:", e); }
+      try { this.setupUploadForm(); } catch(e) { console.error("Upload Form Error:", e); }
+      try { this.setupSidebar(); } catch(e) { console.error("Sidebar Error:", e); }
+      
+      // 4. Load initial data
       this.loadDashboard();
       this.loadMediaTable();
-    });
+
+      // 5. Listen for realtime changes
+      window.addEventListener('mediaChange', () => {
+        this.loadDashboard();
+        this.loadMediaTable();
+      });
+
+    } catch (err) {
+      console.error("🔥 Critical Admin Init Error:", err);
+      alert("Admin Panel failed to load. Please check the console for errors.");
+    }
   },
 
-  // Setup sidebar navigation
-  setupSidebar() {
-    const sidebar = document.getElementById('admin-sidebar');
-    if (!sidebar || sidebar.dataset.listenerAttached) return;
-    sidebar.dataset.listenerAttached = 'true';
+  // UI States
+  showLogin() {
+    const loginScreen = document.getElementById('login-screen');
+    const adminPanel = document.getElementById('admin-panel');
+    if (loginScreen) loginScreen.style.display = 'flex';
+    if (adminPanel) adminPanel.style.display = 'none';
+  },
 
+  showPanel(user) {
+    const loginScreen = document.getElementById('login-screen');
+    const adminPanel = document.getElementById('admin-panel');
+    
+    if (loginScreen) loginScreen.style.display = 'none';
+    if (adminPanel) adminPanel.style.display = 'block';
+    
+    // Update user info
+    document.querySelectorAll('[data-auth="user-name"]').forEach(el => el.textContent = user.user_metadata.full_name || user.email);
+    document.querySelectorAll('[data-auth="user-email"]').forEach(el => el.textContent = user.email);
+    document.querySelectorAll('[data-auth="user-avatar"]').forEach(el => {
+       el.src = user.user_metadata.avatar_url || 'assets/logo.jpg';
+       el.style.display = 'block';
+    });
+    document.querySelectorAll('[data-auth="user-info"]').forEach(el => el.style.display = 'flex');
+    document.querySelectorAll('[data-auth="logout"]').forEach(el => el.style.display = 'block');
+  },
+
+  // Sidebar navigation
+  setupSidebar() {
     const links = document.querySelectorAll('.admin-sidebar__link');
     links.forEach(link => {
       link.addEventListener('click', (e) => {
-        e.preventDefault();
         const section = link.dataset.section;
         if (section) {
+          e.preventDefault();
           this.switchSection(section);
           links.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
+          
+          if (window.innerWidth <= 768) {
+            const sidebar = document.getElementById('admin-sidebar');
+            if (sidebar) sidebar.classList.remove('open');
+          }
         }
       });
     });
+
+    const toggle = document.getElementById('navbar-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const sidebar = document.getElementById('admin-sidebar');
+        if (sidebar) sidebar.classList.toggle('open');
+      });
+    }
   },
 
-  // Switch admin section
-  switchSection(section) {
-    this.currentSection = section;
-    const sections = document.querySelectorAll('.admin-section');
-    sections.forEach(s => {
-      s.style.display = s.id === `section-${section}` ? '' : 'none';
+  switchSection(sectionId) {
+    console.log("Switching to section:", sectionId);
+    document.querySelectorAll('.admin-section').forEach(section => {
+      section.style.display = section.id === `section-${sectionId}` ? 'block' : 'none';
     });
   },
 
-  // Load dashboard stats
+  // Dashboard Stats
   async loadDashboard() {
-    const counts = await Media.getCounts();
-    
-    const updateStat = (id, value) => {
-      const el = document.getElementById(id);
-      if (el) {
-        this.animateCounter(el, parseInt(el.textContent) || 0, value);
-      }
-    };
+    try {
+      const { data, error } = await getSupabase().from('media').select('type');
+      if (error) throw error;
 
-    updateStat('stat-total', counts.total);
-    updateStat('stat-images', counts.images);
-    updateStat('stat-videos', counts.videos);
-    updateStat('stat-featured', counts.featured);
-  },
+      const stats = {
+        total: data.length,
+        images: data.filter(m => m.type === 'image').length,
+        videos: data.filter(m => m.type === 'video').length
+      };
 
-  // Setup drag-and-drop upload area
-  setupUploadArea() {
-    const area = document.getElementById('upload-area');
-    const fileInput = document.getElementById('upload-file');
-    const preview = document.getElementById('upload-preview');
-    
-    if (!area || !fileInput || area.dataset.listenerAttached) return;
-    area.dataset.listenerAttached = 'true';
-
-    // Click to upload
-    area.addEventListener('click', () => fileInput.click());
-
-    // Drag and drop
-    area.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      area.classList.add('dragover');
-    });
-
-    area.addEventListener('dragleave', () => {
-      area.classList.remove('dragover');
-    });
-
-    area.addEventListener('drop', (e) => {
-      e.preventDefault();
-      area.classList.remove('dragover');
-      const files = e.dataTransfer.files;
-      if (files.length > 0) {
-        fileInput.files = files;
-        this.previewFile(files[0]);
-      }
-    });
-
-    // File input change
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files.length > 0) {
-        this.previewFile(fileInput.files[0]);
-      }
-    });
-  },
-
-  // Preview selected file
-  previewFile(file) {
-    const preview = document.getElementById('upload-preview');
-    if (!preview) return;
-
-    preview.innerHTML = '';
-    preview.classList.add('active');
-
-    if (file.type.startsWith('image/')) {
-      const img = document.createElement('img');
-      img.src = URL.createObjectURL(file);
-      img.alt = 'Preview';
-      preview.appendChild(img);
-    } else if (file.type.startsWith('video/')) {
-      const video = document.createElement('video');
-      video.src = URL.createObjectURL(file);
-      video.controls = true;
-      video.muted = true;
-      preview.appendChild(video);
-    }
-
-    // Auto-detect type
-    const typeSelect = document.getElementById('upload-type');
-    if (typeSelect) {
-      typeSelect.value = file.type.startsWith('video/') ? 'video' : 'image';
+      const t = document.getElementById('stat-total');
+      const i = document.getElementById('stat-images');
+      const v = document.getElementById('stat-videos');
+      
+      if (t) this.animateCounter(t, 0, stats.total);
+      if (i) this.animateCounter(i, 0, stats.images);
+      if (v) this.animateCounter(v, 0, stats.videos);
+    } catch (err) {
+      console.error("Dashboard stats error:", err);
     }
   },
 
-  // Setup upload form submission
-  setupUploadForm() {
-    const form = document.getElementById('upload-form');
-    if (!form || form.dataset.listenerAttached) return;
-    form.dataset.listenerAttached = 'true';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const fileInput = document.getElementById('upload-file');
-      const file = fileInput.files[0];
-      
-      if (!file) {
-        showToast('Please select a file to upload', 'warning');
-        return;
-      }
-
-      const title = document.getElementById('upload-title').value.trim();
-      if (!title) {
-        showToast('Please enter a title', 'warning');
-        return;
-      }
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Uploading...';
-
-      try {
-        // Step 1: Upload file to Supabase Storage
-        showToast('Uploading file to storage...', 'info');
-        const mediaUrl = await Media.uploadFile(file);
-        
-        if (!mediaUrl) {
-          throw new Error('File upload to storage failed. Bucket might be private or Supabase connection issue.');
-        }
-
-        // Warn if on file:// protocol
-        if (window.location.protocol === 'file:') {
-          console.warn('⚠️ File:// protocol detected. Public URLs from Supabase might be blocked by some browsers.');
-        }
-
-        showToast('File uploaded! Saving to database...', 'info');
-
-        // Step 2: Save metadata to database
-        const metadata = {
-          title: title,
-          description: document.getElementById('upload-description').value.trim(),
-          media_url: mediaUrl,
-          type: document.getElementById('upload-type').value,
-          category: document.getElementById('upload-category').value,
-          featured: document.getElementById('upload-featured').checked
-        };
-
-        const result = await Media.create(metadata);
-
-        if (result) {
-          showToast('✅ SUCCESS: "' + title + '" is now live!', 'success');
-          // Only reset form on actual success
-          form.reset();
-          document.getElementById('upload-preview').classList.remove('active');
-          document.getElementById('upload-preview').innerHTML = '';
-          
-          // Force immediate refresh of all components
-          await this.loadMediaTable();
-          await this.loadDashboard();
-        } else {
-          showToast('Database error: File uploaded but metadata failed to save.', 'error');
-        }
-      } catch (err) {
-        console.error('Upload error:', err);
-        showToast('❌ Upload failed: ' + err.message, 'error');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }
-    });
-  },
-
-  // Load media grid for management
+  // Media Management
   async loadMediaTable() {
-    const gridBody = document.getElementById('media-grid-body');
-    if (!gridBody) return;
+    const container = document.getElementById('media-grid-body');
+    if (!container) return;
 
-    this.allMedia = await Media.fetchAll();
+    container.innerHTML = '<div class="spinner"></div>';
 
-    if (this.allMedia.length === 0) {
-      gridBody.innerHTML = `
-        <div class="empty-state" style="grid-column: 1 / -1; padding: var(--space-20);">
-          <div class="empty-state__icon">📁</div>
-          <h3 class="empty-state__title">No media yet</h3>
-          <p class="empty-state__desc">Upload your first image or video in the "Upload Media" tab!</p>
-        </div>
-      `;
-      return;
-    }
+    try {
+      const { data, error } = await Media.getAll();
+      if (error) throw error;
 
-    gridBody.innerHTML = this.allMedia.map((item, index) => `
-      <div class="media-card" data-id="${item.id}" style="animation: heroFadeIn 0.4s ease both; animation-delay: ${index * 0.05}s">
-        <div class="media-card__preview">
-          ${item.type === 'image' 
-            ? `<img src="${item.media_url}" alt="${this.escapeHTML(item.title)}" loading="lazy">` 
-            : `<video src="${item.media_url}" muted preload="metadata"></video>`
-          }
-        </div>
-        <div class="media-card__actions">
-          <button class="btn btn--sm" onclick="Admin.editMedia('${item.id}')" style="background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); border: 1px solid var(--admin-border);">✏️</button>
-          <button class="btn btn--sm" onclick="Admin.deleteMedia('${item.id}')" style="background: rgba(220, 38, 38, 0.6); backdrop-filter: blur(5px); border: 1px solid rgba(220, 38, 38, 0.2);">�-�️</button>
-        </div>
-        <div class="media-card__content">
-          <div class="media-card__title">${this.escapeHTML(item.title)}</div>
-          <div class="media-card__meta">
-            <span class="badge ${item.category === 'ahm' || item.category === 'teacher' ? 'badge--blue' : 'badge--green'}">${item.category}</span>
-            <div style="display: flex; align-items: center; gap: 8px;">
-               <span style="font-size: 10px;">FEATURED</span>
-               <label class="toggle">
-                <input type="checkbox" ${item.featured ? 'checked' : ''} onchange="Admin.toggleFeatured('${item.id}', ${item.featured})">
-                <span class="toggle__slider"></span>
-              </label>
+      if (!data || data.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem;">No media found. Upload something to get started!</p>';
+        return;
+      }
+
+      container.innerHTML = data.map(item => `
+        <div class="glass-card media-manage-card">
+          <div class="media-manage-card__preview">
+            ${item.type === 'image' 
+              ? `<img src="${item.url}" alt="${item.title}" onerror="this.src='assets/logo.jpg'">` 
+              : `<video src="${item.url}" muted></video>`}
+          </div>
+          <div class="media-manage-card__info">
+            <h4 style="font-size: 14px; margin-bottom: 4px;">${item.title || 'Untitled'}</h4>
+            <span class="badge badge--gold" style="font-size: 10px;">${item.category}</span>
+            <div class="flex gap-2 mt-4">
+              <button class="btn btn--sm btn--primary" onclick="Admin.editMedia('${item.id}')">Edit</button>
+              <button class="btn btn--sm btn--danger" onclick="Admin.deleteMedia('${item.id}')">Delete</button>
             </div>
           </div>
         </div>
-      </div>
-    `).join('');
-
-    if (window.ScrollAnimations) ScrollAnimations.observe();
-  },
-
-  // Toggle featured status
-  async toggleFeatured(id, currentStatus) {
-    await Media.toggleFeatured(id, currentStatus);
-  },
-
-  // Edit media (show modal)
-  async editMedia(id) {
-    const item = this.allMedia.find(m => m.id === id);
-    if (!item) return;
-
-    const modal = document.getElementById('edit-modal');
-    if (!modal) return;
-
-    document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-title').value = item.title;
-    document.getElementById('edit-description').value = item.description || '';
-    document.getElementById('edit-category').value = item.category;
-    document.getElementById('edit-featured').checked = item.featured;
-
-    modal.classList.add('active');
-  },
-
-  // Save edit
-  async saveEdit() {
-    const id = document.getElementById('edit-id').value;
-    const updates = {
-      title: document.getElementById('edit-title').value.trim(),
-      description: document.getElementById('edit-description').value.trim(),
-      category: document.getElementById('edit-category').value,
-      featured: document.getElementById('edit-featured').checked
-    };
-
-    if (!updates.title) {
-      showToast('Title is required', 'warning');
-      return;
+      `).join('');
+    } catch (err) {
+      container.innerHTML = `<p class="error">Error: ${err.message}</p>`;
     }
-
-    await Media.update(id, updates);
-    document.getElementById('edit-modal').classList.remove('active');
   },
 
-  // Delete media
-  async deleteMedia(id) {
-    if (!confirm('Are you sure you want to delete this media? This cannot be undone.')) {
-      return;
-    }
+  // Upload Logic
+  setupUploadArea() {
+    const area = document.getElementById('upload-area');
+    const input = document.getElementById('upload-file');
+    if (!area || !input) return;
 
-    await Media.delete(id);
-  },
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(name => {
+      area.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
 
-  // Animate counter
-  animateCounter(element, start, end) {
-    const duration = 800;
-    const startTime = performance.now();
-
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
-      
-      element.textContent = Math.round(start + (end - start) * eased);
-      
-      if (progress < 1) {
-        requestAnimationFrame(update);
+    area.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files.length) {
+        input.files = files;
+        this.handleFileSelect(files[0]);
       }
-    }
+    });
 
-    requestAnimationFrame(update);
+    input.addEventListener('change', (e) => {
+      if (input.files.length) this.handleFileSelect(input.files[0]);
+    });
   },
 
-  // Escape HTML
-  escapeHTML(str) {
-    const div = document.createElement('div');
-    div.textContent = str || '';
-    return div.innerHTML;
+  handleFileSelect(file) {
+    const preview = document.getElementById('upload-preview');
+    const titleInput = document.getElementById('upload-title');
+    
+    if (titleInput && !titleInput.value) titleInput.value = file.name.split('.')[0];
+    
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        preview.innerHTML = `<img src="${e.target.result}" style="max-height: 200px; border-radius: 8px; margin-top: 10px;">`;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      preview.innerHTML = `<div style="padding: 20px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-top: 10px;">🎥 Video: ${file.name}</div>`;
+    }
+  },
+
+  setupUploadForm() {
+    const form = document.getElementById('upload-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = '⌛ Uploading...';
+
+      try {
+        const file = document.getElementById('upload-file').files[0];
+        if (!file) throw new Error("Please select a file first");
+
+        const metadata = {
+          title: document.getElementById('upload-title').value,
+          category: document.getElementById('upload-category').value,
+          description: document.getElementById('upload-description').value,
+          type: document.getElementById('upload-type').value,
+          featured: document.getElementById('upload-featured').checked
+        };
+
+        await Media.upload(file, metadata);
+        alert('✨ Upload successful!');
+        form.reset();
+        document.getElementById('upload-preview').innerHTML = '';
+        this.switchSection('manage');
+        this.loadMediaTable();
+        this.loadDashboard();
+      } catch (err) {
+        alert('❌ Upload failed: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  },
+
+  // Edit/Delete
+  async editMedia(id) {
+    try {
+      const { data, error } = await getSupabase().from('media').select('*').eq('id', id).single();
+      if (error) throw error;
+
+      document.getElementById('edit-id').value = data.id;
+      document.getElementById('edit-title').value = data.title;
+      document.getElementById('edit-description').value = data.description || '';
+      document.getElementById('edit-category').value = data.category;
+      document.getElementById('edit-featured').checked = data.featured;
+      
+      document.getElementById('edit-modal').classList.add('active');
+    } catch (err) {
+      alert("Error loading media for edit: " + err.message);
+    }
+  },
+
+  async saveEdit() {
+    const btn = document.querySelector('#edit-modal .btn--primary');
+    btn.disabled = true;
+
+    try {
+      const id = document.getElementById('edit-id').value;
+      const updates = {
+        title: document.getElementById('edit-title').value,
+        description: document.getElementById('edit-description').value,
+        category: document.getElementById('edit-category').value,
+        featured: document.getElementById('edit-featured').checked
+      };
+
+      const { error } = await getSupabase().from('media').update(updates).eq('id', id);
+      if (error) throw error;
+
+      alert('✅ Updated successfully!');
+      document.getElementById('edit-modal').classList.remove('active');
+      this.loadMediaTable();
+    } catch (err) {
+      alert('Update failed: ' + err.message);
+    } finally {
+      btn.disabled = false;
+    }
+  },
+
+  async deleteMedia(id) {
+    if (!confirm('🗑️ Are you sure you want to delete this?')) return;
+    try {
+      await Media.delete(id);
+      this.loadMediaTable();
+      this.loadDashboard();
+    } catch (err) {
+      alert("Delete failed: " + err.message);
+    }
+  },
+
+  async deleteReview(id) {
+    if (!confirm('🗑️ Delete this review?')) return;
+    try {
+      const { error } = await getSupabase().from('reviews').delete().eq('id', id);
+      if (error) throw error;
+      alert('Review deleted!');
+      window.dispatchEvent(new CustomEvent('reviewDeleted', { detail: { id } }));
+    } catch (err) {
+      alert('Delete failed: ' + err.message);
+    }
+  },
+
+  animateCounter(el, start, end) {
+    if (!el) return;
+    let current = start;
+    const range = end - start;
+    if (range === 0) { el.textContent = end; return; }
+    const duration = 1000;
+    const stepTime = Math.abs(Math.floor(duration / (range || 1)));
+    const timer = setInterval(() => {
+      current += (end > start ? 1 : -1);
+      el.textContent = current;
+      if (current == end) clearInterval(timer);
+    }, Math.max(stepTime, 20));
   }
 };
+
+// Start the engine
+document.addEventListener('DOMContentLoaded', () => {
+  Admin.init();
+});
