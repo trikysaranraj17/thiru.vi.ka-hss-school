@@ -34,7 +34,6 @@
       <div class="navbar__actions">
         <div data-auth="user-info" style="display:none;" class="flex items-center gap-2">
           <img data-auth="user-avatar" src="" alt="Avatar" style="width:32px; height:32px; border-radius:50%; border: 2px solid var(--color-gold-metallic);">
-          <span data-auth="user-name" style="font-size: var(--text-sm); font-weight: 500; display: none;"></span>
         </div>
         <button class="btn btn--ghost btn--sm" data-auth="logout" style="display:none;" onclick="Auth.logout()">Logout</button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
@@ -45,237 +44,133 @@
     </div>
   </nav>
 
-  <!-- LOGIN SCREEN (shown when not authenticated) -->
+  <!-- LOGIN SCREEN -->
   <div class="login-screen" id="login-screen" data-auth="guest-only">
     <div class="glass-card login-card">
-      <div class="orb" style="top: -100px; left: -100px; width: 250px; height: 250px; background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%); opacity: 0.1;"></div>
-      <div class="orb" style="bottom: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.1;"></div>
-      
       <div class="login-card__icon">🔐</div>
       <h1 class="login-card__title" data-i18n="footer.admin">Admin Portal</h1>
       <p class="login-card__desc" data-i18n="admin.login_desc">Sign in with your admin credentials to manage school media and content.</p>
-      
-      <div style="margin-top: var(--space-6); text-align: center;">
-        <button onclick="Auth.loginWithGoogle()" class="btn btn--lg" style="width: 100%; background: #ffffff; color: #000; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #ddd; transition: all 0.3s ease;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          <span style="font-weight: 600;">Sign in with Google</span>
-        </button>
-      </div>
-
-      <p style="margin-top: var(--space-6); font-size: var(--text-xs); color: var(--text-muted);">
-        Only authorized admin accounts can access this panel.<br>
-        Create an account in your Supabase Auth dashboard if you haven't yet.
-      </p>
+      <button onclick="Auth.loginWithGoogle()" class="btn btn--lg" style="width: 100%; background: #ffffff; color: #000; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #ddd; transition: all 0.3s ease;">
+        <span style="font-weight: 600;">Sign in with Google</span>
+      </button>
     </div>
   </div>
 
-  <!-- ADMIN PANEL (shown after authentication) -->
+  <!-- ADMIN PANEL -->
   <main class="page" id="admin-panel" data-auth="admin-only" style="display: none;" role="main">
     <div class="admin-layout">
       <!-- Sidebar -->
-      <aside class="admin-sidebar" id="admin-sidebar" style="position: sticky; top: 0; align-self: flex-start;">
-        <div class="sidebar-brand" style="padding: 0 var(--space-2) var(--space-8);">
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <div class="sidebar-brand">
           <div data-auth="user-info" class="flex items-center gap-4">
-            <img data-auth="user-avatar" src="" style="width: 44px; height: 44px; border-radius: var(--radius-lg); border: 2px solid var(--color-gold-metallic); box-shadow: var(--shadow-glow-gold);" alt="Admin avatar">
+            <img data-auth="user-avatar" src="" style="width: 44px; height: 44px; border-radius: var(--radius-lg);" alt="Admin avatar">
             <div>
-              <div data-auth="user-name" style="font-weight: 700; font-size: var(--text-sm); color: var(--text-primary);"></div>
-              <div data-auth="user-email" style="font-size: var(--text-xs); color: var(--text-muted); max-width: 140px; overflow: hidden; text-overflow: ellipsis;"></div>
+              <div data-auth="user-name" style="font-weight: 700; font-size: var(--text-sm);"></div>
+              <div data-auth="user-email" style="font-size: var(--text-xs); color: var(--text-muted);"></div>
             </div>
           </div>
         </div>
 
         <nav class="sidebar-nav">
-          <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px; margin-bottom: var(--space-4); padding-left: var(--space-5);">Core Management</div>
-          <a href="#" class="admin-sidebar__link active" data-section="dashboard">
-            <span>📊</span> <span>Dashboard</span>
-          </a>
-          <a href="#" class="admin-sidebar__link" data-section="upload">
-            <span>📤</span> <span>Upload Media</span>
-          </a>
-          <a href="#" class="admin-sidebar__link" data-section="manage">
-            <span>🗂️</span> <span>Manage Assets</span>
-          </a>
-
-          <div style="font-size: 10px; font-weight: 800; text-transform: uppercase; color: var(--text-muted); letter-spacing: 2px; margin: var(--space-8) 0 var(--space-4); padding-left: var(--space-5);">External</div>
-          <a href="index.html" class="admin-sidebar__link" target="_blank">
-            <span>🌐</span> <span>Live Website</span>
-          </a>
-          <button class="admin-sidebar__link" onclick="Auth.logout()" style="width: 100%; border: none; background: transparent; cursor: pointer;">
-            <span>🚪</span> <span>Sign Out</span>
-          </button>
+          <a href="#" class="admin-sidebar__link active" data-section="dashboard">📊 Dashboard</a>
+          <a href="#" class="admin-sidebar__link" data-section="upload">📤 Upload Media</a>
+          <a href="#" class="admin-sidebar__link" data-section="manage">🗂️ Manage Assets</a>
+          <a href="index.html" class="admin-sidebar__link" target="_blank">🌐 Live Website</a>
+          <button class="admin-sidebar__link" onclick="Auth.logout()" style="width: 100%; border: none; background: transparent; cursor: pointer;">🚪 Sign Out</button>
         </nav>
-
-        <div style="margin-top: auto; padding-top: var(--space-8);">
-          <div class="glass-card" style="padding: var(--space-4); border-radius: var(--radius-lg); font-size: var(--text-xs);">
-            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-              <span class="live-dot" style="background: #10b981;"></span>
-              <span style="font-weight: 600; color: #10b981;">System Online</span>
-            </div>
-            <p style="color: var(--text-muted);">Real-time sync active</p>
-          </div>
-        </div>
       </aside>
 
       <!-- Main Content -->
       <div class="admin-main" id="main-content">
-        
-        <!-- ═══ DASHBOARD SECTION ═══ -->
+        <!-- DASHBOARD -->
         <div class="admin-section" id="section-dashboard">
           <div class="admin-header">
-            <div>
-              <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-1);">Dashboard</h2>
-              <p style="color: var(--text-muted);">Overview of all uploaded media content</p>
-            </div>
-            <span class="badge" style="background: rgba(212, 175, 55, 0.15); color: var(--color-gold-vivid); border: 1px solid rgba(212, 175, 55, 0.3);" data-realtime-status>
-              <span class="live-dot" style="background: var(--color-gold-vivid);"></span>&nbsp; Live
-            </span>
+            <h2>Dashboard</h2>
           </div>
-
-          <div class="grid--stats stagger-children">
-            <div class="stat-card reveal">
-              <span class="stat-card__icon">📁</span>
-              <div class="stat-card__number" id="stat-total">0</div>
-              <div class="stat-card__label">Total Media</div>
-            </div>
-            <div class="stat-card reveal">
-              <span class="stat-card__icon">📷</span>
-              <div class="stat-card__number" id="stat-images">0</div>
-              <div class="stat-card__label">Images</div>
-            </div>
-            <div class="stat-card reveal">
-              <span class="stat-card__icon">🎬</span>
-              <div class="stat-card__number" id="stat-videos">0</div>
-              <div class="stat-card__label">Videos</div>
-            </div>
-            <div class="stat-card reveal">
-              <span class="stat-card__icon">⭐</span>
-              <div class="stat-card__number" id="stat-featured">0</div>
-              <div class="stat-card__label">Featured</div>
-            </div>
-          </div>
-
-          <div class="glass-card" style="margin-top: var(--space-6);">
-            <h3 style="margin-bottom: var(--space-4);">📡 Real-Time Activity</h3>
-            <p style="color: var(--text-muted); font-size: var(--text-sm);">
-              Any changes you make here will be instantly visible on the public website. 
-              All connected visitors will see updates without refreshing their page.
-            </p>
-            <div style="margin-top: var(--space-4); display: flex; gap: var(--space-3); flex-wrap: wrap;">
-              <span class="badge badge--green">✅ Database Connected</span>
-              <span class="badge badge--blue">📡 Realtime Active</span>
-              <span class="badge badge--purple">🔐 Admin Verified</span>
-            </div>
+          <div class="grid--stats">
+            <div class="stat-card">Total Media: <span id="stat-total">0</span></div>
+            <div class="stat-card">Images: <span id="stat-images">0</span></div>
+            <div class="stat-card">Videos: <span id="stat-videos">0</span></div>
           </div>
         </div>
 
-        <!-- ═══ UPLOAD SECTION ═══ -->
+        <!-- UPLOAD SECTION -->
         <div class="admin-section" id="section-upload" style="display: none;">
           <div class="admin-header">
-            <div>
-              <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-1);">Upload Media</h2>
-              <p style="color: var(--text-muted);">Upload images and videos to the school website</p>
-            </div>
+            <h2>Upload Media</h2>
           </div>
-
           <div class="glass-card">
             <form id="upload-form">
-              <!-- Upload Area -->
-              <div class="upload-area" id="upload-area">
-                <div class="upload-area__icon">📤</div>
-                <p class="upload-area__text">Drag & drop files here, or click to browse</p>
-                <p class="upload-area__hint">Supports: JPG, PNG, GIF, MP4, WebM (Max 50MB)</p>
+              <div class="upload-area" id="upload-area" onclick="document.getElementById('upload-file').click()">
+                <p>Drag & drop files here, or click to browse</p>
                 <input type="file" id="upload-file" accept="image/*,video/*" style="display: none;">
               </div>
-
-              <!-- File Preview -->
               <div class="upload-preview" id="upload-preview"></div>
-
-              <!-- Metadata Form -->
-              <div style="margin-top: var(--space-6);">
-                <div class="grid--2">
-                  <div class="form-group">
-                    <label class="form-group__label" for="upload-title">Title *</label>
-                    <input type="text" id="upload-title" placeholder="Enter a title for this media" required>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-group__label" for="upload-category">Category *</label>
-                    <select id="upload-category" required>
-                      <optgroup label="Faculty">
-                        <option value="ahm">Assistant Head Master (AHM)</option>
-                        <option value="teacher">Our Teacher</option>
-                        <option value="pet">Physical Education (PET)</option>
-                        <option value="office">Office Administration</option>
-                      </optgroup>
-                      <optgroup label="Gallery">
-                        <option value="gallery_event">Event (Gallery)</option>
-                        <option value="gallery_sports">Sports (Gallery)</option>
-                        <option value="gallery_academic">Academic (Gallery)</option>
-                        <option value="gallery_alumni">Alumni (Gallery)</option>
-                        <option value="memories">Alumni Memories</option>
-                      </optgroup>
-                      <optgroup label="Others">
-                        <option value="home">Home Page</option>
-                        <option value="achiever">Achiever Poster</option>
-                        <option value="about">About Page</option>
-                      </optgroup>
-                    </select>
-                  </div>
-                </div>
-
+              
+              <div class="grid--2" style="margin-top: 20px;">
                 <div class="form-group">
-                  <label class="form-group__label" for="upload-description">Description</label>
-                  <textarea id="upload-description" rows="3" placeholder="Optional description..."></textarea>
+                  <label>Title *</label>
+                  <input type="text" id="upload-title" required>
                 </div>
-
-                <div class="grid--2">
-                  <div class="form-group">
-                    <label class="form-group__label" for="upload-type">Media Type</label>
-                    <select id="upload-type">
-                      <option value="image">📷 Image</option>
-                      <option value="video">🎬 Video</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label class="form-group__label">Featured on Homepage</label>
-                    <div style="display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2);">
-                      <label class="toggle">
-                        <input type="checkbox" id="upload-featured">
-                        <span class="toggle__slider"></span>
-                      </label>
-                      <span style="font-size: var(--text-sm); color: var(--text-secondary);">Show on homepage</span>
-                    </div>
-                  </div>
+                <div class="form-group">
+                  <label>Category *</label>
+                  <select id="upload-category" required>
+                    <optgroup label="Faculty">
+                      <option value="ahm">AHM</option>
+                      <option value="teacher">Teacher</option>
+                      <option value="pet">PET</option>
+                      <option value="office">Office</option>
+                    </optgroup>
+                    <optgroup label="Gallery">
+                      <option value="gallery_event">Event</option>
+                      <option value="gallery_sports">Sports</option>
+                      <option value="gallery_academic">Academic</option>
+                      <option value="gallery_alumni">Alumni</option>
+                    </optgroup>
+                    <optgroup label="Achievements">
+                      <option value="achievement_academic">Academic Excellence</option>
+                      <option value="achievement_sports">Sports Achievement</option>
+                      <option value="achievement_arts">Arts & Culture</option>
+                    </optgroup>
+                    <optgroup label="Others">
+                      <option value="home">Home Page</option>
+                      <option value="achiever">Achiever Poster</option>
+                    </optgroup>
+                  </select>
                 </div>
-
-                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%; margin-top: var(--space-4);">
-                  📤 Upload Media
-                </button>
               </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea id="upload-description" rows="3"></textarea>
+              </div>
+
+              <div class="grid--2">
+                <div class="form-group">
+                  <label>Media Type</label>
+                  <select id="upload-type">
+                    <option value="image">Image</option>
+                    <option value="video">Video</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Featured</label>
+                  <input type="checkbox" id="upload-featured">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 20px;">📤 Upload</button>
             </form>
           </div>
         </div>
 
-        <!-- ═══ MANAGE SECTION ═══ -->
+        <!-- MANAGE SECTION -->
         <div class="admin-section" id="section-manage" style="display: none;">
           <div class="admin-header">
-            <div>
-              <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-1);">Manage Media</h2>
-              <p style="color: var(--text-muted);">Edit, delete, and manage all uploaded media</p>
-            </div>
+            <h2>Manage Media</h2>
             <button class="btn btn--secondary btn--sm" onclick="Admin.loadMediaTable()">🔄 Refresh</button>
           </div>
-
-          <div id="media-management-container">
-            <div class="media-grid" id="media-grid-body">
-              <!-- Dynamically Loaded via JS -->
-              <div class="spinner" style="grid-column: 1 / -1; margin: var(--space-12) auto;"></div>
-            </div>
-          </div>
+          <div id="media-grid-body" class="grid--3"></div>
         </div>
       </div>
     </div>
@@ -283,61 +178,31 @@
 
   <!-- Edit Modal -->
   <div class="modal-backdrop" id="edit-modal">
-    <div class="modal" style="max-width: 500px; position: relative;">
-      <button class="modal__close" onclick="document.getElementById('edit-modal').classList.remove('active')">✕</button>
-      <h3 style="margin-bottom: var(--space-6);">✏️ Edit Media</h3>
-      
+    <div class="modal">
+      <h3>Edit Media</h3>
       <input type="hidden" id="edit-id">
-      
+      <div class="form-group"><label>Title</label><input type="text" id="edit-title"></div>
+      <div class="form-group"><label>Description</label><textarea id="edit-description"></textarea></div>
       <div class="form-group">
-        <label class="form-group__label" for="edit-title">Title</label>
-        <input type="text" id="edit-title" required>
+        <label>Category</label>
+        <select id="edit-category">
+          <option value="ahm">AHM</option>
+          <option value="teacher">Teacher</option>
+          <option value="pet">PET</option>
+          <option value="office">Office</option>
+          <option value="gallery_event">Event</option>
+          <option value="gallery_sports">Sports</option>
+          <option value="gallery_academic">Academic</option>
+          <option value="gallery_alumni">Alumni</option>
+          <option value="achievement_academic">Academic Excellence</option>
+          <option value="achievement_sports">Sports Achievement</option>
+          <option value="achievement_arts">Arts & Culture</option>
+          <option value="home">Home Page</option>
+        </select>
       </div>
-
-      <div class="form-group">
-        <label class="form-group__label" for="edit-description">Description</label>
-        <textarea id="edit-description" rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label class="form-group__label" for="edit-category">Category</label>
-                <select id="edit-category" class="form-group__select">
-                  <optgroup label="Faculty">
-                    <option value="ahm">Assistant Head Master (AHM)</option>
-                    <option value="teacher">Our Teacher</option>
-                    <option value="pet">Physical Education (PET)</option>
-                    <option value="office">Office Administration</option>
-                  </optgroup>
-                  <optgroup label="Gallery">
-                    <option value="gallery_event">Event (Gallery)</option>
-                    <option value="gallery_sports">Sports (Gallery)</option>
-                    <option value="gallery_academic">Academic (Gallery)</option>
-                    <option value="gallery_alumni">Alumni (Gallery)</option>
-                    <option value="memories">Alumni Memories</option>
-                  </optgroup>
-                  <optgroup label="Others">
-                    <option value="home">Home Page</option>
-                    <option value="achiever">Achiever Poster</option>
-                    <option value="about">About Page</option>
-                  </optgroup>
-                </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-group__label">Featured</label>
-        <div style="display: flex; align-items: center; gap: var(--space-3); margin-top: var(--space-2);">
-          <label class="toggle">
-            <input type="checkbox" id="edit-featured">
-            <span class="toggle__slider"></span>
-          </label>
-          <span style="font-size: var(--text-sm); color: var(--text-secondary);">Show on homepage</span>
-        </div>
-      </div>
-
-      <div style="display: flex; gap: var(--space-3); margin-top: var(--space-6);">
-        <button class="btn btn--primary" onclick="Admin.saveEdit()" style="flex: 1;">💾 Save Changes</button>
-        <button class="btn btn--ghost" onclick="document.getElementById('edit-modal').classList.remove('active')">Cancel</button>
-      </div>
+      <div class="form-group"><label>Featured</label><input type="checkbox" id="edit-featured"></div>
+      <button class="btn btn--primary" onclick="Admin.saveEdit()">Save Changes</button>
+      <button class="btn btn--ghost" onclick="document.getElementById('edit-modal').classList.remove('active')">Cancel</button>
     </div>
   </div>
 
@@ -349,7 +214,5 @@
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
   <script src="js/theme.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/mouse-tail.js"></script>
 </body>
 </html>

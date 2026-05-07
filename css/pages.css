@@ -240,6 +240,77 @@
   line-height: 1.7;
 }
 
+/* ─── TESTIMONIALS SECTION ─── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.testimonial-card {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-gold-vivid);
+}
+
+.testimonial-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.testimonial-card__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-gold-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+.testimonial-card__info {
+  flex: 1;
+}
+
+.testimonial-card__name {
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.testimonial-card__stars {
+  color: var(--color-gold-vivid);
+  font-size: var(--text-xs);
+  letter-spacing: 2px;
+}
+
+.testimonial-card__google-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.testimonial-card__text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+}
+
 /* ─── HISTORY PAGE — Timeline ─── */
 .timeline {
   position: relative;

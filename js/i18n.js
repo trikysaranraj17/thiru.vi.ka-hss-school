@@ -14,6 +14,7 @@ const I18n = {
     'nav.faculty': { en: 'Faculty', ta: 'ஆசிரியர்கள்' },
     'nav.gallery': { en: 'Gallery', ta: 'கேலரி' },
     'nav.alumni': { en: 'Alumni', ta: 'பழைய மாணவர்' },
+    'nav.achievements': { en: 'Achievements', ta: 'சாதனைகள்' },
     'nav.contact': { en: 'Contact', ta: 'தொடர்பு' },
 
     // --- FOOTER ---
@@ -113,7 +114,29 @@ const I18n = {
     'history.journey_full': { en: 'Our <span>Journey</span>', ta: 'எங்கள் <span>பயணம்</span>' },
     'history.timeline_desc': { en: 'A timeline of milestones spanning over seven decades of dedication to education.', ta: 'கல்விக்கான ஏழு தசாப்தங்களுக்கும் மேலான அர்ப்பணிப்பின் மைல்கற்களின் காலவரிசை.' },
     
-    // --- TIMELINE ---
+    'home.view_more_reviews': { en: 'View More on Google', ta: 'கூகிளில் மேலும் காண்க' },
+    'home.reviews_tag': { en: 'What Our Community Says', ta: 'எங்கள் சமூகம் கூறுவது' },
+    'home.reviews_title_full': { en: 'Google <span>Reviews</span>', ta: 'கூகிள் <span>விமர்சனங்கள்</span>' },
+    'home.reviews_desc': { en: 'Trusted by parents, students, and alumni for over 70 years.', ta: '70 ஆண்டுகளுக்கும் மேலாக பெற்றோர், மாணவர்கள் மற்றும் பழைய மாணவர்களால் நம்பப்படுகிறது.' },
+    'home.review1_text': { 
+      en: '"A great school with excellent teachers and a very good environment for students. The discipline and education standards are top-notch."', 
+      ta: '"சிறந்த ஆசிரியர்கள் மற்றும் மாணவர்களுக்கு மிகவும் நல்ல சூழலைக் கொண்ட ஒரு சிறந்த பள்ளி. ஒழுக்கம் மற்றும் கல்வித் தரங்கள் மிக உயர்ந்தவை."' 
+    },
+    'home.review2_text': { 
+      en: '"Excellent coaching and discipline. Best school in Shenoy Nagar. The teachers are very supportive and encourage students in both academics and sports."', 
+      ta: '"சிறந்த பயிற்சி மற்றும் ஒழுக்கம். ஷெனாய் நகரின் சிறந்த பள்ளி. ஆசிரியர்கள் மிகவும் ஆதரவாக இருக்கிறார்கள் மற்றும் மாணவர்கள் கல்வி மற்றும் விளையாட்டுகளில் ஈடுபடுவதை ஊக்குவிக்கிறார்கள்."' 
+    },
+    'home.review3_text': { 
+      en: '"Proud to be an alumni of this great institution. Thiru.Vi.Ka. HSS shapes not just careers but characters. Highly recommended for quality education."', 
+      ta: '"இந்த சிறந்த நிறுவனத்தின் பழைய மாணவனாக இருப்பதில் பெருமை கொள்கிறேன். திரு.வி.க. மேநிப வாழ்க்கையை மட்டுமல்ல, குணத்தையும் வடிவமைக்கிறது. தரமான கல்விக்கு மிகவும் பரிந்துரைக்கப்படுகிறது."' 
+    },
+
+    // --- ACHIEVEMENTS PAGE ---
+    'achievements.title_full': { en: 'Student <span>Achievements</span>', ta: 'மாணவர் <span>சாதனைகள்</span>' },
+    'achievements.desc': { en: 'Celebrating the outstanding success of our students in various fields.', ta: 'பல்வேறு துறைகளில் நமது மாணவர்களின் சிறந்த வெற்றியை கொண்டாடுகிறோம்.' },
+    'gallery.arts': { en: 'Arts & Culture', ta: 'கலை மற்றும் கலாச்சாரம்' },
+
+    // --- QUICK LINKS ---
     'history.1955_title': { en: 'Foundation Year', ta: 'அடிக்கல் நாட்டப்பட்ட ஆண்டு' },
     'history.1955_desc': { en: 'Thiru.Vi.Ka. Higher Secondary School was established in Shenoy Nagar, Chennai, with a vision to provide quality education to the community. Named after the great Tamil scholar and freedom fighter Thiru.Vi.Kalyanasundaram.', ta: 'திரு.வி.க. மேல்நிலைப்பள்ளி சென்னையில் தொடங்கப்பட்டது. சிறந்த தமிழ் அறிஞர் மற்றும் சுதந்திர போராட்ட வீரர் திரு.வி.கல்யாணசுந்தரனார் அவர்களின் பெயரால் இது அழைக்கப்படுகிறது.' },
     'history.1960s_title': { en: 'Growing Foundations', ta: 'வளரும் அடித்தளம்' },
