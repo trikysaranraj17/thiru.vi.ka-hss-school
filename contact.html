@@ -114,19 +114,59 @@
       </div>
     </section>
 
-    <!-- LIVE RATINGS SECTION -->
+    <!-- ─── CUSTOM REVIEW SYSTEM ─── -->
     <section class="section" id="reviews" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid var(--border-glass);">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-header__tagline" data-i18n="home.reviews_tag">What Our Community Says</span>
-          <h2 class="section-header__title" data-i18n-html="home.reviews_title_full">Live Google <span>Ratings</span></h2>
+          <span class="section-header__tagline" data-i18n="home.reviews_tag">Community Voice</span>
+          <h2 class="section-header__title" data-i18n-html="home.reviews_title_full">Student & Parent <span>Reviews</span></h2>
+          <p class="section-header__desc" data-i18n="home.reviews_desc">Your feedback helps us grow. Share your experience with us.</p>
         </div>
-        <div class="live-reviews reveal">
-          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-          <div class="elfsight-app-ae04be7f-6a01-40a1-8b38-1243866aae08" data-elfsight-app-lazy></div>
+
+        <div class="grid grid--2 gap-12">
+          <!-- Write a Review Form -->
+          <div class="glass-card reveal" style="padding: var(--space-8); height: fit-content;">
+            <h3 style="margin-bottom: var(--space-6); color: var(--color-gold-vivid);">Write a Review</h3>
+            <form id="review-form">
+              <div class="form-group">
+                <label class="form-group__label">Rating</label>
+                <div class="star-rating" id="star-rating" style="display: flex; gap: 8px; font-size: 1.5rem; color: var(--text-muted); cursor: pointer; margin-bottom: var(--space-4);">
+                  <span data-value="1">★</span>
+                  <span data-value="2">★</span>
+                  <span data-value="3">★</span>
+                  <span data-value="4">★</span>
+                  <span data-value="5">★</span>
+                </div>
+                <input type="hidden" id="review-stars" value="5">
+              </div>
+              <div class="form-group">
+                <label class="form-group__label">Your Name</label>
+                <input type="text" id="review-name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-group__label">Review Message</label>
+                <textarea id="review-message" rows="4" placeholder="Tell us about your experience..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">Post Review ✨</button>
+            </form>
+          </div>
+
+          <!-- Display Reviews -->
+          <div class="reviews-feed stagger-children" id="reviews-feed">
+            <div class="spinner" style="margin: var(--space-12) auto;"></div>
+          </div>
         </div>
       </div>
     </section>
+
+    <style>
+      .star-rating span.active { color: var(--color-gold-vivid); text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+      .review-card { padding: var(--space-6); margin-bottom: var(--space-4); border-left: 4px solid var(--color-gold-vivid); }
+      .review-card__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2); }
+      .review-card__stars { color: var(--color-gold-vivid); font-size: 0.9rem; }
+      .review-card__name { font-weight: 700; color: var(--text-primary); }
+      .review-card__text { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; }
+    </style>
   </main>
 
   <footer class="footer">
@@ -144,15 +184,112 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p data-i18n="footer.copyright">&copy; 2024 Thiru.Vi.Ka. School. All rights reserved.</p>
+        <script src="js/config.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/realtime.js"></script>
+        <script src="js/media.js"></script>
+        <script src="js/gallery.js"></script>
+        <script src="js/admin.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/animations.js"></script>
+        <script src="js/i18n.js"></script>
+        <script src="js/mouse-tail.js"></script>
+        <script src="js/app.js"></script>
+
+        <script>
+          // ─── REVIEW SYSTEM LOGIC ───
+          document.addEventListener('DOMContentLoaded', () => {
+            const starRating = document.getElementById('star-rating');
+            const starsInput = document.getElementById('review-stars');
+            const stars = starRating.querySelectorAll('span');
+            const reviewsFeed = document.getElementById('reviews-feed');
+            const reviewForm = document.getElementById('review-form');
+
+            // 1. Star Interaction
+            stars.forEach(star => {
+              star.addEventListener('click', () => {
+                const val = star.getAttribute('data-value');
+                starsInput.value = val;
+                updateStars(val);
+              });
+            });
+
+            function updateStars(val) {
+              stars.forEach(s => {
+                s.classList.toggle('active', s.getAttribute('data-value') <= val);
+              });
+            }
+            updateStars(5); // Default 5 stars
+
+            // 2. Load Reviews from Supabase
+            async function loadReviews() {
+              try {
+                const { data, error } = await supabase
+                  .from('reviews')
+                  .select('*')
+                  .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (!data || data.length === 0) {
+                  reviewsFeed.innerHTML = '<p class="text-center" style="color: var(--text-muted);">No reviews yet. Be the first to leave one!</p>';
+                  return;
+                }
+
+                reviewsFeed.innerHTML = data.map(review => `
+                  <div class="glass-card review-card reveal">
+                    <div class="review-card__header">
+                      <span class="review-card__name">${review.name}</span>
+                      <span class="review-card__stars">${'★'.repeat(review.stars)}${'☆'.repeat(5-review.stars)}</span>
+                    </div>
+                    <p class="review-card__text">${review.message}</p>
+                    <div style="font-size: 10px; color: var(--text-muted); margin-top: 8px;">
+                      ${new Date(review.created_at).toLocaleDateString()}
+                    </div>
+                  </div>
+                `).join('');
+                
+                if (window.Reveal) window.Reveal.init(); // Re-trigger animations
+              } catch (err) {
+                console.error('Error loading reviews:', err);
+                reviewsFeed.innerHTML = '<p class="text-center" style="color: var(--text-muted);">Could not load reviews.</p>';
+              }
+            }
+
+            // 3. Post Review
+            reviewForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const btn = reviewForm.querySelector('button');
+              btn.disabled = true;
+              btn.innerText = 'Posting...';
+
+              const payload = {
+                name: document.getElementById('review-name').value,
+                message: document.getElementById('review-message').value,
+                stars: parseInt(starsInput.value)
+              };
+
+              try {
+                const { error } = await supabase.from('reviews').insert([payload]);
+                if (error) throw error;
+                
+                alert('Thank you for your review!');
+                reviewForm.reset();
+                updateStars(5);
+                loadReviews();
+              } catch (err) {
+                alert('Error posting review: ' + err.message);
+              } finally {
+                btn.disabled = false;
+                btn.innerText = 'Post Review ✨';
+              }
+            });
+
+            loadReviews();
+          });
+        </script>
       </div>
     </div>
   </footer>
-
-  <script src="js/theme.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/i18n.js"></script>
 </body>
 </html>
