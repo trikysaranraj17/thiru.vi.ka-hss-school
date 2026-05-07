@@ -84,15 +84,29 @@ const Teachers = {
     
     // Extract parts from description if formatted as: Subject | Classes
     const parts = (member.description || '').split('|').map(s => s.trim());
-    const subject = parts[0] || 'Faculty';
-    const classes = parts[1] || 'Primary/Secondary';
+    const subjectRaw = parts[0] || 'Faculty';
+    const classesRaw = parts[1] || 'Primary/Secondary';
+
+    // Simple translation helper for common subjects/roles
+    const translate = (text) => {
+      if (!text) return text;
+      const key = 'faculty.' + text.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+      if (typeof I18n !== 'undefined' && I18n.translations[key]) {
+        return I18n.translations[key][I18n.currentLang] || text;
+      }
+      return text;
+    };
+
+    const subject = translate(subjectRaw);
+    const classes = translate(classesRaw);
+    const name = translate(member.title);
 
     div.innerHTML = `
       <div class="teacher-card__img-container">
         <img src="${member.media_url}" alt="${member.title}" class="teacher-card__img" loading="lazy" onerror="this.src='assets/logo.jpg'">
       </div>
       <div class="teacher-card__info">
-        <h3 class="teacher-card__name">${member.title}</h3>
+        <h3 class="teacher-card__name">${name}</h3>
         <div class="teacher-card__subject">${subject}</div>
         <div class="teacher-card__classes">${classes}</div>
       </div>

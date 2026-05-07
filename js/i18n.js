@@ -29,7 +29,7 @@ const I18n = {
     'footer.built': { en: 'Built with love for education', ta: 'கல்விக்காக உருவாக்கப்பட்டது' },
 
     // --- HOME PAGE ---
-    'home.since': { en: 'SINCE 1955 - CHENNAIS PRIDE', ta: '1955 முதல் - சென்னையின் பெருமை' },
+    'home.since': { en: '70 Years of Excellence Since 1955', ta: '1955 முதல் 70 ஆண்டுகால சிறப்பு' },
     'home.title1': { en: 'Thiru.Vi.Ka.', ta: 'திரு.வி.க.' },
     'home.title2': { en: 'Higher Secondary School', ta: 'மேல்நிலைப்பள்ளி' },
     'home.hero_title': { 
@@ -54,12 +54,43 @@ const I18n = {
     'home.stat_students': { en: 'Students Educated', ta: 'மாணவர்கள் கல்வி பெற்றனர்' },
     'home.stat_teachers': { en: 'Expert Faculty', ta: 'திறமையான ஆசிரியர்கள்' },
     'home.stat_pass': { en: 'Pass Rate', ta: 'தேர்ச்சி விகிதம்' },
+    
+    // --- LEADERSHIP ---
     'home.leadership_tag': { en: 'Leadership', ta: 'தலைமை' },
-    'home.leadership_title': { en: 'Guided by Vision', ta: 'வழிநடத்தும் நோக்கு' },
-    'home.headmistress': { en: 'Headmistress', ta: 'தலைமை ஆசிரியை' },
-    'home.headmistress_role': { en: 'Leading with Vision & Excellence', ta: 'நோக்கு மற்றும் சிறப்புடன் தலைமை' },
+    'home.leadership_title': { en: 'Guided by <span>Vision</span>', ta: 'வழிநடத்தும் <span>நோக்கு</span>' },
+    'home.visionaries_tag': { en: 'Guiding Light', ta: 'வழிகாட்டும் ஒளி' },
+    'home.visionaries_title': { en: 'Our <span>Visionaries</span>', ta: 'எங்கள் <span>தொலைநோக்கு சிந்தனையாளர்கள்</span>' },
+    'home.visionaries_desc': { en: 'The dedicated individuals who have shaped our institution\'s legacy.', ta: 'எங்கள் நிறுவனத்தின் பாரம்பரியத்தை வடிவமைத்த அர்ப்பணிப்புள்ள நபர்கள்.' },
+    
+    'home.president': { en: 'President', ta: 'பள்ளி தலைவர்' },
+    'home.president_name': { en: 'Vedhagiri Shanmugam Sundaranar', ta: 'வேதகிரி சண்முகம் சுந்தரனார்' },
+    'home.president_desc': { 
+      en: 'A visionary leader whose guiding principles laid the ultimate foundation for Thiru.Vi.Ka. Higher Secondary School. His lifelong dedication to accessible education has shaped the institution into a beacon of knowledge, moral excellence, and community growth. With a resolute commitment to student empowerment, his legacy endures in every classroom and corridor.', 
+      ta: 'திரு.வி.க. மேல்நிலைப்பள்ளிக்கு அடித்தளம் அமைத்த தொலைநோக்கு பார்வை கொண்ட தலைவர். கல்விக்கான இவரது அர்ப்பணிப்பு, நிறுவனத்தை அறிவு, ஒழுக்கச் சிறப்பு மற்றும் சமூக வளர்ச்சியின் கலங்கரை விளக்கமாக மாற்றியுள்ளது. மாணவர் அதிகாரமளிப்பதற்கான அவரது உறுதிப்பாடு இன்றும் ஒவ்வொரு வகுப்பறையிலும் எதிரொலிக்கிறது.' 
+    },
+    
     'home.correspondent': { en: 'Correspondent', ta: 'நிருபர்' },
-    'home.president': { en: 'School President', ta: 'பள்ளி தலைவர்' },
+    'home.correspondent_name': { en: 'Dr. B.S. Tiruvadanan', ta: 'டாக்டர். பி.எஸ். திருவதனன்' },
+    'home.correspondent_desc': {
+      en: 'A distinguished academic and dynamic administrator passionately modernizing the school\'s infrastructure and operations. He works tirelessly to ensure that the institution maintains the highest academic standards while fostering an innovative environment for the students. Under his guidance, the school continues to integrate modern teaching methodologies with traditional values.',
+      ta: 'பள்ளியின் உள்கட்டமைப்பு மற்றும் செயல்பாடுகளை ஆர்வத்துடன் நவீனப்படுத்தும் சிறந்த கல்வியாளர் மற்றும் நிர்வாகி. நிறுவனம் உயர்தரக் கல்வித் தரத்தைப் பேணுவதையும் புதுமையான சூழலை வளர்ப்பதையும் உறுதி செய்ய அவர் அயராது உழைக்கிறார். இவரது வழிகாட்டுதலின் கீழ், பள்ளி நவீன கற்பித்தல் முறைகளை பாரம்பரிய விழுமியங்களுடன் தொடர்ந்து ஒருங்கிணைக்கிறது.'
+    },
+
+    'home.headmistress': { en: 'Headmistress', ta: 'தலைமை ஆசிரியை' },
+    'home.headmistress_name': { en: 'Mrs. Ramaprabha', ta: 'திருமதி. ரமாபிரபா' },
+    'home.headmistress_role': { en: 'Leading with Vision & Excellence', ta: 'நோக்கு மற்றும் சிறப்புடன் தலைமை' },
+    'home.headmistress_desc': {
+      en: 'An inspiring and dedicated educator who leads the school\'s daily operations with grace and discipline. Her holistic approach to nurturing both the academic and personal development of every student makes her a beloved figure among the staff and students. She continuously strives to create an inclusive and highly motivating environment for all learners.',
+      ta: 'பள்ளியின் அன்றாடச் செயல்பாடுகளை ஒழுக்கத்துடனும் வழிநடத்தும் அர்ப்பணிப்புள்ள கல்வியாளர். ஒவ்வொரு மாணவரின் கல்வி மற்றும் தனிப்பட்ட வளர்ச்சியை வளர்ப்பதற்கான அவரது முழுமையான அணுகுமுறை அவரை ஊழியர்கள் மற்றும் மாணவர்கள் மத்தியில் அன்புக்குரியவராக மாற்றுகிறது. அனைத்து கற்பவர்களுக்கும் ஒரு உள்ளடக்கிய மற்றும் அதிக ஊக்கமளிக்கும் சூழலை உருவாக்க அவர் தொடர்ந்து பாடுபடுகிறார்.'
+    },
+
+    'about.former_hm': { en: 'Former Headmaster', ta: 'முன்னாள் தலைமை ஆசிரியர்' },
+    'about.former_hm_name': { en: 'Mr. John', ta: 'திரு. ஜான்' },
+    'about.former_hm_desc': {
+      en: 'A cornerstone of our institution\'s 70-year legacy. Mr. John served with unprecedented dedication, fostering an environment where discipline met academic brilliance. His leadership remains the standard by which we measure our progress today.',
+      ta: 'நமது நிறுவனத்தின் 70 ஆண்டுகால பாரம்பரியத்தின் ஒரு முக்கிய மைல்கல். திரு. ஜான் அவர்கள் அர்ப்பணிப்புடன் பணியாற்றினார், ஒழுக்கம் மற்றும் கல்விச் சிறப்பு இணைந்த ஒரு சூழலை உருவாக்கினார். அவரது தலைமை இன்றும் எங்களின் வளர்ச்சிக்கு ஒரு தரநிலையாக உள்ளது.'
+    },
+
     'home.achievers_tag': { en: 'Achievements', ta: 'சாதனைகள்' },
     'home.achievers_title_full': { en: 'Our <span>Achievements</span>', ta: 'எங்கள் <span>சாதனைகள்</span>' },
     'home.achievers_desc': { en: 'Celebrating 70 years of outstanding academic and co-curricular success.', ta: '70 ஆண்டுகால சிறந்த கல்வி மற்றும் இணை பாடத்திட்ட வெற்றியை கொண்டாடுகிறோம்.' },
@@ -67,11 +98,14 @@ const I18n = {
     'home.get_directions': { en: 'Get Directions', ta: 'வழி தேடுங்கள்' },
 
     // --- ABOUT PAGE ---
+    'about.pillars_title': { en: 'Our <span>Pillars of Strength</span>', ta: 'எங்கள் <span>வலிமையின் தூண்கள்</span>' },
     'about.title_full': { en: 'About <span>Us</span>', ta: 'எங்களைப் <span>பற்றி</span>' },
     'about.desc': { en: 'A legacy of nurturing young minds and fostering academic excellence since 1955.', ta: '1955 முதல் இளம் மனங்களை வளர்த்து கல்வி சிறப்பை ஊக்குவிக்கும் பாரம்பரியம்.' },
     'about.vision_title_full': { en: 'Our <span>Vision & Mission</span>', ta: 'எங்கள் <span>நோக்கம் & பணி</span>' },
     'about.vision': { en: 'Vision', ta: 'நோக்கம்' },
     'about.mission': { en: 'Mission', ta: 'பணி' },
+    'about.mission_desc': { en: 'To provide holistic education that nurtures intellectual curiosity, builds character, and prepares students for the challenges of the 21st century.', ta: 'அறிவுசார் ஆர்வத்தை வளர்க்கும், குணத்தை வளர்க்கும் மற்றும் 21 ஆம் நூற்றாண்டின் சவால்களுக்கு மாணவர்களை தயார்படுத்தும் முழுமையான கல்வியை வழங்குதல்.' },
+    'about.vision_desc': { en: 'To be a center of educational excellence that empowers every student to achieve their full potential, creating responsible citizens.', ta: 'ஒவ்வொரு மாணவரும் தங்களின் முழுத் திறனையும் அடைய அதிகாரம் அளிக்கும் கல்விச் சிறப்பின் மையமாக இருப்பது, பொறுப்புள்ள குடிமக்களை உருவாக்குவது.' },
 
     // --- HISTORY PAGE ---
     'history.title_full': { en: 'Our <span>History</span>', ta: 'எங்கள் <span>வரலாறு</span>' },
@@ -81,22 +115,41 @@ const I18n = {
     
     // --- TIMELINE ---
     'history.1955_title': { en: 'Foundation Year', ta: 'அடிக்கல் நாட்டப்பட்ட ஆண்டு' },
-    'history.1955_desc': { 
-      en: 'Thiru.Vi.Ka. Higher Secondary School was established in Shenoy Nagar, Chennai. Named after the great Tamil scholar Thiru.Vi.Kalyanasundaram.', 
-      ta: 'திரு.வி.க. மேல்நிலைப்பள்ளி சென்னையில் தொடங்கப்பட்டது. சிறந்த தமிழ் அறிஞர் திரு.வி.கல்யாணசுந்தரனார் அவர்களின் பெயரால் இது அழைக்கப்படுகிறது.' 
-    },
+    'history.1955_desc': { en: 'Thiru.Vi.Ka. Higher Secondary School was established in Shenoy Nagar, Chennai, with a vision to provide quality education to the community. Named after the great Tamil scholar and freedom fighter Thiru.Vi.Kalyanasundaram.', ta: 'திரு.வி.க. மேல்நிலைப்பள்ளி சென்னையில் தொடங்கப்பட்டது. சிறந்த தமிழ் அறிஞர் மற்றும் சுதந்திர போராட்ட வீரர் திரு.வி.கல்யாணசுந்தரனார் அவர்களின் பெயரால் இது அழைக்கப்படுகிறது.' },
+    'history.1960s_title': { en: 'Growing Foundations', ta: 'வளரும் அடித்தளம்' },
+    'history.1960s_desc': { en: 'The school expanded its infrastructure and curriculum, establishing itself as a premier educational institution in North Chennai.', ta: 'பள்ளி அதன் உள்கட்டமைப்பு மற்றும் பாடத்திட்டத்தை விரிவாக்கியது, வட சென்னையில் ஒரு முதன்மையான கல்வி நிறுவனமாக தன்னை நிலைநிறுத்திக் கொண்டது.' },
+    'history.1970s_title': { en: 'Academic Excellence', ta: 'கல்விச் சிறப்பு' },
+    'history.1970s_desc': { en: 'Students began achieving top ranks in state examinations, establishing a tradition of excellence that continues today.', ta: 'மாணவர்கள் மாநிலத் தேர்வுகளில் முதலிடத்தைப் பெறத் தொடங்கினர், இன்றும் தொடரும் சிறப்பான பாரம்பரியத்தை உருவாக்கினர்.' },
+    'history.1980s_title': { en: 'Sports & Cultural Growth', ta: 'விளையாட்டு மற்றும் கலாச்சார வளர்ச்சி' },
+    'history.1980s_desc': { en: 'Beyond academics, the school developed strong sports and cultural programs, winning numerous awards.', ta: 'கல்விக்கு அப்பால், பள்ளி வலுவான விளையாட்டு மற்றும் கலாச்சார திட்டங்களை உருவாக்கி, ஏராளமான விருதுகளை வென்றது.' },
+    'history.1990s_title': { en: 'Modernization Era', ta: 'நவீனமயமாக்கல் காலம்' },
+    'history.1990s_desc': { en: 'Computer education was introduced, keeping pace with India\'s IT revolution and embracing digital learning.', ta: 'இந்தியாவின் தகவல் தொழில்நுட்ப புரட்சிக்கு ஏற்ப கணினி கல்வி அறிமுகப்படுத்தப்பட்டது மற்றும் டிஜிட்டல் கற்றல் ஏற்றுக்கொள்ளப்பட்டது.' },
+    'history.2000s_title': { en: 'Golden Jubilee', ta: 'பொன்விழா' },
+    'history.2000s_desc': { en: 'Celebrated 50 years of educational excellence with upgraded infrastructure and laboratories.', ta: 'மேம்படுத்தப்பட்ட உள்கட்டமைப்பு மற்றும் ஆய்வகங்களுடன் 50 ஆண்டுகால கல்விச் சிறப்பைக் கொண்டாடியது.' },
+    'history.2010s_title': { en: 'Digital Transformation', ta: 'டிஜிட்டல் மாற்றம்' },
+    'history.2010s_desc': { en: 'Smart classrooms and digital learning tools were implemented, preparing students for the digital age.', ta: 'ஸ்மார்ட் வகுப்பறைகள் மற்றும் டிஜிட்டல் கற்றல் கருவிகள் செயல்படுத்தப்பட்டன, டிஜிட்டல் யுகத்திற்கு மாணவர்களை தயார்படுத்தியது.' },
     'history.present_title': { en: 'Diamond Jubilee & Beyond', ta: 'வைர விழா மற்றும் அதற்கு மேல்' },
-    'history.present_desc': { 
-      en: 'Celebrating 70 years of excellence. Today, Thiru.Vi.Ka. HSS stands as a beacon of learning.', 
-      ta: '70 ஆண்டுகால சிறப்பைக் கொண்டாடுகிறது. இன்று, திரு.வி.க. மேநிப கற்றலின் கலங்கரை விளக்கமாகத் திகழ்கிறது.' 
-    },
+    'history.present_desc': { en: 'Celebrating 70 years of excellence. Today, Thiru.Vi.Ka. HSS stands as a beacon of learning.', ta: '70 ஆண்டுகால சிறப்பைக் கொண்டாடுகிறது. இன்று, திரு.வி.க. மேநிப கற்றலின் கலங்கரை விளக்கமாகத் திகழ்கிறது.' },
 
     // --- TEACHERS PAGE ---
     'teachers.title_full': { en: 'Our <span>Faculty</span>', ta: 'எங்கள் <span>ஆசிரியர்கள்</span>' },
-    'teachers.desc': { en: 'Meet the dedicated educators who inspire, guide, and shape the future of our students every day.', ta: 'ஒவ்வொரு நாளும் நம் மாணவர்களின் எதிர்காலத்தை ஊக்குவிக்கும் அர்ப்பணிப்புள்ள கல்வியாளர்களை சந்தியுங்கள்.' },
+    'teachers.desc_full': { en: 'The heartbeat of Thiru.Vi.Ka. HSS — Meet the dedicated educators shaping our students\' futures.', ta: 'திரு.வி.க. மேநிப-யின் இதயத்துடிப்பு — மாணவர்களின் எதிர்காலத்தை வடிவமைக்கும் அர்ப்பணிப்புள்ள கல்வியாளர்களை சந்தியுங்கள்.' },
+    'teachers.ahm': { en: 'Assistant <span>Head Masters</span>', ta: 'உதவி <span>தலைமை ஆசிரியர்கள்</span>' },
     'teachers.teachers': { en: 'Our <span>Teachers</span>', ta: 'எங்கள் <span>ஆசிரியர்கள்</span>' },
     'teachers.pet': { en: 'Physical <span>Education Department</span>', ta: 'உடற்கல்வித் <span>துறை</span>' },
     'teachers.office': { en: 'Office <span>Administration</span>', ta: 'அலுவலக <span>நிர்வாகம்</span>' },
+
+    // --- FACULTY ROLES/SUBJECTS (Dynamic) ---
+    'faculty.pg_assistant': { en: 'PG Assistant', ta: 'முதுகலை ஆசிரியர்' },
+    'faculty.bt_assistant': { en: 'BT Assistant', ta: 'பட்டதாரி ஆசிரியர்' },
+    'faculty.primarysecondary': { en: 'Primary/Secondary', ta: 'தொடக்க/உயர்நிலை' },
+    'faculty.higher_secondary': { en: 'Higher Secondary', ta: 'மேல்நிலை' },
+    'faculty.english': { en: 'English', ta: 'ஆங்கிலம்' },
+    'faculty.tamil': { en: 'Tamil', ta: 'தமிழ்' },
+    'faculty.maths': { en: 'Maths', ta: 'கணிதம்' },
+    'faculty.science': { en: 'Science', ta: 'அறிவியல்' },
+    'faculty.social_science': { en: 'Social Science', ta: 'சமூக அறிவியல்' },
+    'faculty.physical_education': { en: 'Physical Education', ta: 'உடற்கல்வி' },
 
     // --- GALLERY PAGE ---
     'gallery.title_full': { en: 'Our <span>Gallery</span>', ta: 'எங்கள் <span>கேலரி</span>' },
@@ -121,12 +174,8 @@ const I18n = {
     'alumni.president': { en: 'President', ta: 'தலைவர்' },
     'alumni.secretary': { en: 'Secretary', ta: 'செயலாளர்' },
     'alumni.memories_full': { en: 'Alumni <span>Memories</span>', ta: 'பழைய மாணவர் <span>நினைவுகள்</span>' },
-    'alumni.memory1_title': { en: 'Event Gathering', ta: 'நிகழ்வு கூட்டம்' },
-    'alumni.memory1_desc': { en: 'Our alumni reconnecting and engaging in discussions.', ta: 'எங்கள் பழைய மாணவர்கள் மீண்டும் இணைந்து விவாதங்களில் ஈடுபடுகின்றனர்.' },
-    'alumni.memory2_title': { en: 'Honoring Leadership', ta: 'தலைமையை கௌரவித்தல்' },
-    'alumni.memory2_desc': { en: 'Celebrating milestones and recognizing contributions.', ta: 'மைல்கற்களை கொண்டாடி பங்களிப்புகளை அங்கீகரித்தல்.' },
-    'alumni.memory3_title': { en: 'Community Support', ta: 'சமூக ஆதரவு' },
-    'alumni.memory3_desc': { en: 'Giving back to the institution with proud events.', ta: 'பெருமையான நிகழ்வுகள் மூலம் நிறுவனத்திற்கு திருப்பி அளித்தல்.' },
+    'alumni.arul_name': { en: 'Mr. Arul', ta: 'திரு. அருள்' },
+    'alumni.shiva_name': { en: 'Mr. Shivakumar', ta: 'திரு. சிவகுமார்' },
 
     // --- CONTACT PAGE ---
     'contact.tag': { en: 'Get In Touch', ta: 'தொடர்பு கொள்ள' },
