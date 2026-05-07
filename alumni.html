@@ -32,6 +32,7 @@
         <a href="about.html" class="navbar__link" data-i18n="nav.about">About</a>
         <a href="history.html" class="navbar__link" data-i18n="nav.history">History</a>
         <a href="alumni.html" class="navbar__link active" data-i18n="nav.alumni">Alumni</a>
+        <a href="achievements.html" class="navbar__link" data-i18n="nav.achievements">Achievements</a>
         <a href="teachers.html" class="navbar__link" data-i18n="nav.faculty">Faculty</a>
         <a href="gallery.html" class="navbar__link" data-i18n="nav.gallery">Gallery</a>
         <a href="contact.html" class="navbar__link" data-i18n="nav.contact">Contact</a>
@@ -52,6 +53,24 @@
       <div class="container">
         <div class="orb" style="top: -5%; right: 15%; background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%); opacity: 0.15;"></div>
         <div class="orb" style="bottom: 10%; left: 5%; background: radial-gradient(circle, var(--color-gold-metallic) 0%, transparent 70%); opacity: 0.15;"></div>
+
+        <div class="section-header reveal">
+          <span class="section-header__tagline">
+            <span class="live-dot"></span>&nbsp; <span data-i18n="alumni.community_tag">Connected Community</span>
+          </span>
+          <h1 class="section-header__title" data-i18n-html="alumni.title_full">We are not just Friends, <span>We are Family</span></h1>
+          <p class="section-header__desc" style="font-size: var(--text-xl); color: var(--color-soft-gold); margin-bottom: var(--space-8);" data-i18n="alumni.desc">
+            Our Alumni members are spread across the globe.
+          </p>
+          <div style="display: flex; justify-content: center; gap: var(--space-4);">
+            <a href="https://thiruvikaalumni.in" target="_blank" class="btn btn--primary btn--lg" data-i18n="alumni.visit_us">Visit Us</a>
+          </div>
+        </div>
+
+        <!-- Alumni Info Cards -->
+        <div class="grid grid--2 gap-8 reveal" style="margin-top: var(--space-12);">
+          <!-- Contact Us -->
+          <div class="glass-card" style="padding: var(--space-8); border-left: 4px solid var(--color-gold-vivid);">
             <h3 style="margin-bottom: var(--space-4); color: var(--color-gold-vivid); font-size: var(--text-2xl);" data-i18n="alumni.contact_title">Contact Us</h3>
             <p style="font-weight: 700; margin-bottom: var(--space-2); color: var(--text-primary);" data-i18n="alumni.alumni_name">THIRU-VI-KA HSS (CHENNAI) ALUMNI</p>
             <p style="font-size: var(--text-sm); margin-bottom: var(--space-4); color: var(--text-secondary);">
@@ -98,32 +117,8 @@
     <section class="section" style="padding-top: var(--space-8);">
       <div class="container">
         <h2 class="section-title text-center" style="margin-bottom: var(--space-10);" data-i18n-html="alumni.memories_full">Alumni <span>Memories</span></h2>
-        <div class="alumni-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
-          
-          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column;">
-            <img src="assets/alumni_memory_1.jpg" alt="Alumni Event 1" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
-            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
-              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);" data-i18n="alumni.memory1_title">Event Gathering</h3>
-              <p style="color: var(--text-secondary); font-size: var(--text-sm);" data-i18n="alumni.memory1_desc">Our alumni reconnecting and engaging in thoughtful discussions.</p>
-            </div>
-          </div>
-
-          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column; transition-delay: 0.1s;">
-            <img src="assets/alumni_memory_2.jpg" alt="Alumni Event 2" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
-            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
-              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);" data-i18n="alumni.memory2_title">Honoring Leadership</h3>
-              <p style="color: var(--text-secondary); font-size: var(--text-sm);" data-i18n="alumni.memory2_desc">Celebrating milestones and recognizing outstanding contributions.</p>
-            </div>
-          </div>
-
-          <div class="glass-card reveal" style="padding: 0; overflow: hidden; border: 1px solid var(--border-glass-strong); display: flex; flex-direction: column; transition-delay: 0.2s;">
-            <img src="assets/alumni_memory_3.jpg" alt="Alumni Event 3" style="width: 100%; height: auto; aspect-ratio: 21/9; object-fit: cover; display: block;" onerror="this.src='assets/logo.jpg'">
-            <div style="padding: var(--space-4); background: var(--bg-glass-strong); flex-grow: 1;">
-              <h3 style="color: var(--color-gold-metallic); font-size: var(--text-lg); margin-bottom: var(--space-1);" data-i18n="alumni.memory3_title">Community Support</h3>
-              <p style="color: var(--text-secondary); font-size: var(--text-sm);" data-i18n="alumni.memory3_desc">Giving back to the institution with proud events and distributions.</p>
-            </div>
-          </div>
-
+        <div class="grid--media" id="alumni-grid">
+          <!-- Dynamic Content -->
         </div>
       </div>
     </section>
@@ -133,54 +128,34 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div>
-          <div class="footer__brand">
-            <img src="assets/logo.jpg" alt="School Logo" class="footer__brand-logo-img">
-            <span class="footer__brand-name">Thiru.Vi.Ka. HSS</span>
-          </div>
-          <p class="footer__desc">Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds since 1955.</p>
+        <div class="footer__brand">
+          <img src="assets/logo.jpg" alt="Logo" class="footer__logo">
+          <h2 class="footer__title" data-i18n="home.title1">Thiru.Vi.Ka.</h2>
+          <p class="footer__desc" data-i18n="home.hero_desc">Legacy of excellence since 1955.</p>
         </div>
-        <div>
-          <h4 class="footer__heading">Quick Links</h4>
-          <div class="footer__links">
-            <a href="index.html" class="footer__link">Home</a>
-            <a href="about.html" class="footer__link">About</a>
-            <a href="history.html" class="footer__link">History</a>
-            <a href="gallery.html" class="footer__link">Gallery</a>
-          </div>
+        <div class="footer__links">
+          <h3 class="footer__subtitle" data-i18n="footer.quick_links">Quick Links</h3>
+          <a href="about.html" data-i18n="nav.about">About Us</a>
+          <a href="achievements.html" data-i18n="nav.achievements">Achievements</a>
+          <a href="teachers.html" data-i18n="nav.faculty">Faculty</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </div>
-        <div>
-          <h4 class="footer__heading">Pages</h4>
-          <div class="footer__links">
-            <a href="teachers.html" class="footer__link">Faculty</a>
-            <a href="alumni.html" class="footer__link">Alumni</a>
-            <a href="contact.html" class="footer__link">Contact</a>
-            <a href="admin.html" class="footer__link">Admin Portal</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__heading">Contact</h4>
-          <div class="footer__links">
-            <span class="footer__link">📍 Shenoy Nagar, Chennai</span>
-            <span class="footer__link">📞 +91 79474 17107</span>
-            <span class="footer__link">✉️ thiruvika1955@gmail.com</span>
-          </div>
+        <div class="footer__contact">
+          <h3 class="footer__subtitle" data-i18n="nav.contact">Contact</h3>
+          <p>Shenoy Nagar, Chennai - 30</p>
+          <p>📞 044 2664 1533</p>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Thiru.Vi.Ka. Higher Secondary School. All rights reserved.</p>
-        <p>Built with ❤️ for education</p>
+        <p data-i18n="footer.copyright">&copy; 2024 Thiru.Vi.Ka. School. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <script src="js/theme.js"></script>
   <script src="js/animations.js"></script>
-  <script src="js/i18n.js"></script>
   <script src="js/config.js"></script>
-  <script src="js/media.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/mouse-tail.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
