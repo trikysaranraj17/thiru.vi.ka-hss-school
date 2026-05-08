@@ -13,6 +13,7 @@ const Teachers = {
     // Safety check - we might be on a different page
     if (!this.ahmGrid && !this.teacherGrid) return;
 
+    this.setupFilters();
     this.renderLoading();
 
     try {
@@ -31,6 +32,27 @@ const Teachers = {
       console.error('Faculty load error:', err);
       this.renderDefaults();
     }
+  },
+
+  setupFilters() {
+    const btns = document.querySelectorAll('.faculty-filter__btn');
+    const sections = document.querySelectorAll('.section-group');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        
+        // Update buttons
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Update sections
+        sections.forEach(s => {
+          s.classList.remove('active');
+          if (s.id === targetId) s.classList.add('active');
+        });
+      });
+    });
   },
 
   renderLoading() {
@@ -98,13 +120,16 @@ const Teachers = {
     const name = translate(member.title);
 
     div.innerHTML = `
-      <div class="teacher-card__img-container">
+      <div class="teacher-card__img-wrapper">
         <img src="${member.media_url}" alt="${member.title}" class="teacher-card__img" loading="lazy" onerror="this.src='assets/logo.jpg'">
       </div>
-      <div class="teacher-card__info">
+      <div class="teacher-card__content">
         <h3 class="teacher-card__name">${name}</h3>
         <div class="teacher-card__subject">${subject}</div>
-        <div class="teacher-card__classes">${classes}</div>
+        <div class="teacher-card__info">
+          <span>📚</span>
+          <span>${classes}</span>
+        </div>
       </div>
     `;
     return div;

@@ -56,13 +56,32 @@
 
   <section class="section">
     <div class="container">
-      <div id="section-ahm" class="reveal section-group">
+      <!-- Filter Bar -->
+      <div class="faculty-filter reveal">
+        <button class="faculty-filter__btn active" data-target="section-ahm">Assistant Head Masters</button>
+        <button class="faculty-filter__btn" data-target="section-teachers">Our Teachers</button>
+        <button class="faculty-filter__btn" data-target="section-pet">Physical Education</button>
+        <button class="faculty-filter__btn" data-target="section-office">Office Staff</button>
+      </div>
+
+      <div id="section-ahm" class="reveal section-group active">
         <h2 class="section-title text-center" data-i18n-html="teachers.ahm">Assistant <span>Head Masters</span></h2>
         <div class="teacher-grid" id="grid-ahm"></div>
       </div>
+
       <div id="section-teachers" class="reveal section-group" style="margin-top: 50px;">
         <h2 class="section-title text-center" data-i18n-html="teachers.teachers">Our <span>Teachers</span></h2>
         <div class="teacher-grid" id="grid-teachers"></div>
+      </div>
+
+      <div id="section-pet" class="reveal section-group" style="margin-top: 50px;">
+        <h2 class="section-title text-center">Physical <span>Education</span></h2>
+        <div class="teacher-grid" id="grid-pet"></div>
+      </div>
+
+      <div id="section-office" class="reveal section-group" style="margin-top: 50px;">
+        <h2 class="section-title text-center">Office <span>Staff</span></h2>
+        <div class="teacher-grid" id="grid-office"></div>
       </div>
     </div>
   </section>
