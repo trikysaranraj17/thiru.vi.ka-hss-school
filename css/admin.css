@@ -298,3 +298,15 @@
 @media (max-width: 768px) {
   #media-grid-body { grid-template-columns: 1fr; }
 }
+
+
+/* --- Upload Preview --- */
+#upload-preview {
+  margin-top: var(--space-4);
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: center;
+  display: none;
+  background: rgba(255, 255, 255, 0.02);
+}

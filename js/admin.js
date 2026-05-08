@@ -197,7 +197,7 @@ const Admin = {
     });
   },
 
-  handleFileSelect(file) { this.selectedFile = file;
+  handleFileSelect(file) { this.selectedFile = file; const preview = document.getElementById("upload-preview"); const titleInput = document.getElementById("upload-title"); if (titleInput && !titleInput.value) titleInput.value = file.name.split(".")[0]; if (!preview) return; preview.innerHTML = ""; if (file.type.startsWith("image/")) { const img = document.createElement("img"); img.src = URL.createObjectURL(file); img.style.maxWidth = "100%"; img.style.maxHeight = "200px"; img.style.borderRadius = "8px"; preview.appendChild(img); } else if (file.type.startsWith("video/")) { const vid = document.createElement("video"); vid.src = URL.createObjectURL(file); vid.controls = true; vid.style.maxWidth = "100%"; vid.style.maxHeight = "200px"; preview.appendChild(vid); } preview.style.display = "block"; },
     const preview = document.getElementById('upload-preview');
     const titleInput = document.getElementById('upload-title');
     
