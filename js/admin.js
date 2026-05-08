@@ -141,7 +141,7 @@ const Admin = {
     container.innerHTML = '<div class="spinner"></div>';
 
     try {
-      const { data, error } = await Media.getAll();
+      const { data, error } = await Media.fetchAll();
       if (error) throw error;
 
       if (!data || data.length === 0) {
