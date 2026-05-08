@@ -1001,3 +1001,15 @@
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* --- Mobile Faculty Tuning --- */
+@media (max-width: 500px) {
+  .teacher-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .teacher-card__name {
+    font-size: 1.1rem;
+  }
+}

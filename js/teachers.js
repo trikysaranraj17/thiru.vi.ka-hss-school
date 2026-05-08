@@ -81,7 +81,7 @@ const Teachers = {
 
     sections.forEach(section => {
       if (section.grid) {
-        section.grid.innerHTML = ''; this.renderGroupDefaults(section.grid, section.type);
+        section.grid.innerHTML = '';
         if (section.list.length === 0) {
           this.renderGroupDefaults(section.grid, section.type);
         } else {
