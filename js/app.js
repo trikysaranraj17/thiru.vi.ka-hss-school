@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       setupContactForm();
       break;
 
-    case 'admin':
+    case 'admin': if (document.body.dataset.page !== 'admin') break;
       // Auth change listener for admin
       window.addEventListener('authChange', () => {
         Admin.init();

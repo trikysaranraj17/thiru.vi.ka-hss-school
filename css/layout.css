@@ -135,18 +135,19 @@
 
 .navbar__link {
   position: relative;
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  padding: var(--space-2) var(--space-3); /* Reduced from space-4 */
+  font-size: 13px; /* Reduced from var(--text-sm) */
+  font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
+  white-space: nowrap;
 }
 
 .navbar__link:hover {
   color: var(--text-primary);
-  background: var(--bg-glass);
+  background: rgba(255,255,255,0.05);
 }
 
 .navbar__link.active {
@@ -401,7 +402,7 @@
   background-clip: text;
 }
 .text-gold {
-  color: var(--color-soft-gold);
+  color: var(--color-gold-metallic);
 }
 
 /* ─── Admin Utility Fixes ─── */
