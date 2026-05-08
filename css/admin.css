@@ -248,3 +248,53 @@
     display: none;
   }
 }
+
+
+/* --- Admin Media Grid (Horizontal) --- */
+#media-grid-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.media-manage-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.media-manage-card__preview {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+.media-manage-card__preview img,
+.media-manage-card__preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-manage-card__info {
+  padding: var(--space-4);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  #media-grid-body { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  #media-grid-body { grid-template-columns: 1fr; }
+}

@@ -237,8 +237,8 @@ const Admin = {
           featured: document.getElementById('upload-featured').checked
         };
 
-        await Media.upload(file, metadata);
-        alert('✨ Upload successful!');
+        const publicUrl = await Media.upload(file); if (!publicUrl) throw new Error("Could not get public URL for file"); metadata.url = publicUrl; await Media.create(metadata);
+        alert("? Upload successful!");
         form.reset();
         document.getElementById('upload-preview').innerHTML = '';
         this.switchSection('manage');
