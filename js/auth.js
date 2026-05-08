@@ -7,6 +7,15 @@ const Auth = {
   session: null,
   user: null,
 
+  async getUser() {
+    if (this.user) return this.user;
+    const sb = getSupabase();
+    if (!sb) return null;
+    const { data: { user } } = await sb.auth.getUser();
+    this.user = user;
+    return user;
+  },
+
   // Initialize auth state
   async init() {
     const sb = getSupabase();

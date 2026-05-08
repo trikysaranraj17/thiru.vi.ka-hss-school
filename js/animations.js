@@ -2,7 +2,7 @@
 // ANIMATIONS.JS — Premium Scroll & Interactive Effects
 // =============================================================
 
-const ScrollAnimations = {
+window.ScrollAnimations = {
   observer: null,
 
   init() {

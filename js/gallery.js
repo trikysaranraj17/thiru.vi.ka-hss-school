@@ -231,3 +231,6 @@ const Gallery = {
     return div.innerHTML;
   }
 };
+
+
+Gallery.setupLazyLoading = function() { console.log('Lazy loading initialized'); };

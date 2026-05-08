@@ -103,7 +103,7 @@ async function loadFeaturedMedia() {
     Gallery.createMediaCardHTML(item, i)
   ).join('');
 
-  Gallery.setupLazyLoading.call({ container });
+  if (Gallery && Gallery.setupLazyLoading) Gallery.setupLazyLoading.call({ container });
   
   // Force visibility for items already in viewport
   if (window.ScrollAnimations) {
