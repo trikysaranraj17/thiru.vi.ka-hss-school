@@ -197,7 +197,7 @@ const Admin = {
     });
   },
 
-  handleFileSelect(file) {
+  handleFileSelect(file) { this.selectedFile = file;
     const preview = document.getElementById('upload-preview');
     const titleInput = document.getElementById('upload-title');
     
@@ -226,7 +226,7 @@ const Admin = {
       btn.textContent = '⌛ Uploading...';
 
       try {
-        const file = document.getElementById('upload-file').files[0];
+        const file = this.selectedFile || document.getElementById('upload-file').files[0];
         if (!file) throw new Error("Please select a file first");
 
         const metadata = {
@@ -239,7 +239,7 @@ const Admin = {
 
         const publicUrl = await Media.upload(file); if (!publicUrl) throw new Error("Could not get public URL for file"); metadata.media_url = publicUrl; await Media.create(metadata);
         alert("? Upload successful!");
-        form.reset();
+        form.reset(); this.selectedFile = null;
         document.getElementById('upload-preview').innerHTML = '';
         this.switchSection('manage');
         this.loadMediaTable();
