@@ -16,7 +16,7 @@ const Teachers = {
     this.renderLoading();
 
     try {
-      // Fetch categories in parallel for speed
+      // Fetch categories
       const [ahmList, teacherList, petList, officeList] = await Promise.all([
         Media.fetchAll({ category: 'ahm' }),
         Media.fetchAll({ category: 'teacher' }),
@@ -24,13 +24,9 @@ const Teachers = {
         Media.fetchAll({ category: 'office' })
       ]);
 
-      // If all lists are empty, it might be a DB issue or initial setup
-      if (ahmList.length === 0 && teacherList.length === 0 && petList.length === 0 && officeList.length === 0) {
-        console.warn('No faculty found in database, using high-quality fallbacks');
-        this.renderDefaults();
-      } else {
-        this.renderFaculty(ahmList, teacherList, petList, officeList);
-      }
+      // Always show defaults first, then append DB items
+      this.renderFaculty(ahmList, teacherList, petList, officeList);
+      
     } catch (err) {
       console.error('Faculty load error:', err);
       this.renderDefaults();
@@ -63,7 +59,7 @@ const Teachers = {
 
     sections.forEach(section => {
       if (section.grid) {
-        section.grid.innerHTML = '';
+        section.grid.innerHTML = ''; this.renderGroupDefaults(section.grid, section.type);
         if (section.list.length === 0) {
           this.renderGroupDefaults(section.grid, section.type);
         } else {
