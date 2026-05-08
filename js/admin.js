@@ -113,7 +113,7 @@ const Admin = {
   async loadDashboard() {
     try {
       const { data, error } = await getSupabase().from('media').select('type');
-      if (error) throw error;
+      
 
       const stats = {
         total: data.length,
@@ -141,8 +141,8 @@ const Admin = {
     container.innerHTML = '<div class="spinner"></div>';
 
     try {
-      const { data, error } = await Media.fetchAll();
-      if (error) throw error;
+      const data = await Media.fetchAll();
+      
 
       if (!data || data.length === 0) {
         container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 2rem;">No media found. Upload something to get started!</p>';
@@ -257,7 +257,7 @@ const Admin = {
   async editMedia(id) {
     try {
       const { data, error } = await getSupabase().from('media').select('*').eq('id', id).single();
-      if (error) throw error;
+      
 
       document.getElementById('edit-id').value = data.id;
       document.getElementById('edit-title').value = data.title;
@@ -285,7 +285,7 @@ const Admin = {
       };
 
       const { error } = await getSupabase().from('media').update(updates).eq('id', id);
-      if (error) throw error;
+      
 
       alert('✅ Updated successfully!');
       document.getElementById('edit-modal').classList.remove('active');
@@ -312,7 +312,7 @@ const Admin = {
     if (!confirm('🗑️ Delete this review?')) return;
     try {
       const { error } = await getSupabase().from('reviews').delete().eq('id', id);
-      if (error) throw error;
+      
       alert('Review deleted!');
       window.dispatchEvent(new CustomEvent('reviewDeleted', { detail: { id } }));
     } catch (err) {
