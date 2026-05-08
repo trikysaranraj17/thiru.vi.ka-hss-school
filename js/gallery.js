@@ -55,7 +55,7 @@ const Gallery = {
 
     // Phase 4 Bug Fix: Ensure we are ONLY showing gallery media, 
     // to prevent 'home' or 'ahm' media from showing up when filtering by type.
-    filtered = filtered.filter(m => galleryKeys.includes(m.category) || m.category === 'gallery');
+    filtered = filtered.filter(m => (galleryKeys.includes(m.category) || m.category.startsWith('achievement_')) || m.category === 'gallery');
 
     // Apply filter
     if (this.currentFilter !== 'all') {

@@ -317,6 +317,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
       break;
 
+    case 'achievements':
+      Gallery.init('#achievements-grid');
+      break;
+
     case 'gallery':
       Gallery.init('#gallery-grid');
       break;
