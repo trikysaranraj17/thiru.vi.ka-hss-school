@@ -251,7 +251,7 @@
 
 
 /* --- Admin Media Grid (Horizontal) --- */
-#media-grid-body {
+#media-grid-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
@@ -292,11 +292,11 @@
 }
 
 @media (max-width: 1200px) {
-  #media-grid-body { grid-template-columns: repeat(2, 1fr); }
+  #media-grid-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  #media-grid-body { grid-template-columns: 1fr; }
+  #media-grid-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-top: var(--space-8); grid-template-columns: 1fr; }
 }
 
 
