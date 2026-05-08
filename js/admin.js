@@ -74,7 +74,7 @@ const Admin = {
   },
 
   // Sidebar navigation
-  setupSidebar() {
+  setupSidebar() { console.log("Sidebar setup started");
     const links = document.querySelectorAll('.admin-sidebar__link');
     links.forEach(link => {
       link.addEventListener('click', (e) => {
@@ -116,7 +116,7 @@ const Admin = {
       
 
       const stats = {
-        total: data.length,
+        total: (data || []).length,
         images: data.filter(m => m.type === 'image').length,
         videos: data.filter(m => m.type === 'video').length
       };
