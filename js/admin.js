@@ -6,7 +6,7 @@ const Admin = {
   selectedFile: null,
 
   // Initialization
-  async init() {
+  async init() { if (this.initialized) return; this.initialized = true;
     console.log("Admin Panel Initializing...");
     
     try {
