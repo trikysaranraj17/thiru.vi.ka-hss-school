@@ -51,7 +51,7 @@ const Gallery = {
     if (!this.container) return;
 
     let filtered = [...this.mediaItems];
-    const galleryKeys = ['gallery_event', 'gallery_sports', 'gallery_academic', 'gallery_alumni', 'memories'];
+    const galleryKeys = ['achievement_student', 'achievement_academic', 'achievement_sports', 'achievement_arts', 'gallery_event', 'gallery_sports', 'gallery_academic', 'gallery_alumni', 'memories'];
 
     // Phase 4 Bug Fix: Ensure we are ONLY showing gallery media, 
     // to prevent 'home' or 'ahm' media from showing up when filtering by type.
