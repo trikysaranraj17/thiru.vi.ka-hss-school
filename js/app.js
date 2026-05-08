@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       break;
 
     case 'achievements':
-      Gallery.init('#achievements-grid');
+      Gallery.init('#achievements-grid', ['achievement_student', 'achievement_academic', 'achievement_sports', 'achievement_arts']);
       break;
 
     case 'gallery':

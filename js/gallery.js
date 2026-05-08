@@ -8,7 +8,7 @@ const Gallery = {
   container: null,
 
   // Initialize gallery
-  init(containerSelector = '#gallery-grid') {
+  init(containerSelector = '#gallery-grid', allowedCategories = null) { this.allowedCategories = allowedCategories;
     this.container = document.querySelector(containerSelector);
     if (!this.container) return;
 
@@ -55,7 +55,7 @@ const Gallery = {
 
     // Phase 4 Bug Fix: Ensure we are ONLY showing gallery media, 
     // to prevent 'home' or 'ahm' media from showing up when filtering by type.
-    filtered = filtered.filter(m => (galleryKeys.includes(m.category) || m.category.startsWith('achievement_')) || m.category === 'gallery');
+    if (this.allowedCategories) { filtered = filtered.filter(m => this.allowedCategories.includes(m.category)); } else { filtered = filtered.filter(m => galleryKeys.includes(m.category) || m.category === 'gallery'); }
 
     // Apply filter
     if (this.currentFilter !== 'all') {
