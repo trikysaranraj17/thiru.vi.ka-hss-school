@@ -22,6 +22,8 @@ app.add_middleware(
         "http://127.0.0.1:5500",
         "http://localhost:8080",
         "https://*.vercel.app",
+        "https://thiruvikaschool.org",
+        "https://www.thiruvikaschool.org",
         "*"  # Remove in production, use specific origins
     ],
     allow_credentials=True,
