@@ -22,20 +22,7 @@ const Achievers = {
 
     if (!results || results.length === 0) {
       // Show high-quality result posters (10th & 12th)
-      this.container.innerHTML = `
-        <div class="achiever-card reveal" style="min-height: 400px; border: 2px solid var(--color-electric-blue);">
-          <img src="assets/achievers/10th_results.jpg" alt="10th Public Exam Results" class="achiever-card__img" style="object-fit: cover; width: 100%; height: 100%;">
-          <div class="achiever-card__overlay" style="opacity: 1; background: linear-gradient(transparent, rgba(0,0,0,0.7));">
-            <h3 style="color: #fff; font-size: var(--text-2xl);">10th Results Excellence</h3>
-          </div>
-        </div>
-        <div class="achiever-card reveal" style="min-height: 400px; border: 2px solid var(--color-royal-purple);">
-          <img src="assets/achievers/12th_results.jpg" alt="12th Public Exam Results" class="achiever-card__img" style="object-fit: cover; width: 100%; height: 100%;">
-          <div class="achiever-card__overlay" style="opacity: 1; background: linear-gradient(transparent, rgba(0,0,0,0.7));">
-            <h3 style="color: #fff; font-size: var(--text-2xl);">12th Results Excellence</h3>
-          </div>
-        </div>
-      `;
+      this.container.innerHTML = `<div class="achiever-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; min-height: 400px; border: 2px solid var(--color-gold-vivid);"><img src="assets/result_12.jpg" alt="12th Public Exam Results" class="achiever-card__img" style="object-fit: contain; width: 100%; height: 100%; background: #fff;"></div>`;
       if (window.ScrollAnimations) ScrollAnimations.observe();
       return;
     }
@@ -50,3 +37,4 @@ const Achievers = {
     if (window.ScrollAnimations) ScrollAnimations.observe();
   }
 };
+

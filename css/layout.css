@@ -243,7 +243,7 @@
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-content: space-between;
   gap: var(--space-8);
   margin-bottom: var(--space-8);
 }
@@ -460,3 +460,4 @@
   padding: var(--space-5);
   border-bottom: 1px solid var(--border-glass);
 }
+
