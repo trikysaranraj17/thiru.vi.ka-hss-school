@@ -21,7 +21,7 @@
 /* â”€â”€â”€ Page â”€â”€â”€ */
 .page {
   padding-top: var(--nav-height);
-  min-height: 100vh;
+  min-height: 50vh; aspect-ratio: 16 / 9;
 }
 
 .page-header {
@@ -58,7 +58,7 @@
 
 .section--hero {
   padding: var(--space-24) 0 var(--space-16);
-  min-height: 100vh;
+  min-height: 50vh; aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   position: relative;
@@ -460,5 +460,7 @@
   padding: var(--space-5);
   border-bottom: 1px solid var(--border-glass);
 }
+
+
 
 
