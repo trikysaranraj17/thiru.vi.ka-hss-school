@@ -1,8 +1,8 @@
-/* =============================================================
-   LAYOUT.CSS — Navigation, Footer, Page Structure
+﻿/* =============================================================
+   LAYOUT.CSS â€” Navigation, Footer, Page Structure
    ============================================================= */
 
-/* ─── Container ─── */
+/* â”€â”€â”€ Container â”€â”€â”€ */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -18,7 +18,7 @@
   max-width: 800px;
 }
 
-/* ─── Page ─── */
+/* â”€â”€â”€ Page â”€â”€â”€ */
 .page {
   padding-top: var(--nav-height);
   min-height: 100vh;
@@ -50,7 +50,7 @@
   color: var(--text-secondary);
 }
 
-/* ─── Section ─── */
+/* â”€â”€â”€ Section â”€â”€â”€ */
 .section {
   padding: var(--space-20) 0;
   position: relative;
@@ -65,7 +65,7 @@
   overflow: hidden;
 }
 
-/* ─── Navigation ─── */
+/* â”€â”€â”€ Navigation â”€â”€â”€ */
 .navbar {
   position: fixed;
   top: 0;
@@ -232,7 +232,7 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ─── Footer ─── */
+/* â”€â”€â”€ Footer â”€â”€â”€ */
 .footer {
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
@@ -343,7 +343,7 @@
   box-shadow: var(--shadow-glow-gold);
 }
 
-/* ─── Grid Layouts ─── */
+/* â”€â”€â”€ Grid Layouts â”€â”€â”€ */
 .grid {
   display: grid;
   gap: var(--space-6);
@@ -381,7 +381,7 @@
   min-height: 180px;
 }
 
-/* ─── Flex Utilities ─── */
+/* â”€â”€â”€ Flex Utilities â”€â”€â”€ */
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
 .flex-wrap { flex-wrap: wrap; }
@@ -393,7 +393,7 @@
 .gap-6 { gap: var(--space-6); }
 .gap-8 { gap: var(--space-8); }
 
-/* ─── Text Utilities ─── */
+/* â”€â”€â”€ Text Utilities â”€â”€â”€ */
 .text-center { text-align: center; }
 .text-gradient {
   background: var(--gradient-primary);
@@ -405,7 +405,7 @@
   color: var(--color-gold-metallic);
 }
 
-/* ─── Admin Utility Fixes ─── */
+/* â”€â”€â”€ Admin Utility Fixes â”€â”€â”€ */
 .admin-sidebar {
   width: 280px;
   background: rgba(10, 14, 39, 0.95);
@@ -460,4 +460,5 @@
   padding: var(--space-5);
   border-bottom: 1px solid var(--border-glass);
 }
+
 

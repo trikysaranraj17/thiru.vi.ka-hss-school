@@ -1,5 +1,5 @@
-/**
- * ACHIEVERS.JS — Dynamic Results & Achievements
+﻿/**
+ * ACHIEVERS.JS â€” Dynamic Results & Achievements
  * Fetches result posters from Supabase and renders them on the homepage
  */
 
@@ -22,7 +22,7 @@ const Achievers = {
 
     if (!results || results.length === 0) {
       // Show high-quality result posters (10th & 12th)
-      this.container.innerHTML = `<div class="achiever-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto; min-height: 400px; border: 2px solid var(--color-gold-vivid);"><img src="assets/result_12.jpg" alt="12th Public Exam Results" class="achiever-card__img" style="object-fit: contain; width: 100%; height: 100%; background: #fff;"></div>`;
+      this.container.innerHTML = `<div class=\"achiever-card\" style=\"grid-column: 1 / -1; max-width: 800px; margin: 0 auto; min-height: 400px; border: 2px solid var(--color-gold-vivid);\"><img src=\"assets/result_12.jpg\" alt=\"12th Public Exam Results\" class=\"achiever-card__img\" style=\"object-fit: contain; width: 100%; height: 100%; background: #fff;\"></div>`;
       if (window.ScrollAnimations) ScrollAnimations.observe();
       return;
     }
@@ -37,4 +37,5 @@ const Achievers = {
     if (window.ScrollAnimations) ScrollAnimations.observe();
   }
 };
+
 
