@@ -1,8 +1,8 @@
-﻿/* =============================================================
-   LAYOUT.CSS â€” Navigation, Footer, Page Structure
+/* =============================================================
+   LAYOUT.CSS — Navigation, Footer, Page Structure
    ============================================================= */
 
-/* â”€â”€â”€ Container â”€â”€â”€ */
+/* ─── Container ─── */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -18,10 +18,10 @@
   max-width: 800px;
 }
 
-/* â”€â”€â”€ Page â”€â”€â”€ */
+/* ─── Page ─── */
 .page {
   padding-top: var(--nav-height);
-  min-height: 50vh; aspect-ratio: 16 / 9;
+  min-height: 100vh;
 }
 
 .page-header {
@@ -50,7 +50,7 @@
   color: var(--text-secondary);
 }
 
-/* â”€â”€â”€ Section â”€â”€â”€ */
+/* ─── Section ─── */
 .section {
   padding: var(--space-20) 0;
   position: relative;
@@ -58,14 +58,14 @@
 
 .section--hero {
   padding: var(--space-24) 0 var(--space-16);
-  min-height: 50vh; aspect-ratio: 16 / 9;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-/* â”€â”€â”€ Navigation â”€â”€â”€ */
+/* ─── Navigation ─── */
 .navbar {
   position: fixed;
   top: 0;
@@ -232,7 +232,7 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* â”€â”€â”€ Footer â”€â”€â”€ */
+/* ─── Footer ─── */
 .footer {
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
@@ -243,7 +243,7 @@
 
 .footer__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); justify-content: space-between;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--space-8);
   margin-bottom: var(--space-8);
 }
@@ -343,7 +343,7 @@
   box-shadow: var(--shadow-glow-gold);
 }
 
-/* â”€â”€â”€ Grid Layouts â”€â”€â”€ */
+/* ─── Grid Layouts ─── */
 .grid {
   display: grid;
   gap: var(--space-6);
@@ -381,7 +381,7 @@
   min-height: 180px;
 }
 
-/* â”€â”€â”€ Flex Utilities â”€â”€â”€ */
+/* ─── Flex Utilities ─── */
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
 .flex-wrap { flex-wrap: wrap; }
@@ -393,7 +393,7 @@
 .gap-6 { gap: var(--space-6); }
 .gap-8 { gap: var(--space-8); }
 
-/* â”€â”€â”€ Text Utilities â”€â”€â”€ */
+/* ─── Text Utilities ─── */
 .text-center { text-align: center; }
 .text-gradient {
   background: var(--gradient-primary);
@@ -405,7 +405,7 @@
   color: var(--color-gold-metallic);
 }
 
-/* â”€â”€â”€ Admin Utility Fixes â”€â”€â”€ */
+/* ─── Admin Utility Fixes ─── */
 .admin-sidebar {
   width: 280px;
   background: rgba(10, 14, 39, 0.95);
@@ -460,7 +460,3 @@
   padding: var(--space-5);
   border-bottom: 1px solid var(--border-glass);
 }
-
-
-
-
