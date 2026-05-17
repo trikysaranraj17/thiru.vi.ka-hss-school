@@ -1,172 +1,130 @@
-﻿/* =============================================================
-   ANIMATIONS.CSS â€” High-End Keyframes & Transitions
-   ============================================================= */
+/* Cinematic moving gold spotlight behind the logo */
 
-/* â”€â”€â”€ Premium Scroll Reveal â”€â”€â”€ */
-/* Using a luxurious 'snap' curve (Out-Quart variant) */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s var(--transition-smooth), 
-              transform 1.2s var(--transition-smooth);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal--scale {
-  opacity: 0;
-  transform: scale(0.96);
-  transition: opacity 1.5s var(--transition-smooth), 
-              transform 1.5s var(--transition-smooth);
-}
-
-.reveal--scale.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.reveal--scale {
-  opacity: 0;
-  transform: scale(0.85);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal--scale.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Staggered entry for grids */
-.stagger-children .reveal:nth-child(1) { transition-delay: 0.1s; }
-.stagger-children .reveal:nth-child(2) { transition-delay: 0.2s; }
-.stagger-children .reveal:nth-child(3) { transition-delay: 0.3s; }
-.stagger-children .reveal:nth-child(4) { transition-delay: 0.4s; }
-.stagger-children .reveal:nth-child(5) { transition-delay: 0.5s; }
-
-/* â”€â”€â”€ Hero Transitions â”€â”€â”€ */
-@keyframes heroEntrance {
-  0% { opacity: 0; transform: translateY(40px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.hero__title {
-  animation: heroEntrance 1.8s var(--transition-smooth) 0.2s both;
-}
-
-/* â”€â”€â”€ Magnetic Hover Logic (Controlled via JS) â”€â”€â”€ */
-.magnetic-wrap {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* â”€â”€â”€ Live Indicator Redesign â”€â”€â”€ */
-@keyframes pulseDot {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(2.5); opacity: 0; }
-}
-
-.live-dot {
-  width: 10px;
-  height: 10px;
-  background: var(--color-gold-vivid);
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  box-shadow: 0 0 10px var(--color-gold-metallic);
-}
-
-.live-dot::after {
-  content: '';
+/* Cinematic moving gold spotlight starting in the top-left and sweeping to bottom-right with parallel light shining effect */
+.splash-spotlight {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--color-gold-vivid);
-  animation: pulseDot 1.5s infinite;
-}
-
-/* â”€â”€â”€ Smooth Anchor Transition â”€â”€â”€ */
-html {
-  scroll-behavior: smooth;
-}
-
-/* â”€â”€â”€ Utility: Entrance Delays â”€â”€â”€ */
-.delay-100 { animation-delay: 0.1s !important; transition-delay: 0.1s !important; }
-.delay-200 { animation-delay: 0.2s !important; transition-delay: 0.2s !important; }
-.delay-300 { animation-delay: 0.3s !important; transition-delay: 0.3s !important; }
-.delay-400 { animation-delay: 0.4s !important; transition-delay: 0.4s !important; }
-.delay-500 { animation-delay: 0.5s !important; transition-delay: 0.5s !important; }
-
-/* â”€â”€â”€ Text Reveal â”€â”€â”€ */
-@keyframes maskReveal {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.reveal-text {
-  animation: maskReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Removed Premium Gold Text Shine for stability */
-
-/* â”€â”€â”€ Glass Card Shine (Brighter) â”€â”€â”€ */
-.glass-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.glass-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
+  top: -50%;
+  left: -50%;
+  width: 200vw;
+  height: 200vh;
   background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 215, 0, 0.25),
-    transparent
+    135deg,
+    rgba(212, 175, 55, 0) 0%,
+    rgba(212, 175, 55, 0.05) 30%,
+    rgba(212, 175, 55, 0.25) 45%,
+    rgba(212, 175, 55, 0.4) 50%,
+    rgba(212, 175, 55, 0.25) 55%,
+    rgba(212, 175, 55, 0.05) 70%,
+    rgba(212, 175, 55, 0) 100%
   );
-  transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  filter: blur(25px);
+  animation: spotlightSweep 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.glass-card:hover::after {
-  left: 150%;
-}
-
-/* â”€â”€â”€ Transitions Redesign â”€â”€â”€ */
-.btn, .navbar__link, .glass-card, .achiever-card {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.2) contrast(1.1);
-}
-
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* â”€â”€â”€ Reduced Motion â”€â”€â”€ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+@keyframes spotlightSweep {
+  0% {
+    transform: translate(-35%, -35%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(35%, 35%);
+    opacity: 0;
   }
 }
 
+/* Logo Container */
+.splash-logo-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.2), inset 0 0 25px rgba(212, 175, 55, 0.1);
+  /* Small to big cinematic scale animation */
+  animation: logoPop 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+  border: 2px solid var(--color-gold-vivid);
+}
+
+/* Shimmer effect sweeping over the logo */
+.splash-shimmer-sweep {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(212, 175, 55, 0.55) 50%,
+    transparent 55%
+  );
+  z-index: 3;
+  transform: rotate(45deg);
+  animation: shimmerSweep 2.5s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+
+
+/* Logo pop/zoom animation */
+@keyframes logoPop {
+  0% {
+    transform: scale(0) rotate(-15deg);
+    filter: brightness(0.4);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0);
+  }
+  35% {
+    transform: scale(1.15) rotate(5deg);
+    filter: brightness(1.25);
+    box-shadow: 0 0 60px rgba(212, 175, 55, 0.85);
+  }
+  65% {
+    transform: scale(0.95) rotate(-2deg);
+    filter: brightness(0.95);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1.1);
+    box-shadow: 0 0 45px rgba(212, 175, 55, 0.7);
+  }
+}
+
+/* Shimmer Sweep Animation */
+@keyframes shimmerSweep {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+
 /* =========================================
-   Splash Screen Animations
+   Video Splash Screen Animations
 ========================================= */
 .splash-screen {
   position: fixed;
@@ -174,53 +132,39 @@ html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--bg-main);
-  z-index: 9999;
+  background: #000;
+  z-index: 99999;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeOutSplash 0.5s ease-in-out 2.5s forwards;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
 }
 
-.splash-content {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.splash-glow {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: pulseGlow 2s infinite alternate;
-  z-index: 1;
-}
-
-.splash-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+.splash-video {
+  width: 100vw;
+  height: 100vh;
   object-fit: contain;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-  animation: shimmerLogo 2s infinite alternate;
+  background: #000;
 }
 
-@keyframes fadeOutSplash {
-  0% { opacity: 1; visibility: visible; }
-  100% { opacity: 0; visibility: hidden; }
+.splash-screen.zoom-out-fade {
+  animation: zoomOutFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-@keyframes pulseGlow {
-  0% { transform: scale(1); opacity: 0.5; }
-  100% { transform: scale(2); opacity: 1; }
-}
-
-@keyframes shimmerLogo {
-  0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
-  100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4); }
+@keyframes zoomOutFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 0;
+    visibility: hidden;
+  }
 }

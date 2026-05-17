@@ -22,7 +22,7 @@ const Theme = {
     // Update toggle icons
     const toggles = document.querySelectorAll('.theme-toggle');
     toggles.forEach(toggle => {
-      toggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      toggle.innerHTML = theme === 'dark' ? '&#9788;' : '&#9790;';
       toggle.setAttribute('aria-label', 
         theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
       );

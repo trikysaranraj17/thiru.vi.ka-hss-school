@@ -225,11 +225,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.add('js-enabled');
 
   // 1. Initialize theme and language first (prevents flash)
-  console.log('�- Initializing Theme...');
+  console.log('[Theme] Initializing...');
   Theme.init();
   
   if (typeof I18n !== 'undefined') {
-    console.log('🌐 Initializing I18n...');
+    console.log('[I18n] Initializing...');
     I18n.init();
   } else {
     console.error('❌ I18n not found!');
@@ -358,5 +358,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Run at 1s, 2s, 3s, 5s to ensure dynamic content is captured
   [1000, 2000, 3000, 5000].forEach(delay => setTimeout(forceShow, delay));
 
-  console.log('🎓 Thiru.Vi.Ka. School Website initialized!');
+  console.log('[App] Thiru.Vi.Ka. School Website initialized!');
 });
