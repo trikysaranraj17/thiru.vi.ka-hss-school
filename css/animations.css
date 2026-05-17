@@ -1,8 +1,8 @@
-/* =============================================================
-   ANIMATIONS.CSS — High-End Keyframes & Transitions
+﻿/* =============================================================
+   ANIMATIONS.CSS â€” High-End Keyframes & Transitions
    ============================================================= */
 
-/* ─── Premium Scroll Reveal ─── */
+/* â”€â”€â”€ Premium Scroll Reveal â”€â”€â”€ */
 /* Using a luxurious 'snap' curve (Out-Quart variant) */
 .reveal {
   opacity: 0;
@@ -47,7 +47,7 @@
 .stagger-children .reveal:nth-child(4) { transition-delay: 0.4s; }
 .stagger-children .reveal:nth-child(5) { transition-delay: 0.5s; }
 
-/* ─── Hero Transitions ─── */
+/* â”€â”€â”€ Hero Transitions â”€â”€â”€ */
 @keyframes heroEntrance {
   0% { opacity: 0; transform: translateY(40px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -57,13 +57,13 @@
   animation: heroEntrance 1.8s var(--transition-smooth) 0.2s both;
 }
 
-/* ─── Magnetic Hover Logic (Controlled via JS) ─── */
+/* â”€â”€â”€ Magnetic Hover Logic (Controlled via JS) â”€â”€â”€ */
 .magnetic-wrap {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* ─── Live Indicator Redesign ─── */
+/* â”€â”€â”€ Live Indicator Redesign â”€â”€â”€ */
 @keyframes pulseDot {
   0% { transform: scale(0.8); opacity: 0.5; }
   100% { transform: scale(2.5); opacity: 0; }
@@ -91,19 +91,19 @@
   animation: pulseDot 1.5s infinite;
 }
 
-/* ─── Smooth Anchor Transition ─── */
+/* â”€â”€â”€ Smooth Anchor Transition â”€â”€â”€ */
 html {
   scroll-behavior: smooth;
 }
 
-/* ─── Utility: Entrance Delays ─── */
+/* â”€â”€â”€ Utility: Entrance Delays â”€â”€â”€ */
 .delay-100 { animation-delay: 0.1s !important; transition-delay: 0.1s !important; }
 .delay-200 { animation-delay: 0.2s !important; transition-delay: 0.2s !important; }
 .delay-300 { animation-delay: 0.3s !important; transition-delay: 0.3s !important; }
 .delay-400 { animation-delay: 0.4s !important; transition-delay: 0.4s !important; }
 .delay-500 { animation-delay: 0.5s !important; transition-delay: 0.5s !important; }
 
-/* ─── Text Reveal ─── */
+/* â”€â”€â”€ Text Reveal â”€â”€â”€ */
 @keyframes maskReveal {
   from { clip-path: inset(0 100% 0 0); }
   to { clip-path: inset(0 0 0 0); }
@@ -115,7 +115,7 @@ html {
 
 /* Removed Premium Gold Text Shine for stability */
 
-/* ─── Glass Card Shine (Brighter) ─── */
+/* â”€â”€â”€ Glass Card Shine (Brighter) â”€â”€â”€ */
 .glass-card {
   position: relative;
   overflow: hidden;
@@ -141,7 +141,7 @@ html {
   left: 150%;
 }
 
-/* ─── Transitions Redesign ─── */
+/* â”€â”€â”€ Transitions Redesign â”€â”€â”€ */
 .btn, .navbar__link, .glass-card, .achiever-card {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -156,11 +156,71 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Reduced Motion ─── */
+/* â”€â”€â”€ Reduced Motion â”€â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* =========================================
+   Splash Screen Animations
+========================================= */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-main);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOutSplash 0.5s ease-in-out 2.5s forwards;
+}
+
+.splash-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--color-gold-vivid) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseGlow 2s infinite alternate;
+  z-index: 1;
+}
+
+.splash-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  animation: shimmerLogo 2s infinite alternate;
+}
+
+@keyframes fadeOutSplash {
+  0% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2); opacity: 1; }
+}
+
+@keyframes shimmerLogo {
+  0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+  100% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4); }
 }

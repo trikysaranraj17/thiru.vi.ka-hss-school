@@ -1,9 +1,9 @@
-/* =============================================================
-   COMPONENTS.CSS — Reusable UI Components
+﻿/* =============================================================
+   COMPONENTS.CSS â€” Reusable UI Components
    Glassmorphism + Neumorphism Design System
    ============================================================= */
 
-/* ─── Glass Card ─── */
+/* â”€â”€â”€ Glass Card â”€â”€â”€ */
 .glass-card {
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
@@ -30,7 +30,7 @@
   box-shadow: none;
 }
 
-/* ─── Neumorphic Card ─── */
+/* â”€â”€â”€ Neumorphic Card â”€â”€â”€ */
 .neu-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -44,7 +44,7 @@
   box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
 }
 
-/* ─── Buttons ─── */
+/* â”€â”€â”€ Buttons â”€â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -163,7 +163,7 @@
   transform: none !important;
 }
 
-/* ─── Badge ─── */
+/* â”€â”€â”€ Badge â”€â”€â”€ */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -206,7 +206,7 @@
   border: 1px solid rgba(255, 68, 68, 0.3);
 }
 
-/* ─── Stat Counter ─── */
+/* â”€â”€â”€ Stat Counter â”€â”€â”€ */
 .stat-card {
   text-align: center;
   padding: var(--space-8) var(--space-6);
@@ -250,7 +250,7 @@
   display: block;
 }
 
-/* ─── Media Card ─── */
+/* â”€â”€â”€ Media Card â”€â”€â”€ */
 .media-card {
   position: relative;
   border-radius: var(--radius-lg);
@@ -341,7 +341,7 @@
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* ─── Section Header ─── */
+/* â”€â”€â”€ Section Header â”€â”€â”€ */
 .section-header {
   text-align: center;
   margin-bottom: var(--space-12);
@@ -377,7 +377,7 @@
   margin: 0 auto;
 }
 
-/* ─── Filter Bar ─── */
+/* â”€â”€â”€ Filter Bar â”€â”€â”€ */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -413,7 +413,7 @@
   box-shadow: var(--shadow-glow-blue);
 }
 
-/* ─── Modal / Lightbox ─── */
+/* â”€â”€â”€ Modal / Lightbox â”€â”€â”€ */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -475,7 +475,7 @@
   color: #fff;
 }
 
-/* ─── Lightbox ─── */
+/* â”€â”€â”€ Lightbox â”€â”€â”€ */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -551,7 +551,7 @@
   color: rgba(255,255,255,0.7);
 }
 
-/* ─── Upload Area ─── */
+/* â”€â”€â”€ Upload Area â”€â”€â”€ */
 .upload-area {
   border: 2px dashed var(--border-glass-strong);
   border-radius: var(--radius-xl);
@@ -591,7 +591,7 @@
   color: var(--text-muted);
 }
 
-/* ─── Form Group ─── */
+/* â”€â”€â”€ Form Group â”€â”€â”€ */
 .form-group {
   margin-bottom: var(--space-5);
 }
@@ -625,7 +625,7 @@
   padding-right: 36px;
 }
 
-/* ─── Toggle Switch ─── */
+/* â”€â”€â”€ Toggle Switch â”€â”€â”€ */
 .toggle {
   position: relative;
   width: 48px;
@@ -671,7 +671,7 @@
   background: #fff;
 }
 
-/* ─── Toast Notification ─── */
+/* â”€â”€â”€ Toast Notification â”€â”€â”€ */
 .toast-container {
   position: fixed;
   top: calc(var(--nav-height) + var(--space-4));
@@ -720,7 +720,7 @@
   to { opacity: 1; transform: translateX(0); }
 }
 
-/* ─── Skeleton Loader ─── */
+/* â”€â”€â”€ Skeleton Loader â”€â”€â”€ */
 .skeleton {
   background: linear-gradient(90deg,
     var(--bg-glass) 25%,
@@ -760,7 +760,7 @@
   100% { background-position: -200% 0; }
 }
 
-/* ─── Empty State ─── */
+/* â”€â”€â”€ Empty State â”€â”€â”€ */
 .empty-state {
   text-align: center;
   padding: var(--space-16) var(--space-8);
@@ -785,7 +785,7 @@
   color: var(--text-muted);
 }
 
-/* ─── Loading Spinner ─── */
+/* â”€â”€â”€ Loading Spinner â”€â”€â”€ */
 .spinner {
   width: 40px;
   height: 40px;
@@ -802,7 +802,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* ─── Divider ─── */
+/* â”€â”€â”€ Divider â”€â”€â”€ */
 .divider {
   height: 1px;
   background: var(--border-glass);
@@ -979,9 +979,7 @@
 /* =========================================
    Home Page Special Enhancements
 ========================================= */
-.hero__title {
-  text-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
-}
+
 
 .hero__desc {
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -1099,4 +1097,5 @@
   50% { opacity: 1; }
   100% { opacity: 0.5; }
 }
+
 
