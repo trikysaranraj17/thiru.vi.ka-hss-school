@@ -123,8 +123,9 @@
 }
 
 
+
 /* =========================================
-   Video Splash Screen Animations
+   Video Splash Screen Mobile 3D Adaptations
 ========================================= */
 .splash-screen {
   position: fixed;
@@ -132,7 +133,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, #050608 100%);
   z-index: 99999;
   display: flex;
   justify-content: center;
@@ -142,19 +143,51 @@
   visibility: visible;
 }
 
+.splash-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
 .splash-video {
   width: 100vw;
   height: 100vh;
   object-fit: contain;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 2;
   background: #000;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ambient glow element behind the video on mobile */
+.splash-ambient-glow {
+  position: absolute;
+  width: 120vw;
+  height: 120vh;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(10, 11, 16, 0) 70%);
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+  animation: ambientPulse 3s ease-in-out infinite alternate;
+  display: none;
 }
 
 .splash-screen.zoom-out-fade {
   animation: zoomOutFade 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes ambientPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
 }
 
 @keyframes zoomOutFade {
@@ -163,8 +196,40 @@
     opacity: 1;
   }
   100% {
-    transform: scale(0.6);
+    transform: scale(0.7);
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+/* Responsive Styles for Mobile Viewports */
+@media (max-width: 768px) {
+  .splash-ambient-glow {
+    display: block;
+  }
+  
+  .splash-video {
+    width: 90%;
+    height: auto;
+    max-height: 52vh;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 45px rgba(212, 175, 55, 0.28), 
+                inset 0 0 15px rgba(212, 175, 55, 0.1);
+    background: transparent;
+    /* 3D tilt entry effect on mobile */
+    transform: rotateX(8deg) rotateY(-5deg) scale(0.95);
+    animation: mobile3DEntry 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes mobile3DEntry {
+  0% {
+    transform: rotateX(16deg) rotateY(-12deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    opacity: 1;
   }
 }
