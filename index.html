@@ -33,8 +33,7 @@
   <!-- SPLASH SCREEN -->
   <div id="splash-screen" class="splash-screen">
     <div class="splash-video-container">
-      <div class="splash-ambient-glow"></div>
-      <video id="splash-video" class="splash-video" src="assets/intro_video.mp4" autoplay muted playsinline preload="auto"></video>
+      <video id="splash-video" class="splash-video" autoplay muted playsinline preload="auto"></video>
     </div>
   </div>
 
@@ -43,14 +42,18 @@
       const splash = document.getElementById('splash-screen');
       const video = document.getElementById('splash-video');
       if (splash && video) {
-        if (sessionStorage.getItem('tvkSplashPlayed_v8')) {
+        if (sessionStorage.getItem('tvkSplashPlayed_v9')) {
           splash.style.display = 'none';
           splash.style.opacity = '0';
           splash.style.visibility = 'hidden';
           video.pause();
           video.removeAttribute('src'); // free up memory
         } else {
-          sessionStorage.setItem('tvkSplashPlayed_v8', 'true');
+          sessionStorage.setItem('tvkSplashPlayed_v9', 'true');
+          
+          // Select video source based on device screen width
+          const isMobile = window.innerWidth <= 768;
+          video.src = isMobile ? 'assets/intro_video_mobile.mp4' : 'assets/intro_video.mp4';
           
           // Ensure the video plays immediately
           video.play().catch(e => {
