@@ -19,8 +19,8 @@ const I18n = {
 
     // --- FOOTER ---
     'footer.desc': { 
-      en: 'Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. Nurturing young minds since 1955 with dedication and excellence.', 
-      ta: 'திரு.வி.க. மேல்நிலைப்பள்ளி, ஷீனாய் நகர், சென்னை. 1955 முதல் அர்ப்பணிப்புடனும் சிறப்புடனும் இளம் மனங்களை வளர்க்கிறது.' 
+      en: 'Thiru.Vi.Ka. Higher Secondary School, Shenoy Nagar, Chennai. One of the best schools in Chennai, nurturing young minds since 1955 with dedication and excellence.', 
+      ta: 'திரு.வி.க. மேல்நிலைப்பள்ளி, ஷெனாய் நகர், சென்னை. 1955 முதல் சென்னையின் சிறந்த பள்ளிகளில் ஒன்றாக அர்ப்பணிப்புடனும் சிறப்புடனும் இளம் மனங்களை வளர்க்கிறது.' 
     },
     'footer.quick_links': { en: 'Quick Links', ta: 'விரைவு இணைப்புகள்' },
     'footer.pages': { en: 'Pages', ta: 'பக்கங்கள்' },
@@ -39,8 +39,8 @@ const I18n = {
     },
     'home.established': { en: 'Established 1955 - Celebrating 70 Years', ta: '1955 இல் நிறுவப்பட்டது - 70 ஆண்டுகளைக் கொண்டாடுகிறது' },
     'home.desc': { 
-      en: 'Nurturing young minds with excellence, discipline, and values for over 70 years in the heart of Chennai.', 
-      ta: 'சென்னையின் மையத்தில் 70 ஆண்டுகளுக்கும் மேலாக சிறப்பு, ஒழுக்கம் மற்றும் பண்புகளுடன் இளம் மனங்களை வளர்க்கிறது.' 
+      en: 'Recognized as one of the best government aided schools in Chennai, nurturing young minds with excellence, discipline, and values for over 70 years in Shenoy Nagar.', 
+      ta: 'சென்னையில் உள்ள சிறந்த அரசு உதவிபெறும் பள்ளிகளில் ஒன்றாக அங்கீகரிக்கப்பட்டு, 70 ஆண்டுகளுக்கும் மேலாக ஒழுக்கம் மற்றும் பண்புகளுடன் இளம் மனங்களை வளர்க்கிறது.' 
     },
     'home.explore': { en: 'Explore Our Legacy', ta: 'எங்கள் பாரம்பரியத்தை ஆராயுங்கள்' },
     'home.contact': { en: 'Contact Us', ta: 'எங்களை தொடர்புகொள்ள' },
