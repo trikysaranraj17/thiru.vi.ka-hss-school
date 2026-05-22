@@ -37,7 +37,9 @@ SUPABASE_SERVICE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "your-service
 SUPABASE_ANON_KEY = os.environ.get("SUPABASE_ANON_KEY", "your-anon-key")
 
 ADMIN_EMAILS = [
-    "thiruvika1955@gmail.com"
+    "thiruvika1955@gmail.com",
+    "deepaksabari28@gmail.com",
+    "trikysaranraj17@gmail.com"
 ]
 
 # ─── Pydantic Models ───
