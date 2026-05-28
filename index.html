@@ -187,61 +187,74 @@
       <div class="tabs-container reveal" style="transition-delay: 0.2s;">
         <!-- Tab Navigation -->
         <div class="tabs-nav" id="leadership-tabs">
-          <button class="tab-btn active" data-target="tab-president" data-i18n="home.president">President</button>
-          <button class="tab-btn" data-target="tab-correspondent" data-i18n="home.correspondent">Correspondent</button><button class="tab-btn" data-target="tab-joint-secretary">Joint Secretary</button>
+          <button class="tab-btn active" data-target="tab-emeritus-president" data-i18n="home.emeritus_president">Emeritus President</button>
+          <button class="tab-btn" data-target="tab-president" data-i18n="home.president">President</button>
+          <button class="tab-btn" data-target="tab-secretary" data-i18n="home.secretary">Secretary</button>
+          <button class="tab-btn" data-target="tab-joint-secretary" data-i18n="home.joint_secretary">Joint Secretary</button>
           <button class="tab-btn" data-target="tab-headmaster" data-i18n="home.headmistress">Headmistress</button>
-          
         </div>
 
         <!-- Tab Panels -->
         <div class="tabs-content">
-          <!-- 1. President -->
-          <div class="tab-content active" id="tab-president">
+          <!-- 0. Emeritus President -->
+          <div class="tab-content active" id="tab-emeritus-president">
             <div class="leadership-card">
               <div class="leadership-card__img-wrapper">
-                <img src="assets/leadership/president.jpg" alt="President Vedhagiri Shanmugam Sundaranar"
+                <img src="assets/leadership/emeritus.jpg" alt="Emeritus President Dr. Vedagiri Shanmugasundaram"
+                  class="leadership-card__img" style="object-fit: contain;" loading="lazy">
+              </div>
+              <div class="leadership-card__body">
+                <div class="leadership-card__role" data-i18n="home.emeritus_president">Emeritus President</div>
+                <h3 class="leadership-card__name" data-i18n="home.emeritus_president_name">Dr. Vedagiri Shanmugasundaram</h3>
+                <p class="leadership-card__desc" data-i18n="home.emeritus_president_desc">A distinguished economist, educationist, and the first Vice-Chancellor of Manonmaniam Sundaranar University. As Emeritus Professor of Economics at the University of Madras and former member of the State Planning Commission, his visionary leadership laid the ultimate foundation for Thiru.Vi.Ka. Higher Secondary School, shaping it into a beacon of knowledge and moral excellence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1. President -->
+          <div class="tab-content" id="tab-president">
+            <div class="leadership-card">
+              <div class="leadership-card__img-wrapper">
+                <img src="assets/leadership/president.jpg" alt="President Dr. G. Viswanathan"
                   class="leadership-card__img" style="object-fit: contain;" loading="lazy">
               </div>
               <div class="leadership-card__body">
                 <div class="leadership-card__role" data-i18n="home.president">President</div>
-                <h3 class="leadership-card__name">Dr. G Viswanathan</h3><div class="leadership-card__desc" style="text-align: left; font-size: 0.9rem;"><details style="cursor: pointer; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid var(--border-glass);"><summary style="font-weight: bold; color: var(--color-gold-vivid);">Chancellor, VIT University & More (View Credentials)</summary><ul style="margin-top: 10px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc; display: flex; flex-direction: column; gap: 5px;"><li>Chancellor, VIT University, Vellore</li><li>Chancellor, VIT University, Chennai</li><li>Chancellor, VIT-AP University, Amaravati</li><li>Chancellor, VIT Bhopal University, Bhopal</li><li>Chairman & Managing Trustee, North Arcot Educational and Charitable Trust, Vellore</li><li>President, Friends of United States</li><li>Executive President, The Centenarian Trust, Chennai</li><li>Vice President, Thiru Vi Ka - Dr. Mu. Va. Educational Trust, Chennai</li><li>President, Universal Higher Education Trust, Vellore (NGO)</li><li>President, Indian Economic Association (IEA)</li><li>President, Education Promotion Society of India (EPSI)</li><li>President, North Arcot District Tuluva Vellala Association</li></ul></details></div>
+                <h3 class="leadership-card__name" data-i18n="home.president_name">Dr. G Viswanathan</h3><div class="leadership-card__desc" style="text-align: left; font-size: 0.9rem;"><details style="cursor: pointer; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid var(--border-glass);"><summary style="font-weight: bold; color: var(--color-gold-vivid);">Chancellor, VIT University & More (View Credentials)</summary><ul style="margin-top: 10px; padding-left: 20px; color: var(--text-secondary); list-style-type: disc; display: flex; flex-direction: column; gap: 5px;"><li>Chancellor, VIT University, Vellore</li><li>Chancellor, VIT University, Chennai</li><li>Chancellor, VIT-AP University, Amaravati</li><li>Chancellor, VIT Bhopal University, Bhopal</li><li>Chairman & Managing Trustee, North Arcot Educational and Charitable Trust, Vellore</li><li>President, Friends of United States</li><li>Executive President, The Centenarian Trust, Chennai</li><li>Vice President, Thiru Vi Ka - Dr. Mu. Va. Educational Trust, Chennai</li><li>President, Universal Higher Education Trust, Vellore (NGO)</li><li>President, Indian Economic Association (IEA)</li><li>President, Education Promotion Society of India (EPSI)</li><li>President, North Arcot District Tuluva Vellala Association</li></ul></details></div>
               </div>
             </div>
           </div>
 
-          <!-- 2. Correspondent -->
-          <div class="tab-content" id="tab-correspondent">
+          <!-- 2. Secretary -->
+          <div class="tab-content" id="tab-secretary">
             <div class="leadership-card">
               <div class="leadership-card__img-wrapper">
-                <img src="assets/leadership/correspondent.jpg" alt="Correspondent Dr. B.S. Tiruvadanan"
+                <img src="assets/leadership/correspondent.jpg" alt="Secretary Dr. B.S. Thiruvadanan"
                   class="leadership-card__img" style="object-fit: contain;" loading="lazy">
               </div>
               <div class="leadership-card__body">
-                <div class="leadership-card__role" data-i18n="home.correspondent">Correspondent</div>
-                <h3 class="leadership-card__name" data-i18n="home.correspondent_name">Dr. B.S. Tiruvadanan</h3>
-                <p class="leadership-card__desc" data-i18n="home.correspondent_desc">A distinguished academic and dynamic administrator passionately
-                  modernizing the school's infrastructure and operations. He works tirelessly to ensure that the
-                  institution maintains the highest academic standards while fostering an innovative environment for the
-                  students. Under his guidance, the school continues to integrate modern teaching methodologies with
-                  traditional values.</p>
+                <div class="leadership-card__role" data-i18n="home.secretary">Secretary</div>
+                <h3 class="leadership-card__name" data-i18n="home.secretary_name">Dr. B.S. Thiruvadanan</h3>
+                <p class="leadership-card__desc" data-i18n="home.secretary_desc">A distinguished academic and dynamic administrator passionately serving as the school's Secretary. He works tirelessly to ensure that the institution maintains the highest academic standards while modernizing the school's infrastructure and operations to foster an innovative environment for the students.</p>
               </div>
             </div>
           </div>
 
-                    <!-- 2.5 Joint Secretary -->
+          <!-- 2.5 Joint Secretary -->
           <div class="tab-content" id="tab-joint-secretary">
             <div class="leadership-card">
               <div class="leadership-card__img-wrapper">
                 <img src="assets/leadership/joint_secretary.jpg" alt="Joint Secretary Mr. Seran"
-                  class="leadership-card__img" style="object-fit: contain;" style="object-fit: contain;" loading="lazy">
+                  class="leadership-card__img" style="object-fit: contain;" loading="lazy">
               </div>
               <div class="leadership-card__body">
-                <div class="leadership-card__role">Joint Secretary</div>
-                <h3 class="leadership-card__name">Mr. Seran</h3>
-                <p class="leadership-card__desc">A dedicated administrator and visionary leader committed to the educational advancement of our institution. Mr. Seran works collaboratively with the board to ensure excellence in all school operations and student development initiatives.</p>
+                <div class="leadership-card__role" data-i18n="home.joint_secretary">Joint Secretary</div>
+                <h3 class="leadership-card__name" data-i18n="home.joint_secretary_name">Mr. Seran</h3>
+                <p class="leadership-card__desc" data-i18n="home.joint_secretary_desc">A dedicated administrator and visionary leader committed to the educational advancement of our institution. Mr. Seran works collaboratively with the board to ensure excellence in all school operations and student development initiatives.</p>
               </div>
             </div>
           </div>
+
           <!-- 3. Headmistress -->
           <div class="tab-content" id="tab-headmaster">
             <div class="leadership-card">
@@ -252,10 +265,7 @@
               <div class="leadership-card__body">
                 <div class="leadership-card__role" data-i18n="home.headmistress">Headmistress</div>
                 <h3 class="leadership-card__name" data-i18n="home.headmistress_name">Mrs. Ramaprabha</h3>
-                <p class="leadership-card__desc" data-i18n="home.headmistress_desc">An inspiring and dedicated educator who leads the school's daily
-                  operations with grace and discipline. Her holistic approach to nurturing both the academic and
-                  personal development of every student makes her a beloved figure among the staff and students. She
-                  continuously strives to create an inclusive and highly motivating environment for all learners.</p>
+                <p class="leadership-card__desc" data-i18n="home.headmistress_desc">An inspiring and dedicated educator who leads the school's daily operations with grace and discipline. Her holistic approach to nurturing both the academic and personal development of every student makes her a beloved figure among the staff and students. She continuously strives to create an inclusive and highly motivating environment for all learners.</p>
               </div>
             </div>
           </div>

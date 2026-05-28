@@ -63,18 +63,28 @@ const I18n = {
     'home.visionaries_title': { en: 'Our <span>Visionaries</span>', ta: 'எங்கள் <span>தொலைநோக்கு சிந்தனையாளர்கள்</span>' },
     'home.visionaries_desc': { en: 'The dedicated individuals who have shaped our institution\'s legacy.', ta: 'எங்கள் நிறுவனத்தின் பாரம்பரியத்தை வடிவமைத்த அர்ப்பணிப்புள்ள நபர்கள்.' },
     
-    'home.president': { en: 'President', ta: 'பள்ளி தலைவர்' },
-    'home.president_name': { en: 'Vedhagiri Shanmugam Sundaranar', ta: 'வேதகிரி சண்முகம் சுந்தரனார்' },
-    'home.president_desc': { 
-      en: 'A visionary leader whose guiding principles laid the ultimate foundation for Thiru.Vi.Ka. Higher Secondary School. His lifelong dedication to accessible education has shaped the institution into a beacon of knowledge, moral excellence, and community growth. With a resolute commitment to student empowerment, his legacy endures in every classroom and corridor.', 
-      ta: 'திரு.வி.க. மேல்நிலைப்பள்ளிக்கு அடித்தளம் அமைத்த தொலைநோக்கு பார்வை கொண்ட தலைவர். கல்விக்கான இவரது அர்ப்பணிப்பு, நிறுவனத்தை அறிவு, ஒழுக்கச் சிறப்பு மற்றும் சமூக வளர்ச்சியின் கலங்கரை விளக்கமாக மாற்றியுள்ளது. மாணவர் அதிகாரமளிப்பதற்கான அவரது உறுதிப்பாடு இன்றும் ஒவ்வொரு வகுப்பறையிலும் எதிரொலிக்கிறது.' 
+    'home.emeritus_president': { en: 'Emeritus President', ta: 'மதிப்புறு தலைவர்' },
+    'home.emeritus_president_name': { en: 'Dr. Vedagiri Shanmugasundaram', ta: 'டாக்டர். வேதகிரி சண்முகசுந்தரம்' },
+    'home.emeritus_president_desc': { 
+      en: 'A distinguished economist, educationist, and the first Vice-Chancellor of Manonmaniam Sundaranar University. As Emeritus Professor of Economics at the University of Madras and former member of the State Planning Commission, his visionary leadership laid the ultimate foundation for Thiru.Vi.Ka. Higher Secondary School, shaping it into a beacon of knowledge and moral excellence.', 
+      ta: 'மனோன்மணீயம் சுந்தரனார் பல்கலைக்கழகத்தின் முதல் துணைவேந்தரும், சிறந்த பொருளாதார நிபுணரும், கல்வியாளரும் ஆவார். சென்னை பல்கலைக்கழகத்தின் பொருளாதாரத் துறை மதிப்புறு பேராசிரியராகவும், மாநில திட்டக்குழுவின் முன்னாள் உறுப்பினராகவும் இருந்த இவரது தொலைநோக்கு வழிகாட்டுதல், திரு.வி.க. மேல்நிலைப்பள்ளிக்கு அடித்தளம் அமைத்து, அதனை அறிவு மற்றும் ஒழுக்கச் சிறப்பின் கலங்கரை விளக்கமாக மாற்றியுள்ளது.' 
     },
     
-    'home.correspondent': { en: 'Correspondent', ta: 'நிருபர்' },
-    'home.correspondent_name': { en: 'Dr. B.S. Tiruvadanan', ta: 'டாக்டர். பி.எஸ். திருவதனன்' },
-    'home.correspondent_desc': {
-      en: 'A distinguished academic and dynamic administrator passionately modernizing the school\'s infrastructure and operations. He works tirelessly to ensure that the institution maintains the highest academic standards while fostering an innovative environment for the students. Under his guidance, the school continues to integrate modern teaching methodologies with traditional values.',
-      ta: 'பள்ளியின் உள்கட்டமைப்பு மற்றும் செயல்பாடுகளை ஆர்வத்துடன் நவீனப்படுத்தும் சிறந்த கல்வியாளர் மற்றும் நிர்வாகி. நிறுவனம் உயர்தரக் கல்வித் தரத்தைப் பேணுவதையும் புதுமையான சூழலை வளர்ப்பதையும் உறுதி செய்ய அவர் அயராது உழைக்கிறார். இவரது வழிகாட்டுதலின் கீழ், பள்ளி நவீன கற்பித்தல் முறைகளை பாரம்பரிய விழுமியங்களுடன் தொடர்ந்து ஒருங்கிணைக்கிறது.'
+    'home.president': { en: 'President', ta: 'பள்ளி தலைவர்' },
+    'home.president_name': { en: 'Dr. G. Viswanathan', ta: 'டாக்டர். ஜி. விஸ்வநாதன்' },
+    
+    'home.secretary': { en: 'Secretary', ta: 'செயலாளர்' },
+    'home.secretary_name': { en: 'Dr. B.S. Thiruvadanan', ta: 'டாக்டர். பி.எஸ். திருவதனன்' },
+    'home.secretary_desc': {
+      en: 'A distinguished academic and dynamic administrator passionately serving as the school\'s Secretary. He works tirelessly to ensure that the institution maintains the highest academic standards while modernizing the school\'s infrastructure and operations to foster an innovative environment for the students.',
+      ta: 'பள்ளியின் செயலாளராக உள்கட்டமைப்பு மற்றும் செயல்பாடுகளை ஆர்வத்துடன் நவீனப்படுத்தும் சிறந்த கல்வியாளர் மற்றும் நிர்வாகி. நிறுவனம் உயர்தரக் கல்வித் தரத்தைப் பேணுவதையும், மாணவர்களுக்கான புதுமையான சூழலை வளர்ப்பதையும் உறுதி செய்ய அவர் அயராது உழைக்கிறார்.'
+    },
+
+    'home.joint_secretary': { en: 'Joint Secretary', ta: 'இணைச் செயலாளர்' },
+    'home.joint_secretary_name': { en: 'Mr. Seran', ta: 'திரு. சேரன்' },
+    'home.joint_secretary_desc': {
+      en: 'A dedicated administrator and visionary leader committed to the educational advancement of our institution. Mr. Seran works collaboratively with the board to ensure excellence in all school operations and student development initiatives.',
+      ta: 'எங்கள் நிறுவனத்தின் கல்வி வளர்ச்சிக்கு அர்ப்பணிப்புடன் செயல்படும் ஒரு சிறந்த நிர்வாகி மற்றும் தொலைநோக்கு சிந்தனையாளர். திரு. சேரன் அவர்கள் அனைத்து பள்ளி செயல்பாடுகளிலும் மாணவர் மேம்பாட்டு முயற்சிகளிலும் சிறந்து விளங்குவதை உறுதி செய்ய வாரியத்துடன் இணைந்து பணியாற்றுகிறார்.'
     },
 
     'home.headmistress': { en: 'Headmistress', ta: 'தலைமை ஆசிரியை' },
