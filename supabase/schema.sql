@@ -10,16 +10,21 @@ CREATE TABLE IF NOT EXISTS public.media (
   description TEXT DEFAULT '',
   media_url TEXT NOT NULL,
   type TEXT NOT NULL CHECK (type IN ('image', 'video')),
-  category TEXT NOT NULL CHECK (category IN ('home', 'gallery', 'alumni', 'about', 'events')),
+  category TEXT NOT NULL CHECK (category IN (
+    'home', 'about', 'events', 'achiever',
+    'ahm', 'teacher', 'pet', 'office', 'memories',
+    'gallery_event', 'gallery_sports', 'gallery_academic', 'gallery_alumni',
+    'achievement_student', 'achievement_academic', 'achievement_sports', 'achievement_arts'
+  )),
   featured BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_by TEXT DEFAULT ''
 );
 
--- 2. Enable Row Level Security
+-- 2. Enable Row Level Security on media table
 ALTER TABLE public.media ENABLE ROW LEVEL SECURITY;
 
--- 3. RLS Policies
+-- 3. RLS Policies for media table
 
 -- Anyone can READ media (public website)
 CREATE POLICY "Public can view media"
@@ -58,13 +63,33 @@ CREATE INDEX IF NOT EXISTS idx_media_featured ON public.media(featured);
 CREATE INDEX IF NOT EXISTS idx_media_type ON public.media(type);
 CREATE INDEX IF NOT EXISTS idx_media_created_at ON public.media(created_at DESC);
 
--- 6. Create storage bucket (run separately if needed)
--- Go to Supabase Dashboard → Storage → Create bucket named "media" → Set to Public
+-- 6. Storage Bucket & Policies for 'media' bucket
+-- Note: Create bucket "media" under Storage if not exists
+INSERT INTO storage.buckets (id, name, public) 
+VALUES ('media', 'media', true)
+ON CONFLICT (id) DO UPDATE SET public = true;
 
--- =============================================================
--- SETUP INSTRUCTIONS:
--- 1. Go to supabase.com → Your Project → SQL Editor
--- 2. Paste this entire file → Click "Run"
--- 3. Go to Storage → New Bucket → Name: "media" → Public: ON
--- 4. Go to Auth → Providers → Google → Enable → Add OAuth credentials
--- =============================================================
+-- Storage RLS Policies for 'media' bucket:
+-- Allow anyone to view / download public media files
+CREATE POLICY "Public can view media objects"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'media');
+
+-- Allow authenticated admins to upload files
+CREATE POLICY "Admins can upload media objects"
+  ON storage.objects FOR INSERT
+  TO authenticated
+  WITH CHECK (bucket_id = 'media');
+
+-- Allow authenticated admins to update files
+CREATE POLICY "Admins can update media objects"
+  ON storage.objects FOR UPDATE
+  TO authenticated
+  USING (bucket_id = 'media')
+  WITH CHECK (bucket_id = 'media');
+
+-- Allow authenticated admins to delete files
+CREATE POLICY "Admins can delete media objects"
+  ON storage.objects FOR DELETE
+  TO authenticated
+  USING (bucket_id = 'media');

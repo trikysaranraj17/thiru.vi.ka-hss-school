@@ -163,8 +163,17 @@ const Admin = {
     this.selectedFile = file;
     const preview = document.getElementById("upload-preview");
     const titleInput = document.getElementById("upload-title");
+    const typeSelect = document.getElementById("upload-type");
     
-    if (titleInput && !titleInput.value) titleInput.value = file.name.split(".")[0];
+    if (titleInput && !titleInput.value) {
+      // Set title to filename without extension
+      titleInput.value = file.name.replace(/\.[^/.]+$/, "");
+    }
+
+    if (typeSelect) {
+      typeSelect.value = file.type.startsWith("video/") ? "video" : "image";
+    }
+
     if (!preview) return;
 
     preview.innerHTML = "";
@@ -172,10 +181,20 @@ const Admin = {
       const img = document.createElement("img");
       img.src = URL.createObjectURL(file);
       img.style.maxHeight = "200px";
+      img.style.maxWidth = "100%";
       img.style.borderRadius = "8px";
+      img.style.objectFit = "contain";
       preview.appendChild(img);
+    } else if (file.type.startsWith("video/")) {
+      const vid = document.createElement("video");
+      vid.src = URL.createObjectURL(file);
+      vid.controls = true;
+      vid.style.maxHeight = "200px";
+      vid.style.maxWidth = "100%";
+      vid.style.borderRadius = "8px";
+      preview.appendChild(vid);
     } else {
-      preview.innerHTML = `<div style="padding: 20px;">Video: ${file.name}</div>`;
+      preview.innerHTML = `<div style="padding: 20px; color: var(--text-muted);">File: ${file.name} (${(file.size / 1024).toFixed(1)} KB)</div>`;
     }
     preview.style.display = "block";
   },
@@ -187,20 +206,24 @@ const Admin = {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
       btn.disabled = true;
-      btn.textContent = 'Uploading...';
+      btn.textContent = '⏳ Uploading file to storage...';
 
       try {
         const file = this.selectedFile || document.getElementById('upload-file').files[0];
-        if (!file) throw new Error("Please select a file first");
+        if (!file) throw new Error("Please select an image or video file first");
 
+        // 1. Upload file to Supabase Storage
         const publicUrl = await Media.uploadFile(file);
-        if (!publicUrl) throw new Error("Upload failed");
+        if (!publicUrl) throw new Error("Storage upload failed to return a valid URL.");
 
+        // 2. Insert metadata into Supabase Database
+        btn.textContent = '💾 Saving details to database...';
         await Media.create({
-          title: document.getElementById('upload-title').value,
+          title: document.getElementById('upload-title').value.trim(),
           category: document.getElementById('upload-category').value,
-          description: document.getElementById('upload-description').value,
+          description: document.getElementById('upload-description').value.trim(),
           type: document.getElementById('upload-type').value,
           featured: document.getElementById('upload-featured').checked,
           media_url: publicUrl
@@ -209,15 +232,20 @@ const Admin = {
         alert("✅ Upload successful!");
         form.reset();
         this.selectedFile = null;
-        document.getElementById('upload-preview').innerHTML = '';
+        const preview = document.getElementById('upload-preview');
+        if (preview) {
+          preview.innerHTML = '';
+          preview.style.display = 'none';
+        }
         this.switchSection('manage');
         this.loadMediaTable();
         this.loadDashboard();
       } catch (err) {
-        alert('❌ Upload failed: ' + err.message);
+        console.error("Admin upload failed:", err);
+        alert('❌ Upload Failed:\n\n' + err.message);
       } finally {
         btn.disabled = false;
-        btn.textContent = '📤 Upload';
+        btn.textContent = originalText || '📤 Upload';
       }
     });
   },

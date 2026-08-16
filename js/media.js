@@ -61,26 +61,78 @@ const Media = {
   async uploadFile(file) {
     const sb = getSupabase();
     if (!sb) {
-      showToast('Supabase not configured', 'error');
-      return null;
+      const err = new Error('Supabase client is not initialized. Please refresh the page.');
+      showToast(err.message, 'error');
+      throw err;
     }
 
-    // Generate unique filename
-    const ext = file.name.split('.').pop();
-    const uniqueName = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}.${ext}`;
+    if (!file) {
+      const err = new Error('No file selected for upload.');
+      showToast(err.message, 'error');
+      throw err;
+    }
+
+    // Check file size (50MB Supabase standard limit)
+    const MAX_SIZE_MB = 50;
+    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+      const err = new Error(`File is too large (${(file.size / (1024 * 1024)).toFixed(1)}MB). Supabase allows maximum ${MAX_SIZE_MB}MB.`);
+      showToast(err.message, 'error');
+      throw err;
+    }
+
+    // Ensure session is present or refreshed
+    try {
+      const { data: sessionData } = await sb.auth.getSession();
+      if (!sessionData?.session) {
+        console.warn('No active session found during upload. Checking user...');
+        const user = await Auth.getUser();
+        if (!user) {
+          throw new Error('Your session has expired. Please sign out and sign in with Google again.');
+        }
+      }
+    } catch (authErr) {
+      if (authErr.message?.includes('expired') || authErr.message?.includes('sign in')) {
+        throw authErr;
+      }
+      console.warn('Session check warning:', authErr);
+    }
+
+    // Generate clean, safe filename
+    const cleanExt = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '') || 'jpg';
+    const uniqueName = `${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${cleanExt}`;
     const filePath = `uploads/${uniqueName}`;
+
+    // Determine accurate MIME type
+    let mimeType = file.type;
+    if (!mimeType) {
+      if (cleanExt === 'mp4') mimeType = 'video/mp4';
+      else if (cleanExt === 'png') mimeType = 'image/png';
+      else if (cleanExt === 'webp') mimeType = 'image/webp';
+      else mimeType = 'image/jpeg';
+    }
 
     const { data, error } = await sb.storage
       .from(STORAGE_BUCKET)
       .upload(filePath, file, {
         cacheControl: '3600',
+        contentType: mimeType,
         upsert: false
       });
 
     if (error) {
-      console.error('Upload error:', error);
-      showToast('File upload failed: ' + error.message, 'error');
-      return null;
+      console.error('Supabase Storage upload error:', error);
+      let userFriendlyMsg = error.message || 'Storage upload failed';
+      
+      if (error.message?.includes('row-level security') || error.statusCode === '403' || error.error === 'Unauthorized') {
+        userFriendlyMsg = 'Permission denied by Storage RLS. Please ensure you are signed in with an authorized admin account or check Supabase storage policies.';
+      } else if (error.message?.includes('Bucket not found')) {
+        userFriendlyMsg = `Storage bucket "${STORAGE_BUCKET}" does not exist in your Supabase project.`;
+      } else if (error.message?.includes('Entity too large') || error.message?.includes('Payload too large') || error.statusCode === '413') {
+        userFriendlyMsg = 'File size is too large (maximum 50MB per file).';
+      }
+
+      showToast('Upload failed: ' + userFriendlyMsg, 'error');
+      throw new Error(userFriendlyMsg);
     }
 
     // Get public URL
@@ -88,13 +140,27 @@ const Media = {
       .from(STORAGE_BUCKET)
       .getPublicUrl(filePath);
 
-    return urlData?.publicUrl || null;
+    if (!urlData?.publicUrl) {
+      const err = new Error('Could not retrieve public URL for uploaded file.');
+      showToast(err.message, 'error');
+      throw err;
+    }
+
+    return urlData.publicUrl;
   },
 
   // Save media metadata to database
   async create(metadata) {
     const sb = getSupabase();
-    if (!sb) return null;
+    if (!sb) {
+      throw new Error('Supabase client is not initialized.');
+    }
+
+    let userEmail = Auth.user?.email;
+    if (!userEmail) {
+      const user = await Auth.getUser();
+      userEmail = user?.email || '';
+    }
 
     const { data, error } = await sb
       .from('media')
@@ -105,15 +171,21 @@ const Media = {
         type: metadata.type,
         category: metadata.category,
         featured: metadata.featured || false,
-        updated_by: Auth.user?.email || ''
+        updated_by: userEmail
       }])
       .select()
       .single();
 
     if (error) {
-      console.error('Create media error:', error);
-      // Removed the generic toast here to prevent double-toasting or premature success messages
-      throw error; 
+      console.error('Create media database error:', error);
+      let userFriendlyMsg = error.message || 'Database insert failed';
+      if (error.message?.includes('row-level security') || error.code === '42501') {
+        userFriendlyMsg = 'Database permission denied (RLS). Please re-login with your admin account.';
+      } else if (error.message?.includes('check constraint') || error.code === '23514') {
+        userFriendlyMsg = `Category "${metadata.category}" is not allowed by database check constraints.`;
+      }
+      showToast('Database error: ' + userFriendlyMsg, 'error');
+      throw new Error(userFriendlyMsg);
     }
 
     return data;
